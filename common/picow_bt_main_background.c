@@ -6,16 +6,16 @@
 
 #include "btstack_run_loop.h"
 #include "pico/stdlib.h"
-#include "picow_bt_example_common.h"
+#include "picow_bt_common.h"
 
 int main() {
     stdio_init_all();
 
-    int res = picow_bt_example_init();
+    int res = picow_bt_init();
     if (res){
         return -1;
     }
 
-    picow_bt_example_main();
+    picow_bt_main();
     btstack_run_loop_execute();
 }

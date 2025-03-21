@@ -66,7 +66,7 @@ static void iperf_report(void *arg, enum lwiperf_report_type report_type,
 }
 #endif
 
-int picow_bt_example_init(void) {
+int picow_bt_init(void) {
     // initialize CYW43 driver architecture (will enable BT if/because CYW43_ENABLE_BLUETOOTH == 1)
     if (cyw43_arch_init()) {
         printf("failed to initialise cyw43_arch\n");
@@ -84,7 +84,7 @@ int picow_bt_example_init(void) {
     return 0;
 }
 
-void picow_bt_example_main(void) {
+void picow_bt_main(void) {
 
     btstack_main(0, NULL);
 
