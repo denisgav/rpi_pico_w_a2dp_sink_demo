@@ -23,11 +23,11 @@ git clone https://github.com/raspberrypi/pico-playground.git
 export PICO_SDK_PATH=/home/denis/pico_new/pico-sdk
 export PICO_EXTRAS_PATH=/home/denis/pico_new/pico-extras
 
-cd home/denis/Documents/GitHub/rpi_pico_w_a2dp_sink_demo
+cd /home/denis/Documents/GitHub/rpi_pico_w_a2dp_sink_demo
 
 mkdir build && cd build
 
 cmake .. -DPICO_BOARD=pico_w
 make
-cp -rf picow_bt_example_a2dp_sink_demo_background.uf2 /media/denis/RPI-RP2/
+cp -rf  a2dp_sink_demo_background.uf2 /media/denis/RPI-RP2/
 ##############################################
