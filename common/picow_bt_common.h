@@ -4,6 +4,8 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 
+void hal_led_toggle(void);
+
 /*
  * \brief Initialise BTstack example with cyw43
  *

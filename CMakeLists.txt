@@ -18,6 +18,11 @@ include(pico_sdk_import.cmake)
 # We also need PICO EXTRAS
 include(pico_extras_import.cmake)
 
+#include FreeRTOS
+if (FREERTOS_KERNEL_PATH OR DEFINED ENV{FREERTOS_KERNEL_PATH})
+include(FreeRTOS_Kernel_import.cmake)
+endif()
+
 # used for function 
 # include(example_auto_set_url.cmake)
 
@@ -43,14 +48,19 @@ target_sources(picow_bt_common INTERFACE
         )
 target_link_libraries(picow_bt_common INTERFACE
         pico_stdlib
+        FreeRTOS-Kernel-Heap4
         pico_btstack_cyw43
         pico_btstack_audio
         )
 target_include_directories(picow_bt_common INTERFACE
+        ${FREERTOS_KERNEL_PATH}/include/
+        ${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/include/
         ${COMMON_DIR}/ # Use our own config
         ${CONFIG_DIR}/
         )
 target_compile_definitions(picow_bt_common INTERFACE
+        CYW43_TASK_STACK_SIZE=1024
+        NO_SYS=0
         PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=3000
         TEST_AUDIO=1
         #WANT_HCI_DUMP=1 # This enables btstack debug
@@ -111,8 +121,8 @@ endif()
 
 add_library(a2dp_sink_demo_pins INTERFACE)
 target_compile_definitions(a2dp_sink_demo_pins INTERFACE
-    PICO_AUDIO_I2S_DATA_PIN=9
-    PICO_AUDIO_I2S_CLOCK_PIN_BASE=10
+    PICO_AUDIO_I2S_DATA_PIN=4
+    PICO_AUDIO_I2S_CLOCK_PIN_BASE=5
     )
 
 add_executable(a2dp_sink_demo_background)

@@ -164,7 +164,7 @@ static void avrcp_target_packet_handler(uint8_t packet_type, uint16_t channel, u
 static void stdin_process(char cmd);
 #endif
 
-static int setup_demo(void){
+static int setup_a2dp(void){
 
     // init protocols
     l2cap_init();
@@ -1088,7 +1088,7 @@ int btstack_main(int argc, const char * argv[]){
     UNUSED(argc);
     (void)argv;
 
-    setup_demo();
+    setup_a2dp();
 
 #ifdef HAVE_BTSTACK_STDIN
     // parse human-readable Bluetooth address

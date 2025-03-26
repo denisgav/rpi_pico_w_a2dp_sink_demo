@@ -20,6 +20,7 @@ git clone https://github.com/raspberrypi/pico-playground.git
 ##############################################
 #           Build project
 ##############################################
+export FREERTOS_KERNEL_PATH=/home/denis/pico_new/FreeRTOS-Kernel
 export PICO_SDK_PATH=/home/denis/pico_new/pico-sdk
 export PICO_EXTRAS_PATH=/home/denis/pico_new/pico-extras
 

@@ -1,0 +1,25 @@
+PCM connection (I2S):
+- Data: GP4
+- SCK:  GP5
+- LRCK: GP6
+
+LCD (SPI):
+- BLK: 9
+- SCL: 10
+- SDA: 11
+- CS:  13
+- DC:  14
+- RES: 15
+
+
+See example: https://github.com/elehobica/pico_st7735_80x160
+
+Buttons
+- Play/Pause 16
+- Button1 17
+- Button1 18
+- Button1 19
+- Button1 20
+
+LED indication
+- Led White 21
