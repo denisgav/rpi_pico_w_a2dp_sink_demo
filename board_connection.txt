@@ -15,11 +15,11 @@ LCD (SPI):
 See example: https://github.com/elehobica/pico_st7735_80x160
 
 Buttons
-- Play/Pause 16
-- Button1 17
-- Button1 18
-- Button1 19
-- Button1 20
+- Button Play/Pause 16
+- Button Forward 17
+- Button Backward 18
+- Button 1 19
+- Button 2 20
 
 LED indication
 - Led White 21

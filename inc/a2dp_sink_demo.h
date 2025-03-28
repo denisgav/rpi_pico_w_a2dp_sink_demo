@@ -5,6 +5,8 @@
 
 #include "btstack.h"
 
+#include "board_defines.h"
+
 #define NUM_CHANNELS 2
 #define BYTES_PER_FRAME     (2*NUM_CHANNELS)
 #define MAX_SBC_FRAME_SIZE 120
