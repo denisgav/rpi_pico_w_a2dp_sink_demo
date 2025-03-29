@@ -1113,29 +1113,67 @@ void buttons_callback(uint gpio, uint32_t events){
     a2dp_sink_demo_a2dp_connection_t *  a2dp_connection  = &a2dp_sink_demo_a2dp_connection;
     a2dp_sink_demo_avrcp_connection_t * avrcp_connection = &a2dp_sink_demo_avrcp_connection;
 
+    avrcp_connection_t * connection = avrcp_get_connection_for_avrcp_cid_for_role(AVRCP_CONTROLLER, avrcp_connection->avrcp_cid);
+    if (!connection){
+        status = avrcp_connect(device_addr, &avrcp_connection->avrcp_cid);
+        if (status != ERROR_CODE_SUCCESS){
+            printf("Can not establish connection, status 0x%02x.\n", status);
+        }
+        return;
+    }
+
     switch(gpio){
         case GPIO_BUTTON_PLAY_PAUSE_PIN :{
             if(is_rise){
-                printf(" - pause\n");
-                status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
+                printf(" - play\n");
+                //status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
+                status = avrcp_controller_play(avrcp_connection->avrcp_cid);
             }
             break;
         }
         case GPIO_BUTTON_FORWARD_PIN :{
+            if(is_rise){
+                printf(" - forward\n");
+                status = avrcp_controller_forward(avrcp_connection->avrcp_cid);
+            }
             break;
         }
         case GPIO_BUTTON_BACKWARD_PIN :{
+            if(is_rise){
+                printf(" - backward\n");
+                status = avrcp_controller_backward(avrcp_connection->avrcp_cid);
+            }
             break;
         }
-        case GPIO_BUTTON_1_PIN :{
+        case GPIO_BUTTON_REWIND_PIN :{
+            if(is_rise){
+                printf(" - start rewind\n");
+                status = avrcp_controller_press_and_hold_rewind(avrcp_connection->avrcp_cid);
+            }
+            if(is_fall){
+                printf(" - stop rewind\n");
+                status = avrcp_controller_release_press_and_hold_cmd(avrcp_connection->avrcp_cid);
+            }
             break;
         }
-        case GPIO_BUTTON_2_PIN :{
+        case GPIO_BUTTON_FAST_FORWARD_PIN :{
+            if(is_rise){
+                printf(" - start fast forward\n");
+                status = avrcp_controller_press_and_hold_fast_forward(avrcp_connection->avrcp_cid);
+            }
+            if(is_fall){
+                printf(" - stop fast forward\n");
+                status = avrcp_controller_release_press_and_hold_cmd(avrcp_connection->avrcp_cid);
+            }
             break;
         }
         default :{
             break;
         }
+    }
+
+    if (status != ERROR_CODE_SUCCESS){
+        printf("Could not perform command, status 0x%02x\n", status);
     }
 }
 
