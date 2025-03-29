@@ -5,8 +5,6 @@
 
 #include "btstack.h"
 
-#include "board_defines.h"
-
 #define NUM_CHANNELS 2
 #define BYTES_PER_FRAME     (2*NUM_CHANNELS)
 #define MAX_SBC_FRAME_SIZE 120
@@ -57,3 +55,6 @@ typedef struct {
     bool playing;
     uint16_t notifications_supported_by_target;
 } a2dp_sink_demo_avrcp_connection_t;
+
+
+void buttons_callback(uint gpio, uint32_t events);

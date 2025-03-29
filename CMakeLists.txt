@@ -99,7 +99,6 @@ target_compile_definitions(picow_bt_no_cyw43_lwip_freertos INTERFACE
         NO_SYS=0
         PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=3000
         TEST_AUDIO=1
-        TEST_BLINK_TASK
         #WANT_HCI_DUMP=1 # This enables btstack debug
         #ENABLE_SEGGER_RTT=1
         )

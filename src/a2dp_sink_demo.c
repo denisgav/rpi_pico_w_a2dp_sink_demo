@@ -65,8 +65,11 @@
 #include <inttypes.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <string.h>
+#include "pico/stdlib.h"
 
+#include "board_defines.h"
 #include "a2dp_sink_demo.h"
 
 #include "btstack.h"
@@ -1101,4 +1104,39 @@ int btstack_main(int argc, const char * argv[]){
     hci_power_control(HCI_POWER_ON);
     return 0;
 }
+
+void buttons_callback(uint gpio, uint32_t events){
+    bool is_rise = events & GPIO_IRQ_EDGE_RISE;
+    bool is_fall = events & GPIO_IRQ_EDGE_FALL;
+
+    uint8_t status = ERROR_CODE_SUCCESS;
+    a2dp_sink_demo_a2dp_connection_t *  a2dp_connection  = &a2dp_sink_demo_a2dp_connection;
+    a2dp_sink_demo_avrcp_connection_t * avrcp_connection = &a2dp_sink_demo_avrcp_connection;
+
+    switch(gpio){
+        case GPIO_BUTTON_PLAY_PAUSE_PIN :{
+            if(is_rise){
+                printf(" - pause\n");
+                status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
+            }
+            break;
+        }
+        case GPIO_BUTTON_FORWARD_PIN :{
+            break;
+        }
+        case GPIO_BUTTON_BACKWARD_PIN :{
+            break;
+        }
+        case GPIO_BUTTON_1_PIN :{
+            break;
+        }
+        case GPIO_BUTTON_2_PIN :{
+            break;
+        }
+        default :{
+            break;
+        }
+    }
+}
+
 /* EXAMPLE_END */
