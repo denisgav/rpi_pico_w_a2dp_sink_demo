@@ -119,7 +119,8 @@ void buttons_handle_task(__unused void *params){
 
     for(int gpio_idx = 0; gpio_idx < NUM_OF_GPIO_BUTTONS; gpio_idx++){
         gpio_init(gpio_buttons[gpio_idx]);
-        // gpio_pull_down(gpio_buttons[gpio_idx]);
+        gpio_set_dir(gpio_buttons[gpio_idx], GPIO_IN);
+        gpio_pull_down(gpio_buttons[gpio_idx]);
         // gpio_set_irq_enabled_with_callback(GPIO_BUTTON_PLAY_PAUSE_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &buttons_callback);
 
         button_states[gpio_idx] = false;

@@ -44,6 +44,9 @@
  *
  */
 
+ #include <stdio.h>
+ #include "pico/stdlib.h"
+
 #include "btstack_config.h"
 
 #include "btstack_debug.h"
@@ -73,6 +76,27 @@ static audio_format_t        btstack_audio_pico_audio_format;
 static audio_buffer_format_t btstack_audio_pico_producer_format;
 static audio_buffer_pool_t * btstack_audio_pico_audio_buffer_pool;
 static uint8_t               btstack_audio_pico_channel_count;
+
+uint8_t btstack_audio_pico_volume = 100;
+uint16_t btstack_audio_pico_volume_db = 0x7fff;
+
+// todo this seemed like aood guess, but is not correct
+uint16_t db_to_vol[91] = {
+    0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0002, 0x0002,
+    0x0002, 0x0002, 0x0003, 0x0003, 0x0004, 0x0004, 0x0005, 0x0005,
+    0x0006, 0x0007, 0x0008, 0x0009, 0x000a, 0x000b, 0x000d, 0x000e,
+    0x0010, 0x0012, 0x0014, 0x0017, 0x001a, 0x001d, 0x0020, 0x0024,
+    0x0029, 0x002e, 0x0033, 0x003a, 0x0041, 0x0049, 0x0052, 0x005c,
+    0x0067, 0x0074, 0x0082, 0x0092, 0x00a4, 0x00b8, 0x00ce, 0x00e7,
+    0x0104, 0x0124, 0x0147, 0x016f, 0x019c, 0x01ce, 0x0207, 0x0246,
+    0x028d, 0x02dd, 0x0337, 0x039b, 0x040c, 0x048a, 0x0518, 0x05b7,
+    0x066a, 0x0732, 0x0813, 0x090f, 0x0a2a, 0x0b68, 0x0ccc, 0x0e5c,
+    0x101d, 0x1214, 0x1449, 0x16c3, 0x198a, 0x1ca7, 0x2026, 0x2413,
+    0x287a, 0x2d6a, 0x32f5, 0x392c, 0x4026, 0x47fa, 0x50c3, 0x5a9d,
+    0x65ac, 0x7214, 0x7fff
+};
+
+
 
 static audio_buffer_pool_t *init_audio(uint32_t sample_frequency, uint8_t channel_count) {
 
@@ -109,6 +133,11 @@ static audio_buffer_pool_t *init_audio(uint32_t sample_frequency, uint8_t channe
     return producer_pool;
 }
 
+static int16_t apply_volume(int16_t sample, uint16_t volume_db){
+    int32_t tmp = (sample * volume_db) >> 15;
+    return (int16_t) tmp;
+}
+
 static void btstack_audio_pico_sink_fill_buffers(void){
     while (true){
         audio_buffer_t * audio_buffer = take_audio_buffer(btstack_audio_pico_audio_buffer_pool, false);
@@ -123,8 +152,13 @@ static void btstack_audio_pico_sink_fill_buffers(void){
         if (btstack_audio_pico_channel_count == 1){
             int16_t i;
             for (i = SAMPLES_PER_BUFFER - 1 ; i >= 0; i--){
-                buffer16[2*i  ] = buffer16[i];
-                buffer16[2*i+1] = buffer16[i];
+                buffer16[2*i  ] = apply_volume(buffer16[i], btstack_audio_pico_volume_db);
+                buffer16[2*i+1] = apply_volume(buffer16[i], btstack_audio_pico_volume_db);
+            }
+        } else {
+            int16_t i;
+            for (i = 2*SAMPLES_PER_BUFFER - 1 ; i >= 0; i--){
+                buffer16[i] = apply_volume(buffer16[i], btstack_audio_pico_volume_db);
             }
         }
 
@@ -160,7 +194,10 @@ static int btstack_audio_pico_sink_init(
 }
 
 static void btstack_audio_pico_sink_set_volume(uint8_t volume){
-    UNUSED(volume);
+    int db_encode_val = ((90 - 0)*(int)volume) / 128;
+    btstack_audio_pico_volume = volume;
+    btstack_audio_pico_volume_db = db_to_vol[db_encode_val];
+    printf("New volume in DB val is 0x%x, db_encode_val = %d\n", btstack_audio_pico_volume_db, db_encode_val);
 }
 
 static void btstack_audio_pico_sink_start_stream(void){
