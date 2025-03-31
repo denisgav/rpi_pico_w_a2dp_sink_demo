@@ -1,25 +1,33 @@
+LCD (I2C):
+- SDA: 2
+- SCL: 3
+
 PCM connection (I2S):
 - Data: GP4
 - SCK:  GP5
 - LRCK: GP6
 
-LCD (SPI):
-- BLK: 9
-- SCL: 10
-- SDA: 11
-- CS:  13
-- DC:  14
-- RES: 15
+SD card SPI
+- SCK  10
+- MOSI 11
+- MISO 8
+- CS   9
+(link to the example: https://www.digikey.com/en/maker/projects/raspberry-pi-pico-rp2040-sd-card-example-with-micropython-and-cc/e472c7f578734bfd96d437e68e670050)
 
+Button cols
+- COL_0  16
+- COL_1  17
+- COL_2  18
+- COL_3  19
 
-See example: https://github.com/elehobica/pico_st7735_80x160
+Button rows
+- ROW_0  20
+- ROW_1  21
+- ROW_2  22
 
-Buttons
-- Button Play/Pause 16
-- Button Forward 17
-- Button Backward 18
-- Button 1 19
-- Button 2 20
+(See scheme: https://www.youtube.com/watch?v=rMoTqSC9wrY&ab_channel=RobertFeranec)
 
 LED indication
-- Led White 21
+- LED_0 26
+- LED_0 27
+- LED_0 28

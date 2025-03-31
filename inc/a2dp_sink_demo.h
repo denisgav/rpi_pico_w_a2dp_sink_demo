@@ -57,4 +57,4 @@ typedef struct {
 } a2dp_sink_demo_avrcp_connection_t;
 
 
-void buttons_callback(uint gpio, uint32_t events);
+void buttons_callback(KeyCode_e keyCode, uint32_t events);

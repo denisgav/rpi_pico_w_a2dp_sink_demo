@@ -113,40 +113,59 @@ void blink_task(__unused void *params) {
 void buttons_handle_task(__unused void *params){
     printf("buttons_handle_task starts\n");
 
-    const int gpio_buttons[NUM_OF_GPIO_BUTTONS] = GPIO_BUTTONS;
-    bool button_states[NUM_OF_GPIO_BUTTONS];
+    const uint button_cols[NUM_OF_GPIO_BUTTON_COLS] = GPIO_BUTTON_COLS;
+    const uint button_rows[NUM_OF_GPIO_BUTTON_ROWS] = GPIO_BUTTON_ROWS;
+    const uint button_key_codes[NUM_OF_GPIO_BUTTON_ROWS][NUM_OF_GPIO_BUTTON_COLS] = BUTTON_KEYCODES;
 
-
-    for(int gpio_idx = 0; gpio_idx < NUM_OF_GPIO_BUTTONS; gpio_idx++){
-        gpio_init(gpio_buttons[gpio_idx]);
-        gpio_set_dir(gpio_buttons[gpio_idx], GPIO_IN);
-        gpio_pull_down(gpio_buttons[gpio_idx]);
-        // gpio_set_irq_enabled_with_callback(GPIO_BUTTON_PLAY_PAUSE_PIN, GPIO_IRQ_EDGE_RISE | GPIO_IRQ_EDGE_FALL, true, &buttons_callback);
-
-        button_states[gpio_idx] = false;
-    }
-
-    while (true) {
-        // Read button states
-        uint32_t gpio_all = gpio_get_all();
-        //printf("gpio_all = 0x%x\n", gpio_all);
-        for(int gpio_idx = 0; gpio_idx < NUM_OF_GPIO_BUTTONS; gpio_idx++){
-            bool button_state = (gpio_all & (1 << gpio_buttons[gpio_idx])) != 0;
-
-            //printf("gpio[%d] pin is %d, state is %d\n", gpio_idx, gpio_buttons[gpio_idx], button_state);
-
-            if((button_state == true) && (button_states[gpio_idx] == false)){
-                buttons_callback(gpio_buttons[gpio_idx], GPIO_IRQ_EDGE_RISE);
-                //printf("gpio[%d] RISE\n", gpio_idx);
-            }
-            if((button_state == false) && (button_states[gpio_idx] == true)){
-                buttons_callback(gpio_buttons[gpio_idx], GPIO_IRQ_EDGE_FALL);
-                //printf("gpio[%d] FALL\n", gpio_idx);
-            }
-
-            button_states[gpio_idx] = button_state;
+    bool button_states[NUM_OF_GPIO_BUTTON_ROWS][NUM_OF_GPIO_BUTTON_COLS];
+    // Initialize button states
+    for (int row_idx = 0; row_idx <  NUM_OF_GPIO_BUTTON_ROWS; row_idx++) {
+        for (int col_idx = 0; col_idx < NUM_OF_GPIO_BUTTON_COLS; col_idx++) {
+            button_states[row_idx][col_idx] = false;
         }
-        vTaskDelay(200);
     }
 
+    // Initialize GPIO
+    for (int col_idx = 0; col_idx < NUM_OF_GPIO_BUTTON_COLS; col_idx++) {
+        gpio_init(button_cols[col_idx]);
+        gpio_set_dir(button_cols[col_idx], GPIO_OUT);
+    
+        gpio_put(button_cols[col_idx], 0);
+    }
+    
+    for (int row_idx = 0; row_idx <  NUM_OF_GPIO_BUTTON_ROWS; row_idx++) {
+        gpio_init(button_rows[row_idx]);
+        gpio_set_dir(button_rows[row_idx], GPIO_IN);
+    }
+
+    // Scan bunnons
+    while (true) {
+        // Scan column by column
+        for (int col_idx = 0; col_idx < NUM_OF_GPIO_BUTTON_COLS; col_idx++) {
+            gpio_put(button_cols[col_idx], 1);
+            vTaskDelay(1);
+
+            uint32_t gpio_all = gpio_get_all();
+            for (int row_idx = 0; row_idx < NUM_OF_GPIO_BUTTON_ROWS; row_idx++) {
+                bool button_state = (gpio_all & (1 << button_rows[row_idx])) != 0;
+
+                if((button_state == true) && (button_states[row_idx][col_idx] == false)){
+                    KeyCode_e keyCode = button_key_codes[row_idx][col_idx];
+                    buttons_callback(keyCode, GPIO_IRQ_EDGE_RISE);
+                    //printf("gpio[%d] RISE\n", keyCode);
+                }
+                if((button_state == false) && (button_states[row_idx][col_idx] == true)){
+                    KeyCode_e keyCode = button_key_codes[row_idx][col_idx];
+                    buttons_callback(keyCode, GPIO_IRQ_EDGE_FALL);
+                    //printf("gpio[%d] FALL\n", keyCode);
+                }
+    
+                button_states[row_idx][col_idx] = button_state;
+            }
+            gpio_put(button_cols[col_idx], 0);
+            vTaskDelay(1);
+        }
+    }
+
+    vTaskDelay(50);
 }

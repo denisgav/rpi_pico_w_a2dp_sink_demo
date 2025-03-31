@@ -1105,7 +1105,7 @@ int btstack_main(int argc, const char * argv[]){
     return 0;
 }
 
-void buttons_callback(uint gpio, uint32_t events){
+void buttons_callback(KeyCode_e keyCode, uint32_t events){
     bool is_rise = events & GPIO_IRQ_EDGE_RISE;
     bool is_fall = events & GPIO_IRQ_EDGE_FALL;
 
@@ -1122,30 +1122,43 @@ void buttons_callback(uint gpio, uint32_t events){
         return;
     }
 
-    switch(gpio){
-        case GPIO_BUTTON_PLAY_PAUSE_PIN :{
+    switch(keyCode){
+        case KEYCODE_PLAY :{
             if(is_rise){
                 printf(" - play\n");
-                //status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
                 status = avrcp_controller_play(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case GPIO_BUTTON_FORWARD_PIN :{
+        case KEYCODE_PAUSE :{
             if(is_rise){
-                printf(" - forward\n");
-                status = avrcp_controller_forward(avrcp_connection->avrcp_cid);
+                printf(" - pause\n");
+                status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case GPIO_BUTTON_BACKWARD_PIN :{
+        case KEYCODE_STOP :{
+            if(is_rise){
+                printf(" - stop\n");
+                status = avrcp_controller_stop(avrcp_connection->avrcp_cid);
+            }
+            break;
+        }
+        case KEYCODE_BACKWARD :{
             if(is_rise){
                 printf(" - backward\n");
                 status = avrcp_controller_backward(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case GPIO_BUTTON_REWIND_PIN :{
+        case KEYCODE_FORWARD :{
+            if(is_rise){
+                printf(" - forward\n");
+                status = avrcp_controller_forward(avrcp_connection->avrcp_cid);
+            }
+            break;
+        }
+        case KEYCODE_REWIND :{
             if(is_rise){
                 printf(" - start rewind\n");
                 status = avrcp_controller_press_and_hold_rewind(avrcp_connection->avrcp_cid);
@@ -1156,7 +1169,7 @@ void buttons_callback(uint gpio, uint32_t events){
             }
             break;
         }
-        case GPIO_BUTTON_FAST_FORWARD_PIN :{
+        case KEYCODE_FAST_FORWARD :{
             if(is_rise){
                 printf(" - start fast forward\n");
                 status = avrcp_controller_press_and_hold_fast_forward(avrcp_connection->avrcp_cid);
@@ -1164,6 +1177,48 @@ void buttons_callback(uint gpio, uint32_t events){
             if(is_fall){
                 printf(" - stop fast forward\n");
                 status = avrcp_controller_release_press_and_hold_cmd(avrcp_connection->avrcp_cid);
+            }
+            break;
+        }
+        case KEYCODE_VOL_DOWN :{
+            if(is_rise){
+                uint8_t volume;
+                volume_percentage = volume_percentage >= 10 ? volume_percentage - 10 : 0;
+                volume = volume_percentage * 127 / 100;
+                printf(" - volume down for 10 percent, %d%% (%d) \n", volume_percentage, volume);
+                status = avrcp_target_volume_changed(avrcp_connection->avrcp_cid, volume);
+                avrcp_volume_changed(volume);
+            }
+            break;
+        }
+        case KEYCODE_VOL_UP :{
+            if(is_rise){
+                uint8_t volume;
+                volume_percentage = volume_percentage <= 90 ? volume_percentage + 10 : 100;
+                volume = volume_percentage * 127 / 100;
+                printf(" - volume up   for 10 percent, %d%% (%d) \n", volume_percentage, volume);
+                status = avrcp_target_volume_changed(avrcp_connection->avrcp_cid, volume);
+                avrcp_volume_changed(volume);
+                break;
+            }
+            break;
+        }
+        case KEYCODE_VOL_MUTE :{
+            if(is_rise){
+                printf(" - mute\n");
+                status = avrcp_controller_mute(avrcp_connection->avrcp_cid);
+            }
+            break;
+        }
+        case KEYCODE_MODE:{
+            if(is_rise){
+                printf(" - mode\n");
+            }
+            break;
+        }
+        case KEYCODE_PAIR:{
+            if(is_rise){
+                printf(" - pair\n");
             }
             break;
         }
