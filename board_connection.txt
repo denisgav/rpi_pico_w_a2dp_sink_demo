@@ -3,15 +3,16 @@ LCD (I2C):
 - SCL: 3
 
 PCM connection (I2S):
-- Data: GP4
-- SCK:  GP5
-- LRCK: GP6
+- Data: 4
+- SCK:  5
+- LRCK: 6
 
 SD card SPI
 - SCK  10
 - MOSI 11
 - MISO 8
 - CS   9
+- Card Detect 13
 (link to the example: https://www.digikey.com/en/maker/projects/raspberry-pi-pico-rp2040-sd-card-example-with-micropython-and-cc/e472c7f578734bfd96d437e68e670050)
 
 Button cols

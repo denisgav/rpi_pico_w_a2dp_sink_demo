@@ -23,7 +23,9 @@ include(FreeRTOS_Kernel_import.cmake)
 # include(example_auto_set_url.cmake)
 
 # Set the name and version of the project
-project(rpi_pico_w_a2dp_sink_demo)
+project(rpi_pico_w_a2dp_sink_demo C CXX ASM)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
 
 # initialize the Pico SDK
 pico_sdk_init()
@@ -61,7 +63,7 @@ target_include_directories(picow_bt_common_a2dp_sink_demo INTERFACE
         ${INC_DIR}/
         ${SRC_DIR}/
         )
-        
+
 if (EXISTS "${SRC_DIR}/${NAME}.gatt")
         pico_btstack_make_gatt_header(picow_bt_common_a2dp_sink_demo INTERFACE ${SRC_DIR}/a2dp_sink_demo.gatt)
 endif()
@@ -82,9 +84,7 @@ target_include_directories(picow_bt_common INTERFACE
 target_compile_definitions(picow_bt_common INTERFACE
         )
 
-
-
-# variant: no cyw43 lwip | FreeRTOS
+        # variant: no cyw43 lwip | FreeRTOS
 add_library(picow_bt_no_cyw43_lwip_freertos INTERFACE)
 target_sources(picow_bt_no_cyw43_lwip_freertos INTERFACE
         ${SRC_DIR}/main.c
@@ -121,3 +121,7 @@ pico_add_extra_outputs(a2dp_sink_demo)
 # enable usb output, disable uart output
 pico_enable_stdio_usb(a2dp_sink_demo 1)
 pico_enable_stdio_uart(a2dp_sink_demo 0)
+
+# Tell CMake where to find no-OS-FatFS-SD-SPI-RPi-Pico source code
+add_subdirectory(lib/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
+add_subdirectory("sdcard_test")

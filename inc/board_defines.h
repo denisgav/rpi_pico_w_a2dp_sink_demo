@@ -26,10 +26,20 @@
 //---------------------------------
 //-        SD Card SPI
 //---------------------------------
-#define GPIO_DS_CARD_SPI_SCK   2
-#define GPIO_DS_CARD_SPI_MOSI  3
-#define GPIO_DS_CARD_SPI_MISO  3
-#define GPIO_DS_CARD_SPI_CS    3
+#define GPIO_SD_CARD_SPI_SCK   10
+#define GPIO_SD_CARD_SPI_MOSI  11
+#define GPIO_SD_CARD_SPI_MISO  8
+#define GPIO_SD_CARD_SPI_CS    9
+#define GPIO_SD_CARD_SPI_CARD_DETECT    13
+#define GPIO_SD_CARD_SPI       spi1
+
+// #define GPIO_SD_CARD_SPI_SCK   18
+// #define GPIO_SD_CARD_SPI_MOSI  19
+// #define GPIO_SD_CARD_SPI_MISO  16
+// #define GPIO_SD_CARD_SPI_CS    17
+// #define GPIO_SD_CARD_SPI_CARD_DETECT    29
+// #define GPIO_SD_CARD_SPI       spi0
+
 //---------------------------------
 
 //---------------------------------

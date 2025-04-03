@@ -80,8 +80,6 @@
 #include "btstack_stdin.h"
 #endif
 
-
-
 #ifdef HAVE_BTSTACK_STDIN
 static const char * device_addr_string = "00:1B:DC:08:E2:72"; // pts v5.0
 static bd_addr_t device_addr;
