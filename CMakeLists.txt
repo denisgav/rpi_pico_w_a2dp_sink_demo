@@ -54,6 +54,8 @@ target_compile_definitions(picow_bt_no_cyw43_lwip INTERFACE
         CYW43_LWIP=0
         )
 
+add_subdirectory(lib/ssd1306)
+
 add_library(picow_bt_common_a2dp_sink_demo INTERFACE)
 target_sources(picow_bt_common_a2dp_sink_demo INTERFACE
         # actual example
@@ -63,6 +65,11 @@ target_include_directories(picow_bt_common_a2dp_sink_demo INTERFACE
         ${INC_DIR}/
         ${SRC_DIR}/
         )
+
+target_link_libraries(picow_bt_common_a2dp_sink_demo INTERFACE
+        pico_stdlib
+        pico_ssd1306
+)
 
 if (EXISTS "${SRC_DIR}/${NAME}.gatt")
         pico_btstack_make_gatt_header(picow_bt_common_a2dp_sink_demo INTERFACE ${SRC_DIR}/a2dp_sink_demo.gatt)

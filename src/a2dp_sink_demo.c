@@ -80,10 +80,20 @@
 #include "btstack_stdin.h"
 #endif
 
+#include "ssd1306.h"
+
 #ifdef HAVE_BTSTACK_STDIN
 static const char * device_addr_string = "00:1B:DC:08:E2:72"; // pts v5.0
 static bd_addr_t device_addr;
 #endif
+
+//---------------------------------------
+//           SSD1306
+//---------------------------------------
+ssd1306_t disp;
+void setup_ssd1306();
+void display_ssd1306_info();
+//---------------------------------------
 
 static btstack_packet_callback_registration_t hci_event_callback_registration;
 
@@ -1089,6 +1099,7 @@ int btstack_main(int argc, const char * argv[]){
     UNUSED(argc);
     (void)argv;
 
+    setup_ssd1306();
     setup_a2dp();
 
 #ifdef HAVE_BTSTACK_STDIN
@@ -1229,5 +1240,29 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
         printf("Could not perform command, status 0x%02x\n", status);
     }
 }
+
+//---------------------------------------
+//           SSD1306
+//---------------------------------------
+void setup_ssd1306(){
+    i2c_init(I2C_SSD1306_INST, 400000);
+    gpio_set_function(I2C_SSD1306_SDA, GPIO_FUNC_I2C);
+    gpio_set_function(I2C_SSD1306_SCL, GPIO_FUNC_I2C);
+    gpio_pull_up(I2C_SSD1306_SDA);
+    gpio_pull_up(I2C_SSD1306_SCL);
+  
+    disp.external_vcc=false;
+    ssd1306_init(&disp, I2C_SSD1306_WIDTH, I2C_SSD1306_HEIGHT, I2C_SSD1306_ADDR, I2C_SSD1306_INST);
+    ssd1306_clear(&disp);
+  
+    ssd1306_draw_string(&disp, 4, 0, 1, "Raspberry pi pico");
+    ssd1306_draw_string(&disp, 4, 16, 1, "A2DP demo");
+    ssd1306_show(&disp);
+}
+
+void display_ssd1306_info(){
+
+}
+//---------------------------------------
 
 /* EXAMPLE_END */
