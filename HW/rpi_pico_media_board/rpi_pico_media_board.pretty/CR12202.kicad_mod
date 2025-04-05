@@ -254,7 +254,7 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "c31410e0-d2ab-4f13-a53e-38902bdf1244")
 	)
-	(model "CR1220-2.stp"
+	(model "${KIPRJMOD}/components/CR1220-2/CR1220-2.stp"
 		(offset
 			(xyz 0 0 0.999999985)
 		)

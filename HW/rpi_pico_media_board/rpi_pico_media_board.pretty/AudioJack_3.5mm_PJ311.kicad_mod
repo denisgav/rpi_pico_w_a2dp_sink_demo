@@ -424,4 +424,15 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "df9f639c-d4bb-4a65-9399-b23425d82a26")
 	)
+	(model "${KIPRJMOD}/components/AudioJack_3.5mm_PJ311/AudioJack_3.5mm_PJ311.step"
+		(offset
+			(xyz 0 -4.445 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 0 -180)
+		)
+	)
 )

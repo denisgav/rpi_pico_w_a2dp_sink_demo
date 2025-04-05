@@ -39,9 +39,9 @@
 //---------------------------------
 //-          I2S
 //---------------------------------
-#define GPIO_I2S_DATA  2
-#define GPIO_I2S_SCK   3
-#define GPIO_I2S_SCL   3
+#define GPIO_I2S_DATA  4
+#define GPIO_I2S_SCK   5
+#define GPIO_I2S_SCL   6
 //---------------------------------
 
 //---------------------------------
@@ -51,7 +51,7 @@
 #define GPIO_SD_CARD_SPI_MOSI  11
 #define GPIO_SD_CARD_SPI_MISO  8
 #define GPIO_SD_CARD_SPI_CS    9
-#define GPIO_SD_CARD_SPI_CARD_DETECT    13
+#define GPIO_SD_CARD_SPI_CARD_DETECT    12
 #define GPIO_SD_CARD_SPI       spi1
 
 // #define GPIO_SD_CARD_SPI_SCK   18

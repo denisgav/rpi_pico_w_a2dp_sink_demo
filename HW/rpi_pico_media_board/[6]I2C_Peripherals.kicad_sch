@@ -2235,22 +2235,32 @@
 		)
 		(uuid 4db43877-9ac8-4aec-a4b0-1aa765615d5f)
 	)
-	(text "LCD"
+	(text "[6]I2C Peripherals"
 		(exclude_from_sim no)
-		(at 184.912 30.988 0)
+		(at 43.18 19.812 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 3.81 3.81)
+			)
+		)
+		(uuid "62ab391b-905c-4f78-b165-9e223a56f9d7")
+	)
+	(text "SSD1306 LCD"
+		(exclude_from_sim no)
+		(at 196.088 29.972 0)
+		(effects
+			(font
+				(size 2.54 2.54)
 			)
 		)
 		(uuid "e4b284fb-8943-404c-a10a-22cc8730a810")
 	)
-	(text "RTC module\nPCF8563"
+	(text "RTC module PCF8563"
 		(exclude_from_sim no)
-		(at 26.67 35.052 0)
+		(at 39.878 28.194 0)
 		(effects
 			(font
-				(size 1.27 1.27)
+				(size 2.54 2.54)
 			)
 		)
 		(uuid "f3be2d75-a80c-4f75-aa47-2d879c3a87a6")
@@ -2295,28 +2305,6 @@
 		)
 		(uuid "fb2070c6-e3be-484b-a642-777238d5ba73")
 	)
-	(global_label "I2C_SDA"
-		(shape input)
-		(at 133.35 93.98 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "5a4c55aa-e929-4909-9bfe-bf9ca9aa9c76")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.9552 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "PCF8563_INT"
 		(shape input)
 		(at 133.35 101.6 0)
@@ -2339,51 +2327,7 @@
 			)
 		)
 	)
-	(global_label "I2C_SCL"
-		(shape input)
-		(at 199.39 49.53 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "979856b5-84bf-45c4-8242-fbf671aefa3f")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 199.39 38.9853 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "I2C_SDA"
-		(shape input)
-		(at 201.93 49.53 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "ae40050c-3d1f-4fd7-83c0-997dc4a4b070")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 201.93 38.9248 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "I2C_SCL"
+	(global_label "I2C1_SCL"
 		(shape input)
 		(at 133.35 91.44 0)
 		(fields_autoplaced yes)
@@ -2393,9 +2337,75 @@
 			)
 			(justify left)
 		)
-		(uuid "ed3e2c37-0c1d-4298-8cc2-50184a6dce7f")
+		(uuid "79ee157c-3df7-4a77-97f4-a9026e5aa9f4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.8947 91.44 0)
+			(at 145.1042 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "I2C1_SDA"
+		(shape input)
+		(at 201.93 49.53 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "84a0336a-4f73-4425-94aa-2b8e4fcb1400")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 201.93 37.7153 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "I2C1_SDA"
+		(shape input)
+		(at 133.35 93.98 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e3f400e4-6c3a-4d9a-a5e2-9eaaf864789f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 145.1647 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "I2C1_SCL"
+		(shape input)
+		(at 199.39 49.53 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f6ae9de7-ac89-4fb3-a7f5-9e3a3f43b7a0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 199.39 37.7758 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2481,7 +2491,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11c051e0-b606-4f22-a747-a8a2623d871f")
-		(property "Reference" "C27"
+		(property "Reference" "C600"
 			(at 120.65 52.0699 0)
 			(effects
 				(font
@@ -2589,7 +2599,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "C27")
+					(reference "C600")
 					(unit 1)
 				)
 			)
@@ -2735,7 +2745,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "369960a1-a50c-4146-bda4-8265aa56fbc3")
-		(property "Reference" "D10"
+		(property "Reference" "D600"
 			(at 80.01 71.12 0)
 			(effects
 				(font
@@ -2859,7 +2869,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "D10")
+					(reference "D600")
 					(unit 1)
 				)
 			)
@@ -2874,7 +2884,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4171e38a-657a-40ba-8c9d-e133df6cc369")
-		(property "Reference" "Y1"
+		(property "Reference" "Y600"
 			(at 65.532 100.33 0)
 			(effects
 				(font
@@ -2995,7 +3005,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "Y1")
+					(reference "Y600")
 					(unit 1)
 				)
 			)
@@ -3077,7 +3087,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "54ce6a65-eb76-4a72-803a-ee35de79f67f")
-		(property "Reference" "C28"
+		(property "Reference" "C601"
 			(at 133.35 52.0699 0)
 			(effects
 				(font
@@ -3185,7 +3195,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "C28")
+					(reference "C601")
 					(unit 1)
 				)
 			)
@@ -3201,7 +3211,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9ab87fad-26ba-4cf7-a24e-626f47e14b36")
-		(property "Reference" "BT1"
+		(property "Reference" "BT600"
 			(at 56.4515 69.85 90)
 			(effects
 				(font
@@ -3298,7 +3308,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "BT1")
+					(reference "BT600")
 					(unit 1)
 				)
 			)
@@ -3579,7 +3589,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4b84669-e274-44d9-903c-b53459a78685")
-		(property "Reference" "R24"
+		(property "Reference" "R600"
 			(at 111.76 81.2799 0)
 			(effects
 				(font
@@ -3687,7 +3697,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "R24")
+					(reference "R600")
 					(unit 1)
 				)
 			)
@@ -3702,7 +3712,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b8dc3be2-8cee-4739-b8e0-deb51dca1983")
-		(property "Reference" "C26"
+		(property "Reference" "C602"
 			(at 51.562 107.95 0)
 			(effects
 				(font
@@ -3819,7 +3829,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "C26")
+					(reference "C602")
 					(unit 1)
 				)
 			)
@@ -3900,7 +3910,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "da97e267-94f7-4653-bf4b-026c79e2a952")
-		(property "Reference" "R25"
+		(property "Reference" "R601"
 			(at 120.65 81.2799 0)
 			(effects
 				(font
@@ -4008,7 +4018,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "R25")
+					(reference "R601")
 					(unit 1)
 				)
 			)
@@ -4024,7 +4034,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "de79757b-d650-44c2-8525-cfd611e664e3")
-		(property "Reference" "U5"
+		(property "Reference" "U600"
 			(at 88.5541 83.82 0)
 			(effects
 				(font
@@ -4150,7 +4160,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "U5")
+					(reference "U600")
 					(unit 1)
 				)
 			)
@@ -4166,7 +4176,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e227134a-1112-44d9-87c0-7f8f6b9adc12")
-		(property "Reference" "D11"
+		(property "Reference" "D601"
 			(at 92.71 71.12 0)
 			(effects
 				(font
@@ -4290,7 +4300,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "D11")
+					(reference "D601")
 					(unit 1)
 				)
 			)
@@ -4306,7 +4316,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ec1e24a4-7985-4c32-9c69-765400fc0800")
-		(property "Reference" "Brd1"
+		(property "Reference" "Brd600"
 			(at 205.74 60.9599 0)
 			(effects
 				(font
@@ -4366,7 +4376,7 @@
 		(instances
 			(project ""
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/475bb6c4-6e20-4219-b5f0-3b0e927f6712"
-					(reference "Brd1")
+					(reference "Brd600")
 					(unit 1)
 				)
 			)
