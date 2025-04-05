@@ -1,0 +1,1103 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "9c75dbcb-6267-4cc6-82ed-c8bc782ca13d")
+	(paper "A4")
+	(lib_symbols
+		(symbol "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "SW"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+				(at -0.508 -7.366 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_0_1"
+				(polyline
+					(pts
+						(xy -3.81 -3.81) (xy 3.81 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 1.27) (xy 3.81 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.81) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_1_1"
+				(rectangle
+					(start -3.81 2.54)
+					(end 3.81 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -1.27 -1.27) (xy -1.27 0) (xy -1.27 -2.54)
+					)
+					(stroke
+						(width 0.381)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -6.35 1.27 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 1.27 180)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -6.35 -3.81 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 -3.81 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 95.25 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0133428c-6cc9-4398-b019-9673d1c397f9")
+		(property "Reference" "SW7"
+			(at 95.25 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 95.25 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 94.742 74.676 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "6aecc842-0646-4abc-bd8a-622ba0aff9a2")
+		)
+		(pin "2"
+			(uuid "2652f55e-8079-4745-98d5-a96a3966f637")
+		)
+		(pin "1"
+			(uuid "789aa091-1621-45c3-8d68-3eb0bc3fcecb")
+		)
+		(pin "1"
+			(uuid "319c4589-a060-47c9-b9d4-580d70eeec4d")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 120.65 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "15f3deb7-fab8-404d-8f8f-38bb27cb014c")
+		(property "Reference" "SW12"
+			(at 120.65 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 120.65 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 120.142 100.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a26d7cc9-942d-49da-a587-46b0582eea94")
+		)
+		(pin "2"
+			(uuid "dcecff72-7daf-45b5-a1a6-98f8cc68e58b")
+		)
+		(pin "1"
+			(uuid "81c9913f-e2ce-42ac-a0cd-280863e98a0c")
+		)
+		(pin "1"
+			(uuid "de74bfdc-1e89-45a5-9615-45e87bb1e45c")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 69.85 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4c522543-3a80-4236-b55e-c605b81e787d")
+		(property "Reference" "SW10"
+			(at 69.85 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 69.85 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 69.342 100.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 69.85 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "6ba0677d-2d5c-4c07-8899-7cbad15d96b7")
+		)
+		(pin "2"
+			(uuid "247f0dc9-f7a2-4410-938e-9863c86d8265")
+		)
+		(pin "1"
+			(uuid "c7e51d6e-3d9c-4e98-b962-349ab3d8e5f1")
+		)
+		(pin "1"
+			(uuid "f4488143-cc67-4806-9d38-3f217222747a")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 44.45 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4c701934-65ad-446a-bde8-083e43c76a41")
+		(property "Reference" "SW9"
+			(at 44.45 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 44.45 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 43.942 100.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "3d0b18cd-6361-4844-b73d-c6ea2f765bc8")
+		)
+		(pin "2"
+			(uuid "d0a942b6-7dd2-4108-8940-b49dc0070a1c")
+		)
+		(pin "1"
+			(uuid "b2cbfef0-600d-473d-8102-6438105173a1")
+		)
+		(pin "1"
+			(uuid "cddf7b60-affc-420e-957c-adb05a11d9c3")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 95.25 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "56f3a57c-da34-4a8c-8daa-8f09e7670bb9")
+		(property "Reference" "SW11"
+			(at 95.25 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 95.25 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 94.742 100.076 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "9d2828db-2405-43e1-9c36-2c3f269c2967")
+		)
+		(pin "2"
+			(uuid "df77942e-903f-4bf5-bd38-59f6308d405a")
+		)
+		(pin "1"
+			(uuid "4aa51634-8f6d-4a2b-a4db-2364e807001f")
+		)
+		(pin "1"
+			(uuid "911113c1-5944-4b67-ae68-f1910e9c7bbc")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 44.45 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "80e56a40-faf0-4adc-9026-2128fb506f81")
+		(property "Reference" "SW1"
+			(at 44.45 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 44.45 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 43.942 50.546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "50a0d6d5-0262-4a6f-8cec-a344a1069c7a")
+		)
+		(pin "2"
+			(uuid "3c854f0f-86fd-4f50-b3f5-3e28a557f453")
+		)
+		(pin "1"
+			(uuid "e2c17afa-5fea-451f-a7d7-398cedb1e7c5")
+		)
+		(pin "1"
+			(uuid "1c1ada00-a3f8-4007-89fd-e75d9c209527")
+		)
+		(instances
+			(project ""
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 95.25 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c22bf15a-f386-4c56-af69-901707697a03")
+		(property "Reference" "SW3"
+			(at 95.25 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 95.25 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 94.742 50.546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "40cdd728-4680-4749-956a-4cce75ae24d4")
+		)
+		(pin "2"
+			(uuid "aa2bae82-a3cf-4e03-a78c-97ef5bfa16c4")
+		)
+		(pin "1"
+			(uuid "fff224b7-10f1-4eb8-81c1-9e3af56ffad3")
+		)
+		(pin "1"
+			(uuid "75ea9860-f709-4a82-8613-ef8077b69db7")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 120.65 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d2e9e535-0f4f-4563-aebe-a8a9e7f2c562")
+		(property "Reference" "SW8"
+			(at 120.65 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 120.65 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 120.142 74.676 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a0711871-3dde-4651-b68f-1af6d0a9b1cd")
+		)
+		(pin "2"
+			(uuid "da99e638-be56-4451-b8a1-0de6e4478d13")
+		)
+		(pin "1"
+			(uuid "cc1e7a97-6a1e-4964-9988-336173492460")
+		)
+		(pin "1"
+			(uuid "81ee7466-e1f1-4daa-a2eb-b2989a66bae9")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 44.45 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dda7e870-0664-49fb-9961-d583845e8194")
+		(property "Reference" "SW5"
+			(at 44.45 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 44.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 43.942 74.676 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "252bbd7d-a2c3-4dee-835b-6a0472738c1b")
+		)
+		(pin "2"
+			(uuid "791769bb-814c-4724-a149-ff07e2b9d395")
+		)
+		(pin "1"
+			(uuid "c226ea83-5e06-4c23-ab90-765bf750b61f")
+		)
+		(pin "1"
+			(uuid "bcf5de8a-2778-49b5-a03f-6a96d7a500d7")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 69.85 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "deccbaa8-0756-4a72-89a1-87111e6f38e5")
+		(property "Reference" "SW6"
+			(at 69.85 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 69.85 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 69.342 74.676 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 69.85 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0b0cb70f-f04c-44a3-b768-23104d1dce96")
+		)
+		(pin "2"
+			(uuid "d6518c88-298f-44ff-840b-40814527fbf9")
+		)
+		(pin "1"
+			(uuid "547187a2-b646-4b73-a29d-555e0ef2597e")
+		)
+		(pin "1"
+			(uuid "e5220a91-fbab-4faa-81e3-6991e79c5f02")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 69.85 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0e930f8-3e4d-42ae-b02c-4191f30ad8fc")
+		(property "Reference" "SW2"
+			(at 69.85 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 69.85 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 69.342 50.546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 69.85 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 69.85 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c8337140-50cb-40ee-ae39-f565a1116869")
+		)
+		(pin "2"
+			(uuid "6400d422-6048-4a94-858e-1c826908c937")
+		)
+		(pin "1"
+			(uuid "20d99782-a63d-49df-a603-79cf16f0b1e4")
+		)
+		(pin "1"
+			(uuid "7f03670f-7024-4c5b-9fbd-2dee08ea7a2a")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
+		(at 120.65 43.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f580af50-0d2c-410f-a299-60e5629cd7db")
+		(property "Reference" "SW4"
+			(at 120.65 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 120.65 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+			(at 120.142 50.546 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 120.65 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "40ea0248-a561-4d50-a205-da863194b7e9")
+		)
+		(pin "2"
+			(uuid "5e411890-fe98-4f64-ad40-87668cbc9f89")
+		)
+		(pin "1"
+			(uuid "5200d42a-f4fd-4b39-953a-22acf4219302")
+		)
+		(pin "1"
+			(uuid "403a2772-775f-4ed0-8fc9-b5ea4f3fcdb0")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
+					(reference "SW4")
+					(unit 1)
+				)
+			)
+		)
+	)
+)

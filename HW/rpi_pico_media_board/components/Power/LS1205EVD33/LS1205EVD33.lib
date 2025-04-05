@@ -1,0 +1,34 @@
+EESchema-LIBRARY Version 2.3
+#encoding utf-8
+#SamacSys ECAD Model LS1205EVD33
+#/17061199/1612989/2.50/11/3/Integrated Circuit
+DEF LS1205EVD33 IC 0 30 Y Y 1 F N
+F0 "IC" 1050 300 50 H V L CNN
+F1 "LS1205EVD33" 1050 200 50 H V L CNN
+F2 "LS1205EVD33" 1050 100 50 H I L CNN
+F3 "https://www.littelfuse.com/media?resourcetype=datasheets&itemid=b40a8809-c1ad-459d-a34c-84532dbddcb7&filename=littelfuse-protection-ic-ls1205exd33--datasheet" 1050 0 50 H I L CNN
+F4 "Power Switch ICs - Power Distribution 18V/5A efuse with OCP & Voltage Clamp" 1050 -100 50 H I L CNN "Description"
+F5 "0.8" 1050 -200 50 H I L CNN "Height"
+F6 "LITTELFUSE" 1050 -300 50 H I L CNN "Manufacturer_Name"
+F7 "LS1205EVD33" 1050 -400 50 H I L CNN "Manufacturer_Part_Number"
+F8 "576-LS1205EVD33" 1050 -500 50 H I L CNN "Mouser Part Number"
+F9 "https://www.mouser.co.uk/ProductDetail/Littelfuse/LS1205EVD33?qs=4ASt3YYao0VRtislHe5uQQ%3D%3D" 1050 -600 50 H I L CNN "Mouser Price/Stock"
+F10 "LS1205EVD33" 1050 -700 50 H I L CNN "Arrow Part Number"
+F11 "https://www.arrow.com/en/products/ls1205evd33/littelfuse?utm_currency=USD&region=nac" 1050 -800 50 H I L CNN "Arrow Price/Stock"
+DRAW
+X IN_1 1 0 0 200 R 50 50 0 0 P
+X IN_2 2 0 -100 200 R 50 50 0 0 P
+X IN_3 3 0 -200 200 R 50 50 0 0 P
+X VCP 4 0 -300 200 R 50 50 0 0 P
+X ILIM 5 0 -400 200 R 50 50 0 0 P
+X SS 6 0 -500 200 R 50 50 0 0 P
+X EN 7 1200 0 200 L 50 50 0 0 P
+X OUT_1 8 1200 -100 200 L 50 50 0 0 P
+X OUT_2 9 1200 -200 200 L 50 50 0 0 P
+X OUT_3 10 1200 -300 200 L 50 50 0 0 P
+X GND 11 1200 -400 200 L 50 50 0 0 P
+P 5 0 1 6 200 100 1000 100 1000 -600 200 -600 200 100 N
+ENDDRAW
+ENDDEF
+#
+#End Library
