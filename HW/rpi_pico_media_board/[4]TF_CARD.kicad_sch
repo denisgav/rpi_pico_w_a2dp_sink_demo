@@ -3215,7 +3215,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Korean Hroparts Elec"
+		(property "Manufacturer_Name" ""
 			(at 189.23 569.85 0)
 			(effects
 				(font
@@ -3225,7 +3225,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "TF-01A"
+		(property "Manufacturer_Part_Number" ""
 			(at 189.23 669.85 0)
 			(effects
 				(font
@@ -3272,6 +3272,24 @@
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Korean Hroparts Elec"
+			(at 170.18 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "TF-01A"
+			(at 170.18 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 				(hide yes)
 			)
 		)

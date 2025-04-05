@@ -3826,7 +3826,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 85.09 0)
 		(unit 1)
@@ -4099,7 +4098,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "TOSHIBA"
+		(property "Manufacturer_Name" ""
 			(at 186.69 90.17 0)
 			(effects
 				(font
@@ -4108,7 +4107,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "T2N7002AK,LM"
+		(property "Manufacturer_Part_Number" ""
+			(at 186.69 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TOSHIBA"
+			(at 186.69 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "T2N7002AK,LM"
 			(at 186.69 90.17 0)
 			(effects
 				(font
@@ -4277,7 +4294,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 110.49 0)
 		(unit 1)
@@ -4847,7 +4863,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Product Number" ""
 			(at 44.45 134.62 0)
 			(effects
 				(font
@@ -5341,7 +5357,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 110.49 0)
 		(unit 1)
@@ -5416,7 +5431,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 110.49 0)
 		(unit 1)
@@ -5669,7 +5683,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 110.49 0)
 		(unit 1)
@@ -6092,7 +6105,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 59.69 0)
 		(unit 1)
@@ -6230,7 +6242,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Product Number" ""
 			(at 44.45 109.22 0)
 			(effects
 				(font
@@ -6410,7 +6422,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "XINGLIGHT"
+		(property "Manufacturer_Name" ""
 			(at 184.15 77.47 0)
 			(effects
 				(font
@@ -6419,7 +6431,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "XL-1608SURC-06"
+		(property "Manufacturer_Part_Number" ""
+			(at 184.15 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "XINGLIGHT"
+			(at 184.15 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "XL-1608SURC-06"
 			(at 184.15 77.47 0)
 			(effects
 				(font
@@ -7297,7 +7327,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 59.69 0)
 		(unit 1)
@@ -7567,7 +7596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "XINGLIGHT"
+		(property "Manufacturer_Name" ""
 			(at 250.19 77.47 0)
 			(effects
 				(font
@@ -7576,7 +7605,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "XL-1608SURC-06"
+		(property "Manufacturer_Part_Number" ""
+			(at 250.19 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "XINGLIGHT"
+			(at 250.19 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "XL-1608SURC-06"
 			(at 250.19 77.47 0)
 			(effects
 				(font
@@ -7862,7 +7909,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "XINGLIGHT"
+		(property "Manufacturer_Name" ""
 			(at 217.17 77.47 0)
 			(effects
 				(font
@@ -7871,7 +7918,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "XL-1608SURC-06"
+		(property "Manufacturer_Part_Number" ""
+			(at 217.17 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "XINGLIGHT"
+			(at 217.17 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "XL-1608SURC-06"
 			(at 217.17 77.47 0)
 			(effects
 				(font
@@ -7962,7 +8027,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 85.09 0)
 		(unit 1)
@@ -8100,7 +8164,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Product Number" ""
 			(at 44.45 83.82 0)
 			(effects
 				(font
@@ -8330,7 +8394,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "TOSHIBA"
+		(property "Manufacturer_Name" ""
 			(at 219.71 90.17 0)
 			(effects
 				(font
@@ -8339,7 +8403,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "T2N7002AK,LM"
+		(property "Manufacturer_Part_Number" ""
+			(at 219.71 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TOSHIBA"
+			(at 219.71 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "T2N7002AK,LM"
 			(at 219.71 90.17 0)
 			(effects
 				(font
@@ -8367,7 +8449,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 85.09 0)
 		(unit 1)
@@ -8442,7 +8523,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 85.09 0)
 		(unit 1)
@@ -8517,7 +8597,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 59.69 0)
 		(unit 1)
@@ -8649,7 +8728,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "TOSHIBA"
+		(property "Manufacturer_Name" ""
 			(at 252.73 90.17 0)
 			(effects
 				(font
@@ -8658,7 +8737,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "T2N7002AK,LM"
+		(property "Manufacturer_Part_Number" ""
+			(at 252.73 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "TOSHIBA"
+			(at 252.73 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "T2N7002AK,LM"
 			(at 252.73 90.17 0)
 			(effects
 				(font
@@ -8968,7 +9065,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 59.69 0)
 		(unit 1)

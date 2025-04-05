@@ -2545,7 +2545,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL21A106KOQNNNE"
+		(property "Manufacturer Product Number" ""
 			(at 116.84 53.34 0)
 			(effects
 				(font
@@ -3141,7 +3141,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Product Number" ""
 			(at 129.54 53.34 0)
 			(effects
 				(font
@@ -3775,7 +3775,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "CL10C150JB8NNNC"
+		(property "Manufacturer Product Number" ""
 			(at 50.8 110.49 0)
 			(effects
 				(font

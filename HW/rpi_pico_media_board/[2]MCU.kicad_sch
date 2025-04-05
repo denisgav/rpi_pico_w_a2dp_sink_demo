@@ -5296,7 +5296,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Nexperia"
+		(property "Manufacturer_Name" ""
 			(at 201.93 31.75 0)
 			(effects
 				(font
@@ -5305,7 +5305,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "PMEG1030EJ,115"
+		(property "Manufacturer_Part_Number" ""
+			(at 201.93 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "Nexperia"
+			(at 201.93 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "PMEG1030EJ,115"
 			(at 201.93 31.75 0)
 			(effects
 				(font
