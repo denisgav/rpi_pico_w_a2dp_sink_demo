@@ -2471,7 +2471,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin passive line
 					(at 11.43 0 180)
 					(length 2.54)
 					(name "DOUT"
@@ -4183,7 +4183,7 @@
 		)
 	)
 	(global_label "I2S_INMP441_DATA"
-		(shape input)
+		(shape output)
 		(at 125.73 105.41 180)
 		(fields_autoplaced yes)
 		(effects
@@ -4249,7 +4249,7 @@
 		)
 	)
 	(global_label "I2S_INMP441_DATA"
-		(shape input)
+		(shape output)
 		(at 80.01 149.86 0)
 		(fields_autoplaced yes)
 		(effects
@@ -4258,7 +4258,7 @@
 			)
 			(justify left)
 		)
-		(uuid "8e0aa4df-99bf-44ac-b7fd-7ca23dea8959")
+		(uuid "89439c4c-7fad-48f4-9aff-bbdb76e20828")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 100.6542 149.86 0)
 			(effects
@@ -4314,28 +4314,6 @@
 			)
 		)
 	)
-	(global_label "I2S_INMP441_DATA"
-		(shape input)
-		(at 78.74 179.07 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b0c7d651-acbb-4764-8903-7d129ef0b156")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 99.3842 179.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "MACRO_PAD_BTN_COL_2"
 		(shape input)
 		(at 182.88 85.09 0)
@@ -4349,6 +4327,28 @@
 		(uuid "b440f06d-c372-4f18-942c-9ada4683c1db")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 208.1809 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "I2S_INMP441_DATA"
+		(shape output)
+		(at 78.74 179.07 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b691e5ac-d122-4b11-b28b-5f7c1a1cd5b5")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 99.3842 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)

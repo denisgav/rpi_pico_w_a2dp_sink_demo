@@ -1,4 +1,4 @@
-24655222720792482
+24658710436748214
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -99162,6 +99162,13 @@ Integrated Circuit
 2
 2
 rpi_pico_media_board
+SW_DPDT_XLX
+DPDT Latching
+SW DPDT
+0
+6
+6
+rpi_pico_media_board
 SW_PUSH_6mm_H5mm
 tactile push button, 6x6mm e.g. PHAP33xx series, height=5mm
 tact sw push 6mm
@@ -99175,6 +99182,13 @@ Connector
 0
 15
 15
+rpi_pico_media_board
+inmp441
+
+
+0
+6
+6
 rpi_pico_media_board_power
 LS1205EVD33
 DFN3x3_10L

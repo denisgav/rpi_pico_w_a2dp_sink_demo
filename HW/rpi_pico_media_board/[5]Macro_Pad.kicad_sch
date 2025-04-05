@@ -594,6 +594,396 @@
 				)
 			)
 		)
+		(symbol "SW_PUSH_6mm_H5mm_3"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 5.842 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+				(at -0.508 -7.366 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_3_0_1"
+				(polyline
+					(pts
+						(xy -3.81 -3.81) (xy 3.81 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 1.27) (xy 3.81 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.81) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_3_1_1"
+				(rectangle
+					(start -3.81 2.54)
+					(end 3.81 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -1.27 -1.27) (xy -1.27 0) (xy -1.27 -2.54)
+					)
+					(stroke
+						(width 0.381)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -6.35 1.27 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 1.27 180)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -6.35 -3.81 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 -3.81 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "SW_PUSH_6mm_H5mm_4"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 0 5.842 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SW"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "rpi_pico_media_board:SW_PUSH_6mm_H5mm"
+				(at -0.508 -7.366 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_4_0_1"
+				(polyline
+					(pts
+						(xy -3.81 -3.81) (xy 3.81 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.81 1.27) (xy 3.81 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -3.81) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SW_PUSH_6mm_H5mm_4_1_1"
+				(rectangle
+					(start -3.81 2.54)
+					(end 3.81 -5.08)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -1.27 -1.27) (xy -1.27 0) (xy -1.27 -2.54)
+					)
+					(stroke
+						(width 0.381)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -6.35 1.27 0)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 1.27 180)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -6.35 -3.81 0)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 6.35 -3.81 180)
+					(length 2.54)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Transistor_FET:T2N7002AK"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -1109,16 +1499,16 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 3.81 0)
+			(property "Reference" "U"
+				(at 0 5.842 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "SW"
+				(at 0 3.81 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3826,6 +4216,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 85.09 0)
 		(unit 1)
@@ -3835,16 +4226,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0133428c-6cc9-4398-b019-9673d1c397f9")
-		(property "Reference" "SW506"
-			(at 120.65 78.74 0)
+		(property "Reference" "U506"
+			(at 120.65 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 120.65 81.28 0)
+		(property "Value" "SW"
+			(at 120.65 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3893,7 +4284,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW506")
+					(reference "U506")
 					(unit 1)
 				)
 			)
@@ -3980,7 +4371,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 104.14 120.65 0)
 			(effects
 				(font
@@ -4233,7 +4624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 154.94 120.65 0)
 			(effects
 				(font
@@ -4294,6 +4685,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 110.49 0)
 		(unit 1)
@@ -4303,16 +4695,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "15f3deb7-fab8-404d-8f8f-38bb27cb014c")
-		(property "Reference" "SW511"
-			(at 146.05 104.14 0)
+		(property "Reference" "U511"
+			(at 146.05 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 146.05 106.68 0)
+		(property "Value" "SW"
+			(at 146.05 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4361,7 +4753,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW511")
+					(reference "U511")
 					(unit 1)
 				)
 			)
@@ -4392,7 +4784,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 265.938 80.01 90)
 			(effects
 				(font
@@ -4419,7 +4811,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 264.16 80.01 0)
 			(effects
 				(font
@@ -4428,7 +4820,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF1202TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 264.16 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 264.16 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF1202T5E"
 			(at 264.16 80.01 0)
 			(effects
 				(font
@@ -4598,7 +5008,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 104.14 69.85 0)
 			(effects
 				(font
@@ -4739,7 +5149,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 154.94 69.85 0)
 			(effects
 				(font
@@ -4948,7 +5358,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 218.948 66.04 90)
 			(effects
 				(font
@@ -4975,7 +5385,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 217.17 66.04 0)
 			(effects
 				(font
@@ -4984,7 +5394,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF5100TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 217.17 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 217.17 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF5100T5E"
 			(at 217.17 66.04 0)
 			(effects
 				(font
@@ -5089,7 +5517,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 129.54 120.65 0)
 			(effects
 				(font
@@ -5230,7 +5658,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 154.94 95.25 0)
 			(effects
 				(font
@@ -5357,6 +5785,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 110.49 0)
 		(unit 1)
@@ -5366,16 +5795,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c522543-3a80-4236-b55e-c605b81e787d")
-		(property "Reference" "SW509"
-			(at 95.25 104.14 0)
+		(property "Reference" "U509"
+			(at 95.25 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 95.25 106.68 0)
+		(property "Value" "SW"
+			(at 95.25 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5424,13 +5853,14 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW509")
+					(reference "U509")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 110.49 0)
 		(unit 1)
@@ -5440,16 +5870,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4c701934-65ad-446a-bde8-083e43c76a41")
-		(property "Reference" "SW508"
-			(at 69.85 104.14 0)
+		(property "Reference" "U508"
+			(at 69.85 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 69.85 106.68 0)
+		(property "Value" "SW"
+			(at 69.85 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5498,7 +5928,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW508")
+					(reference "U508")
 					(unit 1)
 				)
 			)
@@ -5631,7 +6061,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0603WAF220JT5E"
+		(property "Manufacturer Part Number" "0603WAF0000T5E"
 			(at 50.8 127 0)
 			(effects
 				(font
@@ -5683,6 +6113,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 110.49 0)
 		(unit 1)
@@ -5692,16 +6123,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56f3a57c-da34-4a8c-8daa-8f09e7670bb9")
-		(property "Reference" "SW510"
-			(at 120.65 104.14 0)
+		(property "Reference" "U510"
+			(at 120.65 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 120.65 106.68 0)
+		(property "Value" "SW"
+			(at 120.65 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5750,7 +6181,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW510")
+					(reference "U510")
 					(unit 1)
 				)
 			)
@@ -5781,7 +6212,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 185.928 66.04 90)
 			(effects
 				(font
@@ -5808,7 +6239,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 184.15 66.04 0)
 			(effects
 				(font
@@ -5817,7 +6248,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF5100TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 184.15 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 184.15 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF5100T5E"
 			(at 184.15 66.04 0)
 			(effects
 				(font
@@ -5902,7 +6351,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0603WAF220JT5E"
+		(property "Manufacturer Part Number" "0603WAF0000T5E"
 			(at 49.53 76.2 0)
 			(effects
 				(font
@@ -5978,7 +6427,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 199.898 80.01 90)
 			(effects
 				(font
@@ -6005,7 +6454,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 198.12 80.01 0)
 			(effects
 				(font
@@ -6014,7 +6463,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF1202TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 198.12 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 198.12 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF1202T5E"
 			(at 198.12 80.01 0)
 			(effects
 				(font
@@ -6105,6 +6572,7 @@
 		)
 	)
 	(symbol
+		(lib_name "SW_PUSH_6mm_H5mm_3")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 59.69 0)
 		(unit 1)
@@ -6114,16 +6582,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "80e56a40-faf0-4adc-9026-2128fb506f81")
-		(property "Reference" "SW500"
-			(at 69.85 53.34 0)
+		(property "Reference" "U500"
+			(at 69.85 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 69.85 55.88 0)
+		(property "Value" "SW"
+			(at 69.85 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6172,7 +6640,7 @@
 		(instances
 			(project ""
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW500")
+					(reference "U500")
 					(unit 1)
 				)
 			)
@@ -6534,7 +7002,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "0603WAF220JT5E"
+		(property "Manufacturer Part Number" "0603WAF0000T5E"
 			(at 50.8 101.6 0)
 			(effects
 				(font
@@ -6834,7 +7302,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 251.968 66.04 90)
 			(effects
 				(font
@@ -6861,7 +7329,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 250.19 66.04 0)
 			(effects
 				(font
@@ -6870,7 +7338,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF5100TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 250.19 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 250.19 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF5100T5E"
 			(at 250.19 66.04 0)
 			(effects
 				(font
@@ -6975,7 +7461,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 129.54 95.25 0)
 			(effects
 				(font
@@ -7060,7 +7546,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 232.918 80.01 90)
 			(effects
 				(font
@@ -7087,7 +7573,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "UNI-ROYAL(Uniroyal Elec)"
+		(property "Manufacturer_Name" ""
 			(at 231.14 80.01 0)
 			(effects
 				(font
@@ -7096,7 +7582,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0402WGF1202TCE"
+		(property "Manufacturer_Part_Number" ""
+			(at 231.14 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
+			(at 231.14 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "0603WAF1202T5E"
 			(at 231.14 80.01 0)
 			(effects
 				(font
@@ -7201,7 +7705,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 104.14 95.25 0)
 			(effects
 				(font
@@ -7327,6 +7831,7 @@
 		)
 	)
 	(symbol
+		(lib_name "SW_PUSH_6mm_H5mm_3")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 59.69 0)
 		(unit 1)
@@ -7336,16 +7841,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c22bf15a-f386-4c56-af69-901707697a03")
-		(property "Reference" "SW502"
-			(at 120.65 53.34 0)
+		(property "Reference" "U502"
+			(at 120.65 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 120.65 55.88 0)
+		(property "Value" "SW"
+			(at 120.65 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7394,7 +7899,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW502")
+					(reference "U502")
 					(unit 1)
 				)
 			)
@@ -7481,7 +7986,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 78.74 95.25 0)
 			(effects
 				(font
@@ -7728,7 +8233,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 78.74 69.85 0)
 			(effects
 				(font
@@ -8027,6 +8532,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 85.09 0)
 		(unit 1)
@@ -8036,16 +8542,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d2e9e535-0f4f-4563-aebe-a8a9e7f2c562")
-		(property "Reference" "SW507"
-			(at 146.05 78.74 0)
+		(property "Reference" "U507"
+			(at 146.05 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 146.05 81.28 0)
+		(property "Value" "SW"
+			(at 146.05 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8094,7 +8600,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW507")
+					(reference "U507")
 					(unit 1)
 				)
 			)
@@ -8449,6 +8955,7 @@
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 85.09 0)
 		(unit 1)
@@ -8458,16 +8965,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dda7e870-0664-49fb-9961-d583845e8194")
-		(property "Reference" "SW504"
-			(at 69.85 78.74 0)
+		(property "Reference" "U504"
+			(at 69.85 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 69.85 81.28 0)
+		(property "Value" "SW"
+			(at 69.85 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8516,13 +9023,14 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW504")
+					(reference "U504")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 85.09 0)
 		(unit 1)
@@ -8532,16 +9040,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "deccbaa8-0756-4a72-89a1-87111e6f38e5")
-		(property "Reference" "SW505"
-			(at 95.25 78.74 0)
+		(property "Reference" "U505"
+			(at 95.25 77.47 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 95.25 81.28 0)
+		(property "Value" "SW"
+			(at 95.25 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8590,13 +9098,14 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW505")
+					(reference "U505")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
+		(lib_name "SW_PUSH_6mm_H5mm_3")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 59.69 0)
 		(unit 1)
@@ -8606,16 +9115,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0e930f8-3e4d-42ae-b02c-4191f30ad8fc")
-		(property "Reference" "SW501"
-			(at 95.25 53.34 0)
+		(property "Reference" "U501"
+			(at 95.25 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 95.25 55.88 0)
+		(property "Value" "SW"
+			(at 95.25 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8664,7 +9173,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW501")
+					(reference "U501")
 					(unit 1)
 				)
 			)
@@ -8863,7 +9372,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 78.74 120.65 0)
 			(effects
 				(font
@@ -9004,7 +9513,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 129.54 69.85 0)
 			(effects
 				(font
@@ -9065,6 +9574,7 @@
 		)
 	)
 	(symbol
+		(lib_name "SW_PUSH_6mm_H5mm_4")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 59.69 0)
 		(unit 1)
@@ -9074,16 +9584,16 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f580af50-0d2c-410f-a299-60e5629cd7db")
-		(property "Reference" "SW503"
-			(at 146.05 53.34 0)
+		(property "Reference" "U503"
+			(at 146.05 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "~"
-			(at 146.05 55.88 0)
+		(property "Value" "SW"
+			(at 146.05 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9132,7 +9642,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "SW503")
+					(reference "U503")
 					(unit 1)
 				)
 			)

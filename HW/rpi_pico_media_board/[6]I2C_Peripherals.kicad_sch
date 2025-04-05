@@ -2815,7 +2815,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 80.01 77.47 0)
 			(effects
 				(font
@@ -2945,7 +2945,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "OK2EL89CJI-111YLC-32.768K"
+		(property "Manufacturer Product Number" ""
 			(at 63.5 105.41 0)
 			(effects
 				(font
@@ -3643,7 +3643,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "0805W8F5101T5E"
+		(property "Manufacturer Product Number" ""
 			(at 109.22 82.55 0)
 			(effects
 				(font
@@ -3964,7 +3964,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "0805W8F5101T5E"
+		(property "Manufacturer Product Number" ""
 			(at 118.11 82.55 0)
 			(effects
 				(font
@@ -4088,7 +4088,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "PCF8563TS/5,118"
+		(property "Manufacturer Product Number" ""
 			(at 86.36 96.52 0)
 			(effects
 				(font
@@ -4246,7 +4246,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" "1N4148W"
+		(property "Manufacturer Product Number" ""
 			(at 92.71 77.47 0)
 			(effects
 				(font
