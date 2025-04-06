@@ -4216,7 +4216,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 85.09 0)
 		(unit 1)
@@ -4685,7 +4684,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 110.49 0)
 		(unit 1)
@@ -5785,7 +5783,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 110.49 0)
 		(unit 1)
@@ -5860,7 +5857,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 110.49 0)
 		(unit 1)
@@ -6113,7 +6109,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 120.65 110.49 0)
 		(unit 1)
@@ -8532,7 +8527,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 146.05 85.09 0)
 		(unit 1)
@@ -8955,7 +8949,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 69.85 85.09 0)
 		(unit 1)
@@ -9030,7 +9023,6 @@
 		)
 	)
 	(symbol
-		(lib_name "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(lib_id "rpi_pico_media_board:SW_PUSH_6mm_H5mm")
 		(at 95.25 85.09 0)
 		(unit 1)

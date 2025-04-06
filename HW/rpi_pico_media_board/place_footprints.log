@@ -1,0 +1,19 @@
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 647:Plugin executed on: 'linux'
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 648:Plugin executed with python version: '3.10.12 (main, Feb  4 2025, 14:57:36) [GCC 11.4.0]'
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 649:KiCad build version: 8.0.9-8.0.9-0~ubuntu22.04.1
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 650:Plugin version: 3.0.0
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 651:Frame repr: <wx._core.Frame object at 0x7b21bc323e20>
+04-06 07:10:02 com_github_MitjaNemec_PlaceFootprints.place_footprints 121:getting a list of all footprints on board
+04-06 07:10:04 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 830:Reference designator is: D
+04-06 07:10:04 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 831:Reference number is: 500
+04-06 07:10:04 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 863:Sorted and filtered list:
+['D500', 'D501', 'D502', 'D503', 'D504', 'D505', 'D506', 'D507', 'D508', 'D509', 'D510', 'D511', 'D512', 'D513', 'D514']
+04-06 07:10:04 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 359:wx.Colour(250, 250, 250, 255)
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 490:'10'
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 549:Preparing config for reference matrix
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 556:Saving config file
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 558:Saved the config file
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 901:Footprints to place:
+['D500', 'D501', 'D502', 'D503', 'D504', 'D505', 'D506', 'D507', 'D508', 'D509', 'D510', 'D511', 'D512', 'D513', 'D514']
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.place_footprints 398:Starting placing with matrix layout
+04-06 07:10:13 com_github_MitjaNemec_PlaceFootprints.action_place_footprints 971:Placing complete

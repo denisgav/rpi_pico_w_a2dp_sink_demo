@@ -5489,7 +5489,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Module_RaspberryPi_Pico:RaspberryPi_Pico_Common"
+		(property "Footprint" "Module_RaspberryPi_Pico:RaspberryPi_Pico_Common_THT"
 			(at 153.67 144.78 0)
 			(effects
 				(font
