@@ -1698,6 +1698,12 @@
 		(uuid "1360eadf-e456-4d3e-ae50-3f461fa00f6f")
 	)
 	(junction
+		(at 187.96 41.91)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1a6734df-d955-4eea-99ab-a6ae872b0096")
+	)
+	(junction
 		(at 152.4 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1708,12 +1714,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "494da06f-a2ab-456d-b490-3132cb66fb77")
-	)
-	(junction
-		(at 187.96 41.91)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "51b83f39-c483-4d7b-81b7-28dc653f0744")
 	)
 	(junction
 		(at 179.07 80.01)
@@ -1752,12 +1752,6 @@
 		(uuid "bf73314b-62e9-44f3-ad9e-f779d42d0033")
 	)
 	(junction
-		(at 187.96 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c6159783-116e-43e4-b480-783ddf6341f5")
-	)
-	(junction
 		(at 187.96 80.01)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1780,6 +1774,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e28d28da-2038-44a7-860b-7f7d75e32994")
+	)
+	(junction
+		(at 187.96 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e628d7b1-fd77-4eb4-ac83-e41b386654b1")
 	)
 	(junction
 		(at 143.51 78.74)
@@ -1983,6 +1983,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 41.91) (xy 195.58 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d23a864-ac58-40d1-b8a3-ef021a50da93")
+	)
+	(wire
+		(pts
 			(xy 195.58 53.34) (xy 195.58 50.8)
 		)
 		(stroke
@@ -2040,6 +2050,16 @@
 			(type default)
 		)
 		(uuid "428445c7-e266-40e1-b5fd-9c459125af32")
+	)
+	(wire
+		(pts
+			(xy 187.96 60.96) (xy 195.58 60.96)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4680c49e-cb24-46d3-a239-964237bcadd5")
 	)
 	(wire
 		(pts
@@ -2343,16 +2363,6 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 41.91) (xy 195.58 41.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85c266ac-a033-4d68-98d4-47307690a5aa")
-	)
-	(wire
-		(pts
 			(xy 179.07 72.39) (xy 179.07 69.85)
 		)
 		(stroke
@@ -2483,7 +2493,7 @@
 	)
 	(wire
 		(pts
-			(xy 187.96 60.96) (xy 195.58 60.96)
+			(xy 179.07 60.96) (xy 187.96 60.96)
 		)
 		(stroke
 			(width 0)
@@ -2730,16 +2740,6 @@
 			(type default)
 		)
 		(uuid "e3383e45-7654-4bd9-9c48-4929597ee88b")
-	)
-	(wire
-		(pts
-			(xy 179.07 60.96) (xy 187.96 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e398b003-2c6c-4b6b-a586-c5ade2d209b7")
 	)
 	(wire
 		(pts
@@ -3218,71 +3218,6 @@
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
 					(reference "C302")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3VA")
-		(at 187.96 60.96 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0932e7e8-37a6-48e1-a70f-4fd26a9519e9")
-		(property "Reference" "#PWR28"
-			(at 187.96 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3VA"
-			(at 192.532 59.182 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 187.96 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 187.96 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
-			(at 187.96 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "321ea494-9ba5-4322-8392-22da976d18ed")
-		)
-		(instances
-			(project "rpi_pico_media_board"
-				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR28")
 					(unit 1)
 				)
 			)
@@ -4001,6 +3936,136 @@
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
 					(reference "#PWR15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3VA")
+		(at 187.96 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "488219e6-f9b1-47ae-8945-57e136be39c1")
+		(property "Reference" "#PWR28"
+			(at 187.96 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3VA_PCM"
+			(at 187.96 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 187.96 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+			(at 187.96 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d5baa826-c501-420f-b34b-f4cbed54b418")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
+					(reference "#PWR28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3.3VA")
+		(at 187.96 41.91 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4b5dcdba-b28e-4d69-8fb9-547b88e067d8")
+		(property "Reference" "#PWR26"
+			(at 187.96 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3.3VA_PCM"
+			(at 187.96 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 187.96 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
+			(at 187.96 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b59ce307-b27b-4edc-915f-cb452f66d600")
+		)
+		(instances
+			(project "rpi_pico_media_board"
+				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
+					(reference "#PWR26")
 					(unit 1)
 				)
 			)
@@ -5700,71 +5765,6 @@
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
 					(reference "#PWR16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3VA")
-		(at 187.96 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ba56c758-e3a4-44f2-8c04-e219f67ecfa0")
-		(property "Reference" "#PWR26"
-			(at 187.96 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3VA"
-			(at 192.532 40.132 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 187.96 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 187.96 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3VA\""
-			(at 187.96 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "78f0afec-1a30-42c3-9e07-622364ff8262")
-		)
-		(instances
-			(project "rpi_pico_media_board"
-				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR26")
 					(unit 1)
 				)
 			)
