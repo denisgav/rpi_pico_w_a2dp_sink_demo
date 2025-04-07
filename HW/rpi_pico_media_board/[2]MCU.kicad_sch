@@ -2812,6 +2812,16 @@
 	)
 	(wire
 		(pts
+			(xy 176.53 92.71) (xy 182.88 92.71)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0233845f-643a-473d-a54c-317e559e6e9c")
+	)
+	(wire
+		(pts
 			(xy 250.19 74.93) (xy 250.19 80.01)
 		)
 		(stroke
@@ -2972,6 +2982,16 @@
 	)
 	(wire
 		(pts
+			(xy 176.53 90.17) (xy 182.88 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "291aa38f-cd90-4353-9bf4-c532d91a4cfc")
+	)
+	(wire
+		(pts
 			(xy 125.73 82.55) (xy 130.81 82.55)
 		)
 		(stroke
@@ -2979,6 +2999,16 @@
 			(type default)
 		)
 		(uuid "2a10b7aa-83e9-437e-9728-bbf6a6c0bec7")
+	)
+	(wire
+		(pts
+			(xy 176.53 95.25) (xy 182.88 95.25)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ae4ae06-2580-4137-a513-ee5ada9d893b")
 	)
 	(wire
 		(pts
@@ -3062,16 +3092,6 @@
 	)
 	(wire
 		(pts
-			(xy 176.53 90.17) (xy 182.88 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "446ceb34-7212-4937-aabb-f56fdb57ce51")
-	)
-	(wire
-		(pts
 			(xy 176.53 105.41) (xy 182.88 105.41)
 		)
 		(stroke
@@ -3099,16 +3119,6 @@
 			(type default)
 		)
 		(uuid "4b7563f6-d560-48d6-bb11-310850c7d23f")
-	)
-	(wire
-		(pts
-			(xy 176.53 95.25) (xy 182.88 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4f008045-8efd-46a5-bca3-451ff5ebffcd")
 	)
 	(wire
 		(pts
@@ -3609,16 +3619,6 @@
 			(type default)
 		)
 		(uuid "c3129980-7e9c-4fc7-a82a-532eb1e60dea")
-	)
-	(wire
-		(pts
-			(xy 176.53 92.71) (xy 182.88 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c3724bc2-eaef-4073-99b8-aebfed7bd6bc")
 	)
 	(wire
 		(pts
@@ -4308,7 +4308,7 @@
 	)
 	(global_label "MACRO_PAD_BTN_ROW_0"
 		(shape input)
-		(at 182.88 90.17 0)
+		(at 182.88 95.25 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4318,7 +4318,7 @@
 		)
 		(uuid "79d806d7-dc58-4a2b-8d40-57f52f3ce0d9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.6042 90.17 0)
+			(at 208.6042 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4330,7 +4330,7 @@
 	)
 	(global_label "MACRO_PAD_BTN_ROW_2"
 		(shape input)
-		(at 182.88 95.25 0)
+		(at 182.88 90.17 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -4340,7 +4340,7 @@
 		)
 		(uuid "88ccafc2-9567-4de2-b59b-14eeb7536c12")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 208.6042 95.25 0)
+			(at 208.6042 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
