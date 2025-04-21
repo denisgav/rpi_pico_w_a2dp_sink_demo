@@ -22,4 +22,11 @@ set(CMAKE_CXX_STANDARD 17)
 # initialize the Pico SDK
 pico_sdk_init()
 
+# include libraries
+include(libraries_import.cmake)
+
 add_subdirectory("app/hello_world")
+add_subdirectory("app/blink")
+
+add_subdirectory("app/usb_stereo_microphone")
+add_subdirectory("app/usb_stereo_speaker")

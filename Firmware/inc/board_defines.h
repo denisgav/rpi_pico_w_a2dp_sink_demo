@@ -6,6 +6,12 @@
 #define GPIO_LED_0   26
 #define GPIO_LED_1   27
 #define GPIO_LED_2   28
+#define GPIO_LEDS \
+    {                 \
+        GPIO_LED_0,   \
+        GPIO_LED_1,   \
+        GPIO_LED_2    \
+    }
 //---------------------------------
 
 //---------------------------------
@@ -51,7 +57,7 @@
 //---------------------------------
 #define GPIO_I2S_SPK_DATA  4
 #define GPIO_I2S_SPK_SCK   5
-#define GPIO_I2S_SPK_SCL   6
+#define GPIO_I2S_SPK_WS   (GPIO_I2S_SPK_SCK + 1)
 //---------------------------------
 
 //---------------------------------
@@ -59,7 +65,7 @@
 //---------------------------------
 #define GPIO_I2S_MIC_DATA  13
 #define GPIO_I2S_MIC_SCK   14
-#define GPIO_I2S_MIC_SCL   15
+#define GPIO_I2S_MIC_WS   (GPIO_I2S_MIC_SCK + 1)
 //---------------------------------
 
 //---------------------------------
