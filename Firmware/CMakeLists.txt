@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 3.12)
+
+# initialize pico_sdk from GIT
+# (note this can come from environment, CMake cache etc)
+# set(PICO_SDK_FETCH_FROM_GIT on)
+
+# pico_sdk_import.cmake is a single file copied from this SDK
+# note: this must happen before project()
+
+# Include the subsidiary .cmake file to get the SDK
+include(pico_sdk_import.cmake)
+
+#include FreeRTOS
+include(FreeRTOS_Kernel_import.cmake)
+
+# Set the name and version of the project
+project(rpi_pico_w_a2dp_sink_demo C CXX ASM)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+
+# initialize the Pico SDK
+pico_sdk_init()
+
+add_subdirectory("app/hello_world")
