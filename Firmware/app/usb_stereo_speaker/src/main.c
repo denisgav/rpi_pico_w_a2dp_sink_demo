@@ -28,6 +28,14 @@
 
 #include <pico/stdlib.h>
 
+#if HAVE_LWIP
+#include "pico/lwip_freertos.h"
+#include "pico/cyw43_arch.h"
+#endif
+
+#include "FreeRTOS.h"
+#include "task.h"
+
 #include "usb_speaker.h"
 
 #include "main.h"
@@ -39,10 +47,19 @@
 
 #include "board_defines.h"
 
+#ifndef RUN_FREERTOS_ON_CORE
+#define RUN_FREERTOS_ON_CORE 0
+#endif
+
+#define MAIN_TASK_PRIORITY           ( tskIDLE_PRIORITY + 2UL )
+#define BLINK_TASK_PRIORITY          ( tskIDLE_PRIORITY + 0UL )
+#define STATUS_UPDATE_TASK_PRIORITY  ( tskIDLE_PRIORITY + 1UL )
+
+
 // Pointer to I2S handler
 machine_i2s_obj_t* speaker_i2s0 = NULL;
 
-speaker_settings_t speaker_settings;
+volatile speaker_settings_t speaker_settings;
 
 // Buffer for speaker data
 //i2s_32b_audio_sample spk_i2s_buffer[SAMPLE_BUFFER_SIZE];
@@ -50,8 +67,11 @@ i2s_32b_audio_sample spk_32b_i2s_buffer[SAMPLE_BUFFER_SIZE];
 i2s_16b_audio_sample spk_16b_i2s_buffer[SAMPLE_BUFFER_SIZE];
 int32_t spk_buf[CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ / 4];
 
-void led_blinking_task(void);
-void status_update_task(void);
+void led_blinking_task(__unused void *params);
+void status_update_task(__unused void *params);
+void main_task(__unused void *params);
+
+void vLaunch( void);
 
 int32_t usb_to_i2s_32b_sample_convert(int32_t sample, uint32_t volume_db);
 
@@ -87,8 +107,32 @@ void display_ssd1306_info();
 //---------------------------------------
 
 /*------------- MAIN -------------*/
-int main(void)
-{
+int main(void){
+  stdio_init_all();
+
+    /* Configure the hardware ready to run the demo. */
+    const char *rtos_name;
+#if ( configNUMBER_OF_CORES > 1 )
+    rtos_name = "FreeRTOS SMP";
+#else
+    rtos_name = "FreeRTOS";
+#endif
+
+#if ( configNUMBER_OF_CORES == 2 )
+    printf("Starting %s on both cores:\n", rtos_name);
+    vLaunch();
+#elif ( RUN_FREE_RTOS_ON_CORE == 1 )
+    printf("Starting %s on core 1:\n", rtos_name);
+    multicore_launch_core1(vLaunch);
+    while (true);
+#else
+    printf("Starting %s on core 0:\n", rtos_name);
+    vLaunch();
+#endif
+    return 0;
+}
+
+void main_task(__unused void *params) {
   speaker_settings.sample_rate  = I2S_SPK_RATE_DEF;
   speaker_settings.resolution = CFG_TUD_AUDIO_FUNC_1_FORMAT_1_RESOLUTION_RX;
   speaker_settings.blink_interval_ms = BLINK_NOT_MOUNTED;
@@ -118,14 +162,35 @@ int main(void)
       * speaker_settings.volume_db[i+1];
   }
 
-  while (1) {
-    usb_speaker_task();
+   TaskHandle_t led_blink_t;
+  xTaskCreate(led_blinking_task, "LED_BlinkingTask", 4096, NULL, BLINK_TASK_PRIORITY, &led_blink_t);
 
-    led_blinking_task();
+   TaskHandle_t status_update_t;
+  xTaskCreate(status_update_task, "StatusUpdateTask", 4096, NULL, STATUS_UPDATE_TASK_PRIORITY, &status_update_t);
 
-    status_update_task();
-
+  while (1){
+    usb_speaker_task(); // tinyusb device task
+    vTaskDelay(0);
   }
+
+#if HAVE_LWIP && !CYW43_LWIP
+    lwip_freertos_deinit(cyw43_arch_async_context());
+#endif
+}
+
+void vLaunch( void) {
+    TaskHandle_t task;
+    xTaskCreate(main_task, "MainTask", 4096, NULL, MAIN_TASK_PRIORITY, &task);
+
+#if NO_SYS && configUSE_CORE_AFFINITY && configNUMBER_OF_CORES > 1
+    // we must bind the main task to one core (well at least while the init is called)
+    // (note we only do this in NO_SYS mode, because cyw43_arch_freertos
+    // takes care of it otherwise)
+    vTaskCoreAffinitySet(task, 1);
+#endif
+
+    /* Start the tasks and timer running. */
+    vTaskStartScheduler();
 }
 
 //-------------------------
@@ -272,38 +337,29 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
 //--------------------------------------------------------------------+
 // BLINKING TASK
 //--------------------------------------------------------------------+
-void led_blinking_task(void)
-{
-  static uint32_t start_ms = 0;
-  static bool led_state = false;
+void led_blinking_task(__unused void *params){
+  bool led_state = false;
+  while(true){
+    uint32_t blink_interval_ms = speaker_settings.blink_interval_ms;
+    vTaskDelay(blink_interval_ms);
 
-  uint32_t cur_time_ms = board_millis();
-
-  // Blink every interval ms
-  if (cur_time_ms - start_ms < speaker_settings.blink_interval_ms) return;
-  start_ms += speaker_settings.blink_interval_ms;
-
-  board_led_write(led_state);
-  led_state = 1 - led_state;
+    board_led_write(led_state);
+    led_state = 1 - led_state;
+  }
 }
 
 //--------------------------------------------------------------------+
 // STATUS UPDATE TASK
 //--------------------------------------------------------------------+
-void status_update_task(void){
-  static uint32_t prev_status_update__ms = 0;
+void status_update_task(__unused void *params){
+  while(true){
+    vTaskDelay(500);
 
-  uint32_t cur_time_ms = board_millis();
+    if(speaker_settings.status_updated == true){
+      speaker_settings.status_updated = false;
 
-  // Update status 2 times per second
-  if (cur_time_ms - prev_status_update__ms < 500) 
-    return;
-
-  prev_status_update__ms = cur_time_ms;
-
-  if(speaker_settings.status_updated == true){
-    speaker_settings.status_updated = false;
-    display_ssd1306_info();
+      display_ssd1306_info();
+    }    
   }
 }
 
