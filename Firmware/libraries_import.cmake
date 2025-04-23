@@ -77,3 +77,21 @@ target_include_directories(pico_ssd1306 INTERFACE
 target_link_libraries(pico_ssd1306 INTERFACE pico_stdlib hardware_i2c)
 
 ###################################################
+
+###################################################
+# PCF8563 library
+###################################################
+
+add_library(pico_pcf8563 INTERFACE)
+
+target_sources(pico_pcf8563 INTERFACE
+    ${CMAKE_CURRENT_LIST_DIR}/src/pcf8563_i2c/pcf8563_i2c.c
+)
+
+target_include_directories(pico_pcf8563 INTERFACE
+    ${CMAKE_CURRENT_LIST_DIR}/inc
+)
+
+target_link_libraries(pico_pcf8563 INTERFACE pico_stdlib hardware_i2c)
+
+###################################################

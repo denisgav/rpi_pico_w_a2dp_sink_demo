@@ -59,7 +59,7 @@
 // Pointer to I2S handler
 machine_i2s_obj_t* speaker_i2s0 = NULL;
 
-volatile speaker_settings_t speaker_settings;
+speaker_settings_t speaker_settings;
 
 // Buffer for speaker data
 //i2s_32b_audio_sample spk_i2s_buffer[SAMPLE_BUFFER_SIZE];
