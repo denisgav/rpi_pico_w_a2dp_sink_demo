@@ -25,10 +25,14 @@ pico_sdk_init()
 # include libraries
 include(libraries_import.cmake)
 
+# Tell CMake where to find no-OS-FatFS-SD-SPI-RPi-Pico source code
+add_subdirectory(lib/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
+
 add_subdirectory("app/hello_world")
 add_subdirectory("app/blink")
 add_subdirectory("app/i2c_bus_scan")
 add_subdirectory("app/watches")
+add_subdirectory("app/sdcard_test")
 
 add_subdirectory("app/usb_stereo_microphone")
 add_subdirectory("app/usb_stereo_speaker")

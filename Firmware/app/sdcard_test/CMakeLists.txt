@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(PICO_BOARD pico)
+set(COMMON_INC_DIR "${CMAKE_CURRENT_LIST_DIR}/../../inc")
 
 add_executable(sdcard_test
-        ./sdcard_test.c
-        ./hw_config.c
+        ./src/main.c
+        ./src/hw_config.c
 )
 
 target_link_libraries(sdcard_test PRIVATE 
@@ -13,8 +13,8 @@ target_link_libraries(sdcard_test PRIVATE
 )
 
 target_include_directories(sdcard_test PRIVATE 
-        ../inc
-        ./
+        ./inc
+        ${COMMON_INC_DIR}
 )
 
 # enable usb output, disable uart output

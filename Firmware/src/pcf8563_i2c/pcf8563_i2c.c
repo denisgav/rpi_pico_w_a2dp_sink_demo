@@ -28,7 +28,7 @@ const int PCF8563_ADDR = PCF8563_ADDR_DEF;
 void pcf8563_reset(i2c_inst_t *i2c) {
     // Two byte reset. First byte register, second byte data
     // There are a load more options to set up the device in different ways that could be added here
-    uint8_t buf[] = {0x00, 0x20};
+    uint8_t buf[] = {0x00, 0x2};
     i2c_write_blocking(i2c, PCF8563_ADDR, buf, 2, false);
 }
 
