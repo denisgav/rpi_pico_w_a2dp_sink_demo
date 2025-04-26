@@ -7,8 +7,12 @@ add_executable(sdcard_test
         ./src/hw_config.c
 )
 
-target_link_libraries(sdcard_test PRIVATE 
-        pico_stdlib
+target_compile_definitions(sdcard_test INTERFACE
+    PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=1000
+)
+
+
+target_link_libraries(sdcard_test PRIVATE pico_stdlib
         FatFs_SPI
 )
 

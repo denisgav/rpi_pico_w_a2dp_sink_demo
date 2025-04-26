@@ -4268,6 +4268,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 120.65 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 120.65 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6aecc842-0646-4abc-bd8a-622ba0aff9a2")
 		)
@@ -4362,15 +4380,6 @@
 			)
 		)
 		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
-			(at 104.14 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Product Number" ""
 			(at 104.14 120.65 0)
 			(effects
 				(font
@@ -4480,24 +4489,6 @@
 			)
 		)
 		(property "Description" "60V Vds, 0.2A Id, N-Channel MOSFET, SOT-23"
-			(at 186.69 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 186.69 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 186.69 90.17 0)
 			(effects
 				(font
@@ -4623,15 +4614,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 154.94 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 154.94 120.65 0)
 			(effects
@@ -4736,6 +4718,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 146.05 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 146.05 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a26d7cc9-942d-49da-a587-46b0582eea94")
 		)
@@ -4809,24 +4809,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 264.16 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 264.16 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 264.16 80.01 0)
 			(effects
@@ -4869,7 +4851,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1770a509-aef0-406f-a504-931e83636a3f")
-		(property "Reference" "#PWR58"
+		(property "Reference" "#PWR058"
 			(at 184.15 104.14 0)
 			(effects
 				(font
@@ -4919,7 +4901,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR58")
+					(reference "#PWR058")
 					(unit 1)
 				)
 			)
@@ -4998,15 +4980,6 @@
 			)
 		)
 		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
-			(at 104.14 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Product Number" ""
 			(at 104.14 69.85 0)
 			(effects
 				(font
@@ -5147,15 +5120,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 154.94 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 154.94 69.85 0)
 			(effects
@@ -5271,16 +5235,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 44.45 134.62 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 44.45 134.62 0)
 			(effects
 				(font
@@ -5375,24 +5330,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 217.17 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 217.17 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 217.17 66.04 0)
 			(effects
 				(font
@@ -5507,15 +5444,6 @@
 			)
 		)
 		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
-			(at 129.54 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Product Number" ""
 			(at 129.54 120.65 0)
 			(effects
 				(font
@@ -5656,15 +5584,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 154.94 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 154.94 95.25 0)
 			(effects
@@ -5726,7 +5645,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4336549b-5c2b-4c96-b976-b212898073ae")
-		(property "Reference" "#PWR61"
+		(property "Reference" "#PWR061"
 			(at 250.19 64.77 0)
 			(effects
 				(font
@@ -5776,7 +5695,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR61")
+					(reference "#PWR061")
 					(unit 1)
 				)
 			)
@@ -5827,6 +5746,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 95.25 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 95.25 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 95.25 110.49 0)
 			(effects
 				(font
@@ -5909,6 +5846,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 69.85 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 69.85 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "3d0b18cd-6361-4844-b73d-c6ea2f765bc8")
 		)
@@ -5940,7 +5895,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e1d34c5-76e1-423c-b437-c6c2f47d0bf3")
-		(property "Reference" "#PWR56"
+		(property "Reference" "#PWR056"
 			(at 44.45 147.32 0)
 			(effects
 				(font
@@ -5990,7 +5945,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR56")
+					(reference "#PWR056")
 					(unit 1)
 				)
 			)
@@ -6161,6 +6116,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 120.65 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 120.65 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9d2828db-2405-43e1-9c36-2c3f269c2967")
 		)
@@ -6226,24 +6199,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 184.15 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 184.15 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 184.15 66.04 0)
 			(effects
 				(font
@@ -6449,24 +6404,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 198.12 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 198.12 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 198.12 80.01 0)
 			(effects
@@ -6510,7 +6447,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "72ebf1ad-18be-461f-871a-0321d43fce4d")
-		(property "Reference" "#PWR59"
+		(property "Reference" "#PWR059"
 			(at 217.17 64.77 0)
 			(effects
 				(font
@@ -6560,7 +6497,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR59")
+					(reference "#PWR059")
 					(unit 1)
 				)
 			)
@@ -6612,6 +6549,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 69.85 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 69.85 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 69.85 59.69 0)
 			(effects
 				(font
@@ -6705,16 +6660,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 44.45 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 44.45 109.22 0)
 			(effects
 				(font
@@ -6774,7 +6720,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "999808b5-83d2-4f93-a986-56b5bde9b03b")
-		(property "Reference" "#PWR62"
+		(property "Reference" "#PWR062"
 			(at 250.19 104.14 0)
 			(effects
 				(font
@@ -6824,7 +6770,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR62")
+					(reference "#PWR062")
 					(unit 1)
 				)
 			)
@@ -6877,24 +6823,6 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 184.15 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 184.15 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 184.15 77.47 0)
 			(effects
 				(font
@@ -7324,24 +7252,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 250.19 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 250.19 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
 			(at 250.19 66.04 0)
 			(effects
@@ -7456,15 +7366,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 129.54 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 129.54 95.25 0)
 			(effects
@@ -7560,24 +7461,6 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 231.14 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 231.14 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 231.14 80.01 0)
 			(effects
 				(font
@@ -7700,15 +7583,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 104.14 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 104.14 95.25 0)
 			(effects
@@ -7769,7 +7643,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bfddc75b-4df5-4e4d-91d7-938b69da2b8a")
-		(property "Reference" "#PWR60"
+		(property "Reference" "#PWR060"
 			(at 217.17 104.14 0)
 			(effects
 				(font
@@ -7819,7 +7693,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR60")
+					(reference "#PWR060")
 					(unit 1)
 				)
 			)
@@ -7871,6 +7745,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 120.65 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 120.65 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 120.65 59.69 0)
 			(effects
 				(font
@@ -7981,15 +7873,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 78.74 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 78.74 95.25 0)
 			(effects
@@ -8088,24 +7971,6 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 250.19 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 250.19 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 250.19 77.47 0)
 			(effects
 				(font
@@ -8228,15 +8093,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 78.74 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 78.74 69.85 0)
 			(effects
@@ -8298,7 +8154,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c7502474-9f83-48c8-aae5-dac40767616f")
-		(property "Reference" "#PWR51"
+		(property "Reference" "#PWR051"
 			(at 44.45 96.52 0)
 			(effects
 				(font
@@ -8348,7 +8204,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR51")
+					(reference "#PWR051")
 					(unit 1)
 				)
 			)
@@ -8409,24 +8265,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 217.17 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 217.17 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "XINGLIGHT"
 			(at 217.17 77.47 0)
 			(effects
@@ -8470,7 +8308,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d19f69ed-ab26-4f60-ae4a-70151305bbd7")
-		(property "Reference" "#PWR53"
+		(property "Reference" "#PWR053"
 			(at 44.45 121.92 0)
 			(effects
 				(font
@@ -8520,7 +8358,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR53")
+					(reference "#PWR053")
 					(unit 1)
 				)
 			)
@@ -8571,6 +8409,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 146.05 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 146.05 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 146.05 85.09 0)
 			(effects
 				(font
@@ -8664,16 +8520,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 44.45 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 44.45 83.82 0)
 			(effects
 				(font
@@ -8894,24 +8741,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 219.71 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 219.71 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer" "TOSHIBA"
 			(at 219.71 90.17 0)
 			(effects
@@ -9001,6 +8830,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 69.85 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 69.85 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "252bbd7d-a2c3-4dee-835b-6a0472738c1b")
 		)
@@ -9067,6 +8914,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 95.25 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 95.25 85.09 0)
 			(effects
 				(font
@@ -9150,6 +9015,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer" "SM Switch"
+			(at 95.25 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
+			(at 95.25 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c8337140-50cb-40ee-ae39-f565a1116869")
 		)
@@ -9221,24 +9104,6 @@
 			)
 		)
 		(property "Description" "60V Vds, 0.2A Id, N-Channel MOSFET, SOT-23"
-			(at 252.73 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" ""
-			(at 252.73 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
 			(at 252.73 90.17 0)
 			(effects
 				(font
@@ -9356,15 +9221,6 @@
 			)
 		)
 		(property "Manufacturer" "Jiangsu Changjing Electronics Technology Co., Ltd."
-			(at 78.74 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer Product Number" ""
 			(at 78.74 120.65 0)
 			(effects
 				(font
@@ -9505,15 +9361,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Product Number" ""
-			(at 129.54 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "Manufacturer Part Number" "1N4148W"
 			(at 129.54 69.85 0)
 			(effects
@@ -9611,6 +9458,24 @@
 			)
 		)
 		(property "Description" ""
+			(at 146.05 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "SM Switch"
+			(at 146.05 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "SMG-01-H080A1"
 			(at 146.05 59.69 0)
 			(effects
 				(font
@@ -9762,7 +9627,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f7dd7cdd-fcce-4ba7-81e5-9106bfc97fca")
-		(property "Reference" "#PWR57"
+		(property "Reference" "#PWR057"
 			(at 184.15 64.77 0)
 			(effects
 				(font
@@ -9812,7 +9677,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/f798aac7-9790-40a6-b797-618436fbb00c"
-					(reference "#PWR57")
+					(reference "#PWR057")
 					(unit 1)
 				)
 			)

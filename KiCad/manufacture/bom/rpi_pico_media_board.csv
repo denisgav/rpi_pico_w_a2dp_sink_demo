@@ -1,0 +1,37 @@
+Reference,Value,Datasheet,Footprint,Qty,DNP,Manufacturer,Manufacturer Part Number
+BT600,Battery_Cell,~,rpi_pico_media_board:CR12202,1,,Q&J,CR1220-2
+"C100,C101",1uF,~,Capacitor_SMD:C_0603_1608Metric,2,,Samsung Electro-Mechanics,CL10A105KB8NNNC
+"C102,C105,C106,C107,C108,C109,C110",22uF,~,Capacitor_SMD:C_1206_3216Metric,7,,Samwha Capacitor,CS3216X5R226M160NRI
+C103,4u7F,~,Capacitor_SMD:C_0603_1608Metric,1,,Samsung Electro-Mechanics,CL10A475KP8NNNC
+C104,22pF,~,Capacitor_SMD:C_0603_1608Metric,1,,Samsung Electro-Mechanics,CL10C220JB8NNNC
+"C300,C301",2.2uF,~,Capacitor_SMD:C_0603_1608Metric,2,,Samsung Electro-Mechanics,CL10A225KA8NNNC
+"C302,C304,C306,C308,C401,C500,C501,C502,C601",100nF,~,Capacitor_SMD:C_0603_1608Metric,9,,Samsung Electro-Mechanics,CL10B104KA8NNNC
+"C303,C305,C307,C309","T,10uF",~,Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A,4,,Kyocera AVX,TAJA106K016RNJ
+"C310,C311",2.2nF,~,Capacitor_SMD:C_0603_1608Metric,2,,Samsung Electro-Mechanics,CL10B222KB8NNNC
+"C400,C600",10uF,~,Capacitor_SMD:C_0603_1608Metric,2,,Samsung Electro-Mechanics,CL10A106KP8NNNC
+C602,15pF,~,Capacitor_SMD:C_0603_1608Metric,1,,Samsung Electro-Mechanics,CL10C150JB8NNNC
+"D4,D201,D202,D203,D205,D206,D400,D401,D402,D403,D404,D405","PESD3V3L1BA,115",~,Diode_SMD:D_SOD-323,12,,Nexperia,"PESD3V3L1BA,115"
+"D100,D200","PMEG1030EJ,115",https://assets.nexperia.com/documents/data-sheet/PMEG1030EH_EJ.pdf,Diode_SMD:D_SOD-323F,2,,Nexperia,"PMEG1030EJ,115"
+"D101,D512,D513,D514",LED,~,LED_SMD:LED_0603_1608Metric,4,,XINGLIGHT,XL-1608SURC-06
+"D500,D501,D502,D503,D504,D505,D506,D507,D508,D509,D510,D511,D600,D601",1N4148,~,Diode_SMD:D_SOD-123,14,,"Jiangsu Changjing Electronics Technology Co., Ltd.",1N4148W
+J100,Barrel_Jack_Switch_Pin3Ring,https://www.lcsc.com/datasheet/lcsc_datasheet_2501101719_SHOU-HAN-DC005_C431533.pdf,Connector_BarrelJack:BarrelJack_GCT_DCJ200-10-A_Horizontal,1,,SHOU HAN,DC005
+J300,AudioJack3_Ground_SwitchTR,~,rpi_pico_media_board:AudioJack_3.5mm_PJ311,1,,SHOU HAN,PJ-342
+J400,TF-01A,https://datasheet.lcsc.com/szlcsc/1903221101_Korean-Hroparts-Elec-TF-01A_C91145.pdf,rpi_pico_media_board:TF01A,1,,Korean Hroparts Elec,TF-01A
+L100,10nH,~,Inductor_SMD:L_0603_1608Metric,1,,Murata Electronics,LQW18AN10NG10D
+L101,2u2H,~,Inductor_SMD:L_1008_2520Metric,1,,Murata Electronics,DFE252012F-2R2M=P2
+PS100,SY8003ADFC,https://datasheet.lcsc.com/lcsc/1808011444_Silergy-Corp-SY8003ADFC_C178236.pdf,rpi_pico_media_board_power:SON50P200X200X65-9N,1,,Silergy Corp,SY8003ADFC
+"Q100,Q500,Q501,Q502",T2N7002AK,https://toshiba.semicon-storage.com/info/docget.jsp?did=29712&prodName=T2N7002AK,Package_TO_SOT_SMD:SOT-23,4,,TOSHIBA,"T2N7002AK,LM"
+"R100,R101,R108,R508,R510,R512",12kR,~,Resistor_SMD:R_0603_1608Metric,6,,UNI-ROYAL(Uniroyal Elec),0603WAF1202T5E
+"R102,R104",100kR,~,Resistor_SMD:R_0603_1608Metric,2,,UNI-ROYAL(Uniroyal Elec),0603WAF1003T5E
+R103,453kR,~,Resistor_SMD:R_0603_1608Metric,1,,UNI-ROYAL(Uniroyal Elec),0603WAF4533T5E
+"R105,R106",10R,~,Resistor_SMD:R_0805_2012Metric,2,,UNI-ROYAL(Uniroyal Elec),0805W8F100JT5E
+"R107,R507,R509,R511",510R,~,Resistor_SMD:R_0603_1608Metric,4,,UNI-ROYAL(Uniroyal Elec),0603WAF5100T5E
+"R300,R301,R302,R303,R304,R305,R306,R307,R500,R501,R502,R503",22R,~,Resistor_SMD:R_0603_1608Metric,12,,UNI-ROYAL(Uniroyal Elec),0603WAF220JT5E
+"R308,R309",470R,~,Resistor_SMD:R_0805_2012Metric,2,,Viking Tech,ARG05FTC4700
+"R400,R401,R402,R403,R404",47kR,~,Resistor_SMD:R_0603_1608Metric,5,,UNI-ROYAL(Uniroyal Elec),0603WAJ0473T5E
+"R504,R505,R506",0R,~,Resistor_SMD:R_0603_1608Metric,3,,UNI-ROYAL(Uniroyal Elec),0603WAF0000T5E
+"R600,R601",5k1R,~,Resistor_SMD:R_0805_2012Metric,2,,UNI-ROYAL(Uniroyal Elec),0805W8F5101T5E
+"U100,U101",HT7533-1,https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf,Package_TO_SOT_SMD:SOT-89-3,2,,Holtek Semicon,HT7533-1
+"U500,U501,U502,U503,U504,U505,U506,U507,U508,U509,U510,U511",SW,,rpi_pico_media_board:SW_PUSH_6mm_H5mm,12,,SM Switch,SMG-01-H080A1
+U600,PCF8563TS,https://www.nxp.com/docs/en/data-sheet/PCF8563.pdf,Package_SO:MSOP-8_3x3mm_P0.65mm,1,,NXP Semicon,"PCF8563TS/5,118"
+Y600,32768Hz,~,Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm,1,,YXC Crystal Oscillators,OK2EL89CJI-111YLC-32.768K

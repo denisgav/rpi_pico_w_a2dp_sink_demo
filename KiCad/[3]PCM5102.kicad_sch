@@ -3172,7 +3172,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 143.51 85.09 0)
 			(effects
 				(font
@@ -3459,7 +3459,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "27d29faa-45e9-4e9c-b29e-5deac3ab45b0")
-		(property "Reference" "#PWR18"
+		(property "Reference" "#PWR018"
 			(at 87.63 168.91 0)
 			(effects
 				(font
@@ -3509,7 +3509,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR18")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -3640,7 +3640,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "29995f1c-b3db-42cd-85d9-6e5f7ff0f2fc")
-		(property "Reference" "#PWR19"
+		(property "Reference" "#PWR019"
 			(at 80.01 91.44 0)
 			(effects
 				(font
@@ -3690,7 +3690,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR19")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -3759,7 +3759,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 179.07 46.99 0)
 			(effects
 				(font
@@ -3819,7 +3819,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2c8ca8d2-fea9-46a5-86d0-4d0484229e81")
-		(property "Reference" "#PWR30"
+		(property "Reference" "#PWR030"
 			(at 187.96 83.82 0)
 			(effects
 				(font
@@ -3869,7 +3869,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR30")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -3885,7 +3885,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2fd5508c-8e86-494c-8bec-393c9f4b4e14")
-		(property "Reference" "#PWR15"
+		(property "Reference" "#PWR015"
 			(at 68.58 78.74 0)
 			(effects
 				(font
@@ -3935,7 +3935,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR15")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -3950,7 +3950,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "488219e6-f9b1-47ae-8945-57e136be39c1")
-		(property "Reference" "#PWR28"
+		(property "Reference" "#PWR028"
 			(at 187.96 64.77 0)
 			(effects
 				(font
@@ -4000,7 +4000,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR28")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -4015,7 +4015,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4b5dcdba-b28e-4d69-8fb9-547b88e067d8")
-		(property "Reference" "#PWR26"
+		(property "Reference" "#PWR026"
 			(at 187.96 45.72 0)
 			(effects
 				(font
@@ -4065,7 +4065,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR26")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -4196,7 +4196,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "69b04055-2235-4c47-b9cc-bf78902dfae9")
-		(property "Reference" "#PWR24"
+		(property "Reference" "#PWR024"
 			(at 168.91 138.43 0)
 			(effects
 				(font
@@ -4246,7 +4246,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR24")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -4262,7 +4262,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6aecc4f5-8fd2-451c-8e75-5965c27c2cb5")
-		(property "Reference" "#PWR22"
+		(property "Reference" "#PWR022"
 			(at 152.4 97.79 0)
 			(effects
 				(font
@@ -4312,7 +4312,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR22")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -4329,7 +4329,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6c2eb27d-1c5e-47b2-a4aa-da58e08c4121")
-		(property "Reference" "#PWR25"
+		(property "Reference" "#PWR025"
 			(at 180.34 146.05 0)
 			(effects
 				(font
@@ -4379,7 +4379,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR25")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -4675,7 +4675,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 179.07 66.04 0)
 			(effects
 				(font
@@ -4901,7 +4901,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 179.07 85.09 0)
 			(effects
 				(font
@@ -5074,7 +5074,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "996a9245-f0ed-41c8-9212-68272075d600")
-		(property "Reference" "#PWR17"
+		(property "Reference" "#PWR017"
 			(at 87.63 138.43 0)
 			(effects
 				(font
@@ -5124,7 +5124,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR17")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -5364,7 +5364,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a4c1888c-a0cc-40f9-8994-8b386d6e4daa")
-		(property "Reference" "#PWR20"
+		(property "Reference" "#PWR020"
 			(at 115.57 97.79 0)
 			(effects
 				(font
@@ -5414,7 +5414,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR20")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -5473,7 +5473,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "SHOU HAN"
 			(at 156.21 128.27 0)
 			(effects
 				(font
@@ -5501,6 +5501,15 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 156.21 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer Part Number" "PJ-342"
 			(at 156.21 128.27 0)
 			(effects
 				(font
@@ -5600,7 +5609,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "PCM5102APWR"
+		(property "Manufacturer Part Number" "PCM5102AQPWRQ1"
 			(at 115.57 68.58 0)
 			(effects
 				(font
@@ -5714,7 +5723,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ae07f0ab-8c5b-4636-8d2e-80b65199337a")
-		(property "Reference" "#PWR16"
+		(property "Reference" "#PWR016"
 			(at 74.93 77.47 0)
 			(effects
 				(font
@@ -5764,7 +5773,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR16")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -6008,7 +6017,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "c173bf86-d0e3-4ac9-8353-074aadddbd0e")
-		(property "Reference" "#PWR31"
+		(property "Reference" "#PWR031"
 			(at 187.96 97.79 0)
 			(effects
 				(font
@@ -6058,7 +6067,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR31")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -6073,7 +6082,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d0866539-2101-41f7-bdc5-e96a0c34eb03")
-		(property "Reference" "#PWR29"
+		(property "Reference" "#PWR029"
 			(at 187.96 78.74 0)
 			(effects
 				(font
@@ -6123,7 +6132,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR29")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -6138,7 +6147,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "d37f2bd7-086b-46d9-bdc3-62a2bf77e0c4")
-		(property "Reference" "#PWR27"
+		(property "Reference" "#PWR027"
 			(at 187.96 59.69 0)
 			(effects
 				(font
@@ -6188,7 +6197,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR27")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -6427,7 +6436,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e7a0181e-1273-43be-b570-75eef89531cb")
 		(property "Reference" "J301"
@@ -6531,7 +6540,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ed83a374-c0ad-4dc2-9679-a38b5ec197d0")
-		(property "Reference" "#PWR23"
+		(property "Reference" "#PWR023"
 			(at 156.21 149.86 0)
 			(effects
 				(font
@@ -6581,7 +6590,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR23")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -6823,7 +6832,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fc88fe40-a414-4bf1-87a3-201836f74fdf")
-		(property "Reference" "#PWR21"
+		(property "Reference" "#PWR021"
 			(at 134.62 97.79 0)
 			(effects
 				(font
@@ -6873,7 +6882,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/373bacf3-831c-41f0-9f95-7ac0a975261a"
-					(reference "#PWR21")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)

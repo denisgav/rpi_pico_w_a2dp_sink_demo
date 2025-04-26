@@ -2206,7 +2206,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0099b782-c5c0-468a-9cce-b13f7cfeca05")
-		(property "Reference" "#PWR37"
+		(property "Reference" "#PWR037"
 			(at 167.64 68.58 0)
 			(effects
 				(font
@@ -2256,7 +2256,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR37")
+					(reference "#PWR037")
 					(unit 1)
 				)
 			)
@@ -2273,7 +2273,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0ea931ae-08fd-4c48-a632-af7e17599627")
-		(property "Reference" "#PWR38"
+		(property "Reference" "#PWR038"
 			(at 179.07 113.03 0)
 			(effects
 				(font
@@ -2323,7 +2323,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR38")
+					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -2339,7 +2339,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "25959a82-cfc3-4b35-9258-3354f3839d1e")
-		(property "Reference" "#PWR36"
+		(property "Reference" "#PWR036"
 			(at 154.94 50.8 0)
 			(effects
 				(font
@@ -2389,7 +2389,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR36")
+					(reference "#PWR036")
 					(unit 1)
 				)
 			)
@@ -2406,7 +2406,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2adcd637-cae2-4ca4-91de-f32cecef81af")
-		(property "Reference" "#PWR39"
+		(property "Reference" "#PWR039"
 			(at 195.58 99.06 0)
 			(effects
 				(font
@@ -2456,7 +2456,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR39")
+					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -2983,7 +2983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer Part Number" "CL10B104KB8NNNC"
+		(property "Manufacturer Part Number" "CL10B104KA8NNNC"
 			(at 167.64 54.61 0)
 			(effects
 				(font
@@ -3215,46 +3215,6 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
-			(at 189.23 569.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" ""
-			(at 189.23 669.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" ""
-			(at 189.23 769.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" ""
-			(at 189.23 869.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-				(hide yes)
-			)
-		)
 		(property "Arrow Part Number" ""
 			(at 189.23 969.85 0)
 			(effects
@@ -3351,7 +3311,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "70357803-0d75-474e-a296-419102ef65c4")
-		(property "Reference" "#PWR34"
+		(property "Reference" "#PWR034"
 			(at 101.6 68.58 0)
 			(effects
 				(font
@@ -3401,7 +3361,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR34")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -3646,7 +3606,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bf991b92-2255-4b1c-9927-8bb136f78b4d")
-		(property "Reference" "#PWR35"
+		(property "Reference" "#PWR035"
 			(at 101.6 119.38 0)
 			(effects
 				(font
@@ -3696,7 +3656,7 @@
 		(instances
 			(project "rpi_pico_media_board"
 				(path "/883c739e-d2a5-4bc8-a050-29a6043b4072/900388d4-7c2a-4794-9944-89b7c592f5cc"
-					(reference "#PWR35")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
