@@ -95,3 +95,30 @@ target_include_directories(pico_pcf8563 INTERFACE
 target_link_libraries(pico_pcf8563 INTERFACE pico_stdlib hardware_i2c)
 
 ###################################################
+
+###################################################
+# Keypad library
+###################################################
+
+add_library(pico_keypad INTERFACE)
+
+target_compile_definitions(pico_keypad INTERFACE
+    CYW43_TASK_STACK_SIZE=4096
+    NO_SYS=0
+    PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=1000
+)
+
+target_sources(pico_keypad INTERFACE
+    ${CMAKE_CURRENT_LIST_DIR}/src/keypad.c
+)
+
+target_include_directories(pico_keypad INTERFACE
+    ${FREERTOS_KERNEL_PATH}/include/
+    ${FREERTOS_KERNEL_PATH}/portable/ThirdParty/GCC/RP2040/include/
+    ${CMAKE_CURRENT_LIST_DIR}/inc/config
+    ${CMAKE_CURRENT_LIST_DIR}/inc
+)
+
+target_link_libraries(pico_keypad INTERFACE pico_stdlib)
+
+###################################################

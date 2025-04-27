@@ -107,6 +107,8 @@ void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolut
 void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval_ms_in);
 
 void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting);
+
+uint32_t num_of_mic_samples;
 void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting);
 void usb_headset_tx_post_load(uint8_t rhport, uint16_t n_bytes_copied, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting);
 uint32_t get_num_of_mic_samples();
@@ -122,6 +124,8 @@ void display_ssd1306_info();
 /*------------- MAIN -------------*/
 int main(void){
   stdio_init_all();
+
+  num_of_mic_samples = 0;
 
     /* Configure the hardware ready to run the demo. */
     const char *rtos_name;
@@ -360,7 +364,6 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
   //return (int16_t)sample;
 }
 
-uint32_t num_of_mic_samples;
 void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, 
   uint8_t ep_in, uint8_t cur_alt_setting){
   if(headset_settings.mic_resolution == 24){

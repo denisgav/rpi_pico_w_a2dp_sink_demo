@@ -108,4 +108,30 @@
         GPIO_BUTTON_ROW_2    \
     }
 
+#define NUM_OF_KEYPAD_BUTTONS (NUM_OF_GPIO_BUTTON_COLS * NUM_OF_GPIO_BUTTON_ROWS)
+
+typedef enum {
+    KEYPAD_BTN_0_0 = 0,
+    KEYPAD_BTN_0_1,
+    KEYPAD_BTN_0_2,
+    KEYPAD_BTN_0_3,
+
+    KEYPAD_BTN_1_0,
+    KEYPAD_BTN_1_1,
+    KEYPAD_BTN_1_2,
+    KEYPAD_BTN_1_3,
+
+    KEYPAD_BTN_2_0,
+    KEYPAD_BTN_2_1,
+    KEYPAD_BTN_2_2,
+    KEYPAD_BTN_2_3,
+} KeypadCode_e;
+
+typedef enum {
+    KEYPAD_EDGE_RISE = 1,
+    KEYPAD_EDGE_FALL
+} KeypadEvent_e;
+
+#define GET_KEYPAD_BUTTON_CODE(col_idx, row_idx) ((KeypadCode_e)(row_idx*NUM_OF_GPIO_BUTTON_COLS + col_idx))
+
 //---------------------------------

@@ -33,6 +33,7 @@ add_subdirectory("app/blink")
 add_subdirectory("app/i2c_bus_scan")
 add_subdirectory("app/watches")
 add_subdirectory("app/sdcard_test")
+add_subdirectory("app/keypad_test")
 
 add_subdirectory("app/usb_stereo_microphone")
 add_subdirectory("app/usb_stereo_speaker")
