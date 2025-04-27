@@ -46,10 +46,15 @@
 #define STATUS_UPDATE_TASK_PRIORITY  ( tskIDLE_PRIORITY + 1UL )
 //-----------------------------
 
+#include "bsp/board_api.h"
+#include "tusb.h"
+
 #include "main.h"
 #include "board_defines.h"
 
-#include "usb_speaker.h"
+#include "usb_descriptors.h"
+#include "usb_headset_settings.h"
+#include "usb_headset.h"
 
 #include "i2s/machine_i2s.h"
 #include "volume_ctrl.h"
@@ -60,7 +65,7 @@
 // Pointer to I2S handler
 machine_i2s_obj_t* speaker_i2s0 = NULL;
 
-speaker_settings_t speaker_settings;
+usb_headset_settings_t headset_settings;
 
 // Buffer for speaker data
 //i2s_32b_audio_sample spk_i2s_buffer[SAMPLE_BUFFER_SIZE];
@@ -80,23 +85,23 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db);
 
 void refresh_i2s_connections()
 {
-  speaker_settings.samples_in_i2s_frame_min = (speaker_settings.sample_rate)    /1000;
-  speaker_settings.samples_in_i2s_frame_max = (speaker_settings.sample_rate+999)/1000;
+  headset_settings.samples_in_i2s_frame_min = (headset_settings.spk_sample_rate)    /1000;
+  headset_settings.samples_in_i2s_frame_max = (headset_settings.spk_sample_rate+999)/1000;
 
   speaker_i2s0 = create_machine_i2s(0, GPIO_I2S_SPK_SCK, GPIO_I2S_SPK_WS, GPIO_I2S_SPK_DATA, TX, 
-    ((speaker_settings.resolution == 16) ? 16 : 32), /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, speaker_settings.sample_rate);
+    ((headset_settings.spk_resolution == 16) ? 16 : 32), /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, headset_settings.spk_sample_rate);
   
-  // update_pio_frequency(speaker_i2s0, speaker_settings.usb_sample_rate);
+  // update_pio_frequency(speaker_i2s0, headset_settings.usb_sample_rate);
 }
 
 
-void usb_speaker_mute_handler(int8_t bChannelNumber, int8_t mute_in);
-void usb_speaker_volume_handler(int8_t bChannelNumber, int16_t volume_in);
-void usb_speaker_current_sample_rate_handler(uint32_t current_sample_rate_in);
-void usb_speaker_current_resolution_handler(uint8_t current_resolution_in);
-void usb_speaker_current_status_set_handler(uint32_t blink_interval_ms_in);
+void usb_headset_mute_handler(int8_t bChannelNumber, int8_t mute_in);
+void usb_headset_volume_handler(int8_t bChannelNumber, int16_t volume_in);
+void usb_headset_current_sample_rate_handler(uint32_t current_sample_rate_in);
+void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolution_in);
+void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval_ms_in);
 
-void usb_speaker_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting);
+void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting);
 
 
 //---------------------------------------
@@ -134,33 +139,36 @@ int main(void){
 }
 
 void main_task(__unused void *params) {
-  speaker_settings.sample_rate  = I2S_SPK_RATE_DEF;
-  speaker_settings.resolution = CFG_TUD_AUDIO_FUNC_1_FORMAT_1_RESOLUTION_RX;
-  speaker_settings.blink_interval_ms = BLINK_NOT_MOUNTED;
-  speaker_settings.status_updated = false;
+  headset_settings.spk_sample_rate  = I2S_SPK_RATE_DEF;
+  headset_settings.spk_resolution = CFG_TUD_AUDIO_FUNC_1_FORMAT_1_RESOLUTION_RX;
+  headset_settings.spk_blink_interval_ms = BLINK_NOT_MOUNTED;
+
+  headset_settings.mic_resolution = CFG_TUD_AUDIO_FUNC_1_FORMAT_1_RESOLUTION_TX;
+  headset_settings.mic_blink_interval_ms = BLINK_NOT_MOUNTED;
+  headset_settings.status_updated = false;
 
   setup_ssd1306();
 
-  usb_speaker_set_mute_set_handler(usb_speaker_mute_handler);
-  usb_speaker_set_volume_set_handler(usb_speaker_volume_handler);
-  usb_speaker_set_current_sample_rate_set_handler(usb_speaker_current_sample_rate_handler);
-  usb_speaker_set_current_resolution_set_handler(usb_speaker_current_resolution_handler);
-  usb_speaker_set_current_status_set_handler(usb_speaker_current_status_set_handler);
+  usb_headset_set_mute_set_handler(                     usb_headset_mute_handler);
+  usb_headset_set_volume_set_handler(                   usb_headset_volume_handler);
+  usb_headset_set_current_sample_rate_set_handler(      usb_headset_current_sample_rate_handler);
+  usb_headset_set_current_resolution_set_handler(       usb_headset_current_resolution_handler);
+  usb_headset_set_current_status_set_handler(           usb_headset_current_status_set_handler);
 
-  usb_speaker_set_tud_audio_rx_done_pre_read_set_handler(usb_speaker_tud_audio_rx_done_pre_read_handler);
+  usb_headset_set_tud_audio_rx_done_pre_read_set_handler(usb_headset_tud_audio_rx_done_pre_read_handler);
   
-  usb_speaker_init();
+  usb_headset_init();
   refresh_i2s_connections();
 
   for(int i=0; i<(CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_RX + 1); i++) {
-    speaker_settings.volume[i] = DEFAULT_VOLUME;
-    speaker_settings.mute[i] = 0;
-    speaker_settings.volume_db[i] = vol_to_db_convert_enc(speaker_settings.mute[i], speaker_settings.volume[i]);
+    headset_settings.spk_volume[i] = DEFAULT_VOLUME;
+    headset_settings.spk_mute[i] = 0;
+    headset_settings.spk_volume_db[i] = vol_to_db_convert_enc(headset_settings.spk_mute[i], headset_settings.spk_volume[i]);
   }
 
   for(int i=0; i<(CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_RX); i++) {
-    speaker_settings.volume_mul_db[i] = speaker_settings.volume_db[0]
-      * speaker_settings.volume_db[i+1];
+    headset_settings.spk_volume_mul_db[i] = headset_settings.spk_volume_db[0]
+      * headset_settings.spk_volume_db[i+1];
   }
 
    TaskHandle_t led_blink_t;
@@ -170,7 +178,7 @@ void main_task(__unused void *params) {
   xTaskCreate(status_update_task, "StatusUpdateTask", 4096, NULL, STATUS_UPDATE_TASK_PRIORITY, &status_update_t);
 
   while (1){
-    usb_speaker_task(); // tinyusb device task
+    usb_headset_task(); // tinyusb device task
     vTaskDelay(0);
   }
 
@@ -221,68 +229,74 @@ void setup_ssd1306(){
 //-------------------------
 
 
-void usb_speaker_mute_handler(int8_t bChannelNumber, int8_t mute_in)
+void usb_headset_mute_handler(int8_t bChannelNumber, int8_t mute_in)
 {
-  speaker_settings.mute[bChannelNumber] = mute_in;
-  speaker_settings.volume_db[bChannelNumber] = vol_to_db_convert_enc(speaker_settings.mute[bChannelNumber], speaker_settings.volume[bChannelNumber]);
+  headset_settings.spk_mute[bChannelNumber] = mute_in;
+  headset_settings.spk_volume_db[bChannelNumber] = vol_to_db_convert_enc(headset_settings.spk_mute[bChannelNumber], headset_settings.spk_volume[bChannelNumber]);
 
   for(int i=0; i<(CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_RX); i++) {
-    speaker_settings.volume_mul_db[i] = speaker_settings.volume_db[0]
-      * speaker_settings.volume_db[i+1];
+    headset_settings.spk_volume_mul_db[i] = headset_settings.spk_volume_db[0]
+      * headset_settings.spk_volume_db[i+1];
   }
 
-  speaker_settings.status_updated = true;
+  headset_settings.status_updated = true;
 }
 
-void usb_speaker_volume_handler(int8_t bChannelNumber, int16_t volume_in)
+void usb_headset_volume_handler(int8_t bChannelNumber, int16_t volume_in)
 {
-  speaker_settings.volume[bChannelNumber] = volume_in;
-  speaker_settings.volume_db[bChannelNumber] = vol_to_db_convert_enc(speaker_settings.mute[bChannelNumber], speaker_settings.volume[bChannelNumber]);
+  headset_settings.spk_volume[bChannelNumber] = volume_in;
+  headset_settings.spk_volume_db[bChannelNumber] = vol_to_db_convert_enc(headset_settings.spk_mute[bChannelNumber], headset_settings.spk_volume[bChannelNumber]);
 
   for(int i=0; i<(CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_RX); i++) {
-    speaker_settings.volume_mul_db[i] = speaker_settings.volume_db[0]
-      * speaker_settings.volume_db[i+1];
+    headset_settings.spk_volume_mul_db[i] = headset_settings.spk_volume_db[0]
+      * headset_settings.spk_volume_db[i+1];
   }
 
-  speaker_settings.status_updated = true;
+  headset_settings.status_updated = true;
 }
 
-void usb_speaker_current_sample_rate_handler(uint32_t current_sample_rate_in)
+void usb_headset_current_sample_rate_handler(uint32_t current_sample_rate_in)
 {
-  speaker_settings.sample_rate = current_sample_rate_in;
+  headset_settings.spk_sample_rate = current_sample_rate_in;
   refresh_i2s_connections();
-  speaker_settings.status_updated = true;
+  headset_settings.status_updated = true;
 }
 
-void usb_speaker_current_resolution_handler(uint8_t current_resolution_in)
+void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolution_in)
 {
-  speaker_settings.resolution = current_resolution_in;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_SPK))
+    headset_settings.spk_resolution = current_resolution_in;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
+    headset_settings.mic_resolution = current_resolution_in;
   refresh_i2s_connections();
-  speaker_settings.status_updated = true;
+  headset_settings.status_updated = true;
 }
 
-void usb_speaker_current_status_set_handler(uint32_t blink_interval_ms_in)
+void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval_ms_in)
 {
-  speaker_settings.blink_interval_ms = blink_interval_ms_in;
-  speaker_settings.status_updated = true;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_SPK))
+    headset_settings.spk_blink_interval_ms = blink_interval_ms_in;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
+    headset_settings.mic_blink_interval_ms = blink_interval_ms_in;
+  headset_settings.status_updated = true;
 }
 
-void usb_speaker_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting)
+void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting)
 {
-  uint32_t volume_db_left = speaker_settings.volume_mul_db[0];
-  uint32_t volume_db_right = speaker_settings.volume_mul_db[1];
+  uint32_t volume_db_left = headset_settings.spk_volume_mul_db[0];
+  uint32_t volume_db_right = headset_settings.spk_volume_mul_db[1];
 
-  if(speaker_i2s0 && (speaker_settings.blink_interval_ms == BLINK_STREAMING)){
+  if(speaker_i2s0 && (headset_settings.spk_blink_interval_ms == BLINK_STREAMING)){
     // Speaker data size received in the last frame
     uint16_t usb_spk_data_size = tud_audio_read(spk_buf, n_bytes_received);
     uint16_t usb_sample_count = 0;
 
-    if (speaker_settings.resolution == 16)
+    if (headset_settings.spk_resolution == 16)
     {
       int16_t *in = (int16_t *) spk_buf;
       usb_sample_count = usb_spk_data_size/4; // 4 bytes per sample 2b left, 2b right
 
-      if(usb_sample_count >= speaker_settings.samples_in_i2s_frame_min){
+      if(usb_sample_count >= headset_settings.samples_in_i2s_frame_min){
         for (int i = 0; i < usb_sample_count; i++) {
           int16_t left = in[i*2 + 0];
           int16_t right = in[i*2 + 1];
@@ -301,7 +315,7 @@ void usb_speaker_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_b
       int32_t *in = (int32_t *) spk_buf;
       usb_sample_count = usb_spk_data_size/8; // 8 bytes per sample 4b left, 4b right
 
-      if(usb_sample_count >= speaker_settings.samples_in_i2s_frame_min){
+      if(usb_sample_count >= headset_settings.samples_in_i2s_frame_min){
         for (int i = 0; i < usb_sample_count; i++) {
           int32_t left = in[i*2 + 0];
           int32_t right = in[i*2 + 1];
@@ -341,7 +355,7 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
 void led_blinking_task(__unused void *params){
   bool led_state = false;
   while(true){
-    uint32_t blink_interval_ms = speaker_settings.blink_interval_ms;
+    uint32_t blink_interval_ms = headset_settings.spk_blink_interval_ms;
     vTaskDelay(blink_interval_ms);
 
     board_led_write(led_state);
@@ -356,8 +370,8 @@ void status_update_task(__unused void *params){
   while(true){
     vTaskDelay(500);
 
-    if(speaker_settings.status_updated == true){
-      speaker_settings.status_updated = false;
+    if(headset_settings.status_updated == true){
+      headset_settings.status_updated = false;
 
       display_ssd1306_info();
     }    
@@ -369,7 +383,7 @@ void display_ssd1306_info(void) {
 
   ssd1306_clear(&disp);
 
-  switch (speaker_settings.blink_interval_ms) {
+  switch (headset_settings.spk_blink_interval_ms) {
     case BLINK_NOT_MOUNTED: {
       ssd1306_draw_string(&disp, 4, 0, 1, "Spk not mounted");
       break;
@@ -386,7 +400,7 @@ void display_ssd1306_info(void) {
       char spk_streaming_str[20] = "Spk stream: ";
       memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
 
-      itoa(speaker_settings.resolution, fmt_tmp_str, 10);
+      itoa(headset_settings.spk_resolution, fmt_tmp_str, 10);
       strcat(spk_streaming_str, fmt_tmp_str);
       strcat(spk_streaming_str, " bit");
 
@@ -406,7 +420,7 @@ void display_ssd1306_info(void) {
 
     memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
 
-    itoa((speaker_settings.sample_rate), fmt_tmp_str, 10);
+    itoa((headset_settings.spk_sample_rate), fmt_tmp_str, 10);
     strcat(freq_str, fmt_tmp_str);
     strcat(freq_str, " Hz");
 
@@ -423,17 +437,17 @@ void display_ssd1306_info(void) {
     char mute_r_str[20] = "Mute R:";
 
     memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
-    itoa((speaker_settings.volume[0] >> ENC_NUM_OF_FP_BITS),
+    itoa((headset_settings.spk_volume[0] >> ENC_NUM_OF_FP_BITS),
         fmt_tmp_str, 10);
     strcat(vol_m_str, fmt_tmp_str);
 
     memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
-    itoa((speaker_settings.volume[1] >> ENC_NUM_OF_FP_BITS),
+    itoa((headset_settings.spk_volume[1] >> ENC_NUM_OF_FP_BITS),
         fmt_tmp_str, 10);
     strcat(vol_l_str, fmt_tmp_str);
 
     memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
-    itoa((speaker_settings.volume[2] >> ENC_NUM_OF_FP_BITS),
+    itoa((headset_settings.spk_volume[2] >> ENC_NUM_OF_FP_BITS),
         fmt_tmp_str, 10);
     strcat(vol_r_str, fmt_tmp_str);
 
@@ -441,9 +455,9 @@ void display_ssd1306_info(void) {
     ssd1306_draw_string(&disp, 4, 32, 1, vol_l_str);
     ssd1306_draw_string(&disp, 4, 40, 1, vol_r_str);
 
-    strcat(mute_m_str, (speaker_settings.mute[0] ? "T" : "F"));
-    strcat(mute_l_str, (speaker_settings.mute[1] ? "T" : "F"));
-    strcat(mute_r_str, (speaker_settings.mute[2] ? "T" : "F"));
+    strcat(mute_m_str, (headset_settings.spk_mute[0] ? "T" : "F"));
+    strcat(mute_l_str, (headset_settings.spk_mute[1] ? "T" : "F"));
+    strcat(mute_r_str, (headset_settings.spk_mute[2] ? "T" : "F"));
 
     ssd1306_draw_string(&disp, 68, 24, 1, mute_m_str);
     ssd1306_draw_string(&disp, 68, 32, 1, mute_l_str);

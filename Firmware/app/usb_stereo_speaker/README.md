@@ -11,8 +11,6 @@ Speaker rupports several formats:
    * [UDA1334A] (https://learn.adafruit.com/adafruit-i2s-stereo-decoder-uda1334a)
 * LCD
    * SSD1306
- * LED
-   * WS2812
  * Resistors 
 
 ### Default Pinout
@@ -87,10 +85,4 @@ GPIO pins are configurable in API by updating defines.
 | 3V3 | VCC | - | 
 | 3   | SCL   | I2C_SSD1306_SCL | 
 | 2   | SDA   | I2C_SSD1306_SDA | 
-
-
-#### LED WS2812
-| Raspberry Pi Pico / RP2040 | LED | Define name | 
-| --- | --- | --- |
-| 23 | WS2812  | WS2812_PIN | 
 
