@@ -64,6 +64,7 @@
 
 // Pointer to I2S handler
 machine_i2s_obj_t* speaker_i2s0 = NULL;
+machine_i2s_obj_t* microphone_i2s0 = NULL;
 
 usb_headset_settings_t headset_settings;
 
@@ -73,6 +74,10 @@ i2s_32b_audio_sample spk_32b_i2s_buffer[SAMPLE_BUFFER_SIZE];
 i2s_16b_audio_sample spk_16b_i2s_buffer[SAMPLE_BUFFER_SIZE];
 int32_t spk_buf[CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ / 4];
 
+// Buffer for microphone data
+usb_audio_4b_sample mic_32b_i2s_buffer[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX*CFG_TUD_AUDIO_FUNC_1_MAX_SAMPLE_RATE/1000];
+usb_audio_2b_sample mic_16b_i2s_buffer[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX*CFG_TUD_AUDIO_FUNC_1_MAX_SAMPLE_RATE/1000];
+
 void led_blinking_task(__unused void *params);
 void status_update_task(__unused void *params);
 void main_task(__unused void *params);
@@ -80,7 +85,6 @@ void main_task(__unused void *params);
 void vLaunch( void);
 
 int32_t usb_to_i2s_32b_sample_convert(int32_t sample, uint32_t volume_db);
-
 int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db);
 
 void refresh_i2s_connections()
@@ -90,8 +94,9 @@ void refresh_i2s_connections()
 
   speaker_i2s0 = create_machine_i2s(0, GPIO_I2S_SPK_SCK, GPIO_I2S_SPK_WS, GPIO_I2S_SPK_DATA, TX, 
     ((headset_settings.spk_resolution == 16) ? 16 : 32), /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, headset_settings.spk_sample_rate);
-  
-  // update_pio_frequency(speaker_i2s0, headset_settings.usb_sample_rate);
+
+  microphone_i2s0 = create_machine_i2s(1, GPIO_I2S_MIC_SCK, GPIO_I2S_MIC_WS, GPIO_I2S_MIC_DATA, RX, 
+    I2S_MIC_BPS, /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, I2S_MIC_RATE_DEF);
 }
 
 
@@ -102,7 +107,9 @@ void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolut
 void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval_ms_in);
 
 void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_bytes_received, uint8_t func_id, uint8_t ep_out, uint8_t cur_alt_setting);
-
+void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting);
+void usb_headset_tx_post_load(uint8_t rhport, uint16_t n_bytes_copied, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting);
+uint32_t get_num_of_mic_samples();
 
 //---------------------------------------
 //           SSD1306
@@ -156,6 +163,10 @@ void main_task(__unused void *params) {
   usb_headset_set_current_status_set_handler(           usb_headset_current_status_set_handler);
 
   usb_headset_set_tud_audio_rx_done_pre_read_set_handler(usb_headset_tud_audio_rx_done_pre_read_handler);
+
+  usb_headset_set_tud_audio_tx_done_pre_load_set_handler(usb_headset_tx_pre_load);
+  usb_headset_set_tud_audio_tx_done_post_load_set_handler(usb_headset_tx_post_load);
+  
   
   usb_headset_init();
   refresh_i2s_connections();
@@ -349,6 +360,62 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
   //return (int16_t)sample;
 }
 
+uint32_t num_of_mic_samples;
+void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, 
+  uint8_t ep_in, uint8_t cur_alt_setting){
+  if(headset_settings.mic_resolution == 24){
+    uint32_t buffer_size = num_of_mic_samples * CFG_TUD_AUDIO_FUNC_1_FORMAT_2_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
+    tud_audio_write(mic_32b_i2s_buffer, buffer_size);
+  } else {
+    uint32_t buffer_size = num_of_mic_samples * CFG_TUD_AUDIO_FUNC_1_FORMAT_1_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
+    tud_audio_write(mic_16b_i2s_buffer, buffer_size);
+  }
+}
+
+void usb_headset_tx_post_load(uint8_t rhport, uint16_t n_bytes_copied, uint8_t itf, 
+  uint8_t ep_in, uint8_t cur_alt_setting)
+{
+  if(microphone_i2s0) {
+    i2s_32b_audio_sample buffer[USB_MIC_SAMPLE_BUFFER_SIZE];
+
+    // Read data from microphone
+    //uint32_t buffer_size_read = headset_settings.samples_in_i2s_frame_min * (4 * 2);
+    num_of_mic_samples = get_num_of_mic_samples();
+    uint32_t buffer_size_read = num_of_mic_samples * (4 * 2);
+    int num_bytes_read = machine_i2s_read_stream(microphone_i2s0, (void*)&buffer[0], buffer_size_read);
+    
+    int num_of_frames_read = num_bytes_read/(4 * 2);
+    for(uint32_t i = 0; i < num_of_frames_read; i++){
+      if(headset_settings.mic_resolution == 24){
+        int32_t mono_24b = (int32_t)buffer[i].left << FORMAT_24B_TO_24B_SHIFT_VAL; // Magic number
+
+        mic_32b_i2s_buffer[i] = mono_24b; // TODO: check this value
+      }
+      else {
+        int32_t mono_16b = (int32_t)buffer[i].left >> FORMAT_24B_TO_16B_SHIFT_VAL; // Magic number
+
+        mic_16b_i2s_buffer[i]   = mono_16b; // TODO: check this value
+      }
+    }    
+  }
+}
+
+uint32_t get_num_of_mic_samples(){
+  static uint32_t format_44100_khz_counter = 0;
+  if(headset_settings.spk_sample_rate == 44100){
+    format_44100_khz_counter++;
+    if(format_44100_khz_counter >= 9){
+      format_44100_khz_counter = 0;
+      return 45;
+    } else {
+      return 44;
+    }
+  } else {
+    return headset_settings.samples_in_i2s_frame_min;
+  }
+}
+
+
 //--------------------------------------------------------------------+
 // BLINKING TASK
 //--------------------------------------------------------------------+
@@ -409,6 +476,36 @@ void display_ssd1306_info(void) {
     }
     default: {
       ssd1306_draw_string(&disp, 4, 0, 1, "Spk unknown");
+      break;
+    }
+  }
+
+  switch (headset_settings.mic_blink_interval_ms) {
+    case BLINK_NOT_MOUNTED: {
+      ssd1306_draw_string(&disp, 4, 8, 1, "Mic not mounted");
+      break;
+    }
+    case BLINK_SUSPENDED: {
+      ssd1306_draw_string(&disp, 4, 8, 1, "Mic suspended");
+      break;
+    }
+    case BLINK_MOUNTED: {
+      ssd1306_draw_string(&disp, 4, 8, 1, "Mic mounted");
+      break;
+    }
+    case BLINK_STREAMING: {
+      char mic_streaming_str[20] = "Mic stream: ";
+      memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+
+      itoa(headset_settings.mic_resolution, fmt_tmp_str, 10);
+      strcat(mic_streaming_str, fmt_tmp_str);
+      strcat(mic_streaming_str, " bit");
+
+      ssd1306_draw_string(&disp, 4, 8, 1, mic_streaming_str);
+      break;
+    }
+    default: {
+      ssd1306_draw_string(&disp, 4, 8, 1, "Mic unknown");
       break;
     }
   }

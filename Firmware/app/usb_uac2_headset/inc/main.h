@@ -27,6 +27,15 @@
     #define LED_RED_PIN GPIO_LED_2
 #endif //LED_RED_PIN
 
+#define FORMAT_24B_TO_24B_SHIFT_VAL 4u
+#define FORMAT_24B_TO_16B_SHIFT_VAL 12u
+
+typedef int32_t usb_audio_4b_sample;
+typedef int16_t usb_audio_2b_sample;
+
+#define USB_MIC_SAMPLE_BUFFER_SIZE  (I2S_MIC_RATE_DEF/1000) // MAX sample rate divided by 1000. Size of 1 ms sample
+
+
 //-------------------------
 
 #endif //MAIN__H
