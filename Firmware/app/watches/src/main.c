@@ -11,9 +11,11 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "build_defs.h"
 #include "board_defines.h"
 
 #include "pcf8563_i2c/pcf8563_i2c.h"
+#include "ssd1306/ssd1306.h"
 
 #ifndef RUN_FREERTOS_ON_CORE
 #define RUN_FREERTOS_ON_CORE 0
@@ -26,6 +28,15 @@
 void main_task(__unused void *params);
 
 void vLaunch( void);
+
+//---------------------------------------
+//           SSD1306
+//---------------------------------------
+ssd1306_t disp;
+void setup_i2c();
+void setup_ssd1306();
+void display_time(pcf8532_time_and_date_t compilation_time, pcf8532_time_and_date_t cur_time);
+//---------------------------------------
 
 /*------------- MAIN -------------*/
 int main(void){
@@ -71,37 +82,105 @@ void vLaunch( void) {
 void main_task(__unused void *params) {
     stdio_init_all();
 
-    printf("Hello, PCF8520! Reading raw data from registers...\n");
+    printf("Hello, PCF8520!\n");
 
+    setup_i2c();
+    setup_ssd1306();
+
+    pcf8563_reset(I2C_INST);
+
+    pcf8532_time_and_date_t compilation_time = pcf8563_get_compilation_time();
+
+    pcf8563_set_time_and_date(I2C_INST, compilation_time);
+    //pcf8563_set_alarm(I2C_INST);
+    //pcf8563_check_alarm(I2C_INST);
+
+    //uint8_t raw_time[7];
+    //int real_time[7];
+    char days_of_week[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
+
+    while (1) {
+        pcf8532_time_and_date_t cur_time = pcf8563_read_time_and_date(I2C_INST);
+        pcf8532_time_and_date_t compilation_time = pcf8563_get_compilation_time();
+
+        printf("Cur Time: %02d : %02d : %02d\n", cur_time.hour, cur_time.minute, cur_time.second);
+        printf("Cur Date: %s, %02d / %02d / %02d\n", days_of_week[cur_time.day_of_week], cur_time.year, cur_time.month, cur_time.day_of_month);
+
+        printf("Compilation Time: %02d : %02d : %02d\n", compilation_time.hour, compilation_time.minute, compilation_time.second);
+        printf("Compilation Date: %s, %02d / %02d / %02d\n", days_of_week[compilation_time.day_of_week], compilation_time.year, compilation_time.month, compilation_time.day_of_month);
+
+        display_time(compilation_time, cur_time);
+        
+        vTaskDelay(500);
+
+    }
+}
+
+//-------------------------
+// SSD1306 functions
+//-------------------------
+void setup_i2c(){
     i2c_init(I2C_INST, 400000);
     gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
     gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
     gpio_pull_up(I2C_SDA);
     gpio_pull_up(I2C_SCL);
-    bi_decl(bi_2pins_with_func(I2C_SDA, I2C_SCL, GPIO_FUNC_I2C));
-
-    pcf8563_reset(I2C_INST);
-
-    pcf8563_write_current_time(I2C_INST);
-    //pcf8563_set_alarm(I2C_INST);
-    //pcf8563_check_alarm(I2C_INST);
-
-    uint8_t raw_time[7];
-    int real_time[7];
-    char days_of_week[7][12] = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-
-    while (1) {
-
-        pcf8563_read_raw(I2C_INST, raw_time);
-        pcf8563_convert_time(real_time, raw_time);
-
-        printf("Time: %02d : %02d : %02d\n", real_time[2], real_time[1], real_time[0]);
-        printf("Date: %s %02d / %02d / %02d\n", days_of_week[real_time[4]], real_time[3], real_time[5], real_time[6]);
-        //pcf8563_check_alarm(I2C_INST);
-        
-        vTaskDelay(500);
-
-        // Clear terminal 
-        //printf("\033[1;1H\033[2J");
-    }
 }
+void setup_ssd1306(){
+  disp.external_vcc=false;
+  ssd1306_init(&disp, I2C_SSD1306_WIDTH, I2C_SSD1306_HEIGHT, I2C_SSD1306_ADDR, I2C_INST);
+  ssd1306_clear(&disp);
+
+  ssd1306_draw_string(&disp, 4, 16, 1, "Raspberry pi pico");
+  ssd1306_draw_string(&disp, 8, 32, 1, "Watches");
+  ssd1306_show(&disp);
+}
+
+void display_time(pcf8532_time_and_date_t compilation_time, pcf8532_time_and_date_t cur_time){
+    char fmt_tmp_str[32] = "";
+    char cur_print_str[32] = "";
+
+    char days_of_week[7][12] = {"S", "M", "Tue", "W", "Th", "F", "S"};
+
+    ssd1306_clear(&disp);
+
+    ssd1306_draw_string(&disp, 4, 0, 1, "Current time");
+
+    memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+    memset(cur_print_str, 0x0, sizeof(cur_print_str));
+
+    itoa(cur_time.hour, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+    strcat(cur_print_str, ":");
+
+    itoa(cur_time.minute, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+    strcat(cur_print_str, ":");
+
+    itoa(cur_time.second, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+
+    ssd1306_draw_string(&disp, 0, 8, 1, cur_print_str);
+
+    memset(fmt_tmp_str, 0x0, sizeof(fmt_tmp_str));
+    memset(cur_print_str, 0x0, sizeof(cur_print_str));
+
+    strcat(cur_print_str, days_of_week[cur_time.day_of_week]);
+    strcat(cur_print_str, ", ");
+
+    itoa(cur_time.year, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+    strcat(cur_print_str, "/");
+
+    itoa(cur_time.month, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+    strcat(cur_print_str, "/");
+
+    itoa(cur_time.day_of_month, fmt_tmp_str, 10);
+    strcat(cur_print_str, fmt_tmp_str);
+
+    ssd1306_draw_string(&disp, 0, 16, 1, cur_print_str);
+    
+    ssd1306_show(&disp);
+}
+//-------------------------

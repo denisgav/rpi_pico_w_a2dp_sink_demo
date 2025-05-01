@@ -133,5 +133,7 @@ typedef enum {
 } KeypadEvent_e;
 
 #define GET_KEYPAD_BUTTON_CODE(col_idx, row_idx) ((KeypadCode_e)(row_idx*NUM_OF_GPIO_BUTTON_COLS + col_idx))
+#define GET_KEYPAD_BUTTON_ROW(keyCode)  (keyCode / NUM_OF_GPIO_BUTTON_COLS)
+#define GET_KEYPAD_BUTTON_COL(keyCode)  (keyCode % NUM_OF_GPIO_BUTTON_COLS)
 
 //---------------------------------

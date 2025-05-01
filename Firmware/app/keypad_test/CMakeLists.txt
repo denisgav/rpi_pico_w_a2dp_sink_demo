@@ -22,6 +22,7 @@ target_include_directories(keypad_test PRIVATE ./inc
 
 target_link_libraries(keypad_test PRIVATE pico_stdlib
     pico_keypad
+    pico_ssd1306
     FreeRTOS-Kernel-Heap4
 )
 

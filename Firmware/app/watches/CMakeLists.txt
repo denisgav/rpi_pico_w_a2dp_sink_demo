@@ -23,6 +23,7 @@ target_include_directories(watches PRIVATE ./inc
 target_link_libraries(watches PRIVATE pico_stdlib
     hardware_i2c
     pico_pcf8563
+    pico_ssd1306
     FreeRTOS-Kernel-Heap4
 )
 
