@@ -35,6 +35,7 @@ add_subdirectory("app/watches")
 add_subdirectory("app/sdcard_test")
 add_subdirectory("app/keypad_test")
 
+add_subdirectory("app/usb_hid_multimedia_keypad")
 add_subdirectory("app/usb_stereo_microphone")
 add_subdirectory("app/usb_stereo_speaker")
 add_subdirectory("app/usb_uac2_headset")

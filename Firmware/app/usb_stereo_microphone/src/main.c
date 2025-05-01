@@ -225,6 +225,9 @@ void setup_ssd1306(){
 
 //-------------------------
 
+//-------------------------
+// keypad callback functions
+//-------------------------
 void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events){
   switch(keyCode){
     case KEYPAD_BTN_0_0:{
@@ -478,10 +481,6 @@ void status_update_task(__unused void *params){
   }
 
 }
-
-// void button_mute_ISR(uint gpio, uint32_t events){
-//   microphone_settings.user_mute = !microphone_settings.user_mute;
-// }
 
 void display_ssd1306_info(void) {
   char fmt_tmp_str[20] = "";
