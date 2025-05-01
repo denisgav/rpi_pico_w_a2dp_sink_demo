@@ -44,6 +44,8 @@
 
 #include "ssd1306/ssd1306.h"
 
+#include "keypad.h"
+
 #ifndef RUN_FREERTOS_ON_CORE
 #define RUN_FREERTOS_ON_CORE 0
 #endif
@@ -51,6 +53,7 @@
 #define MAIN_TASK_PRIORITY           ( tskIDLE_PRIORITY + 2UL )
 #define BLINK_TASK_PRIORITY          ( tskIDLE_PRIORITY + 0UL )
 #define STATUS_UPDATE_TASK_PRIORITY  ( tskIDLE_PRIORITY + 1UL )
+#define KEYPAD_TASK_PRIORITY         ( tskIDLE_PRIORITY + 1UL )
 
 // Pointer to I2S handler
 machine_i2s_obj_t* microphone_i2s0 = NULL;
@@ -81,6 +84,8 @@ void led_blinking_task(__unused void *params);
 void status_update_task(__unused void *params);
 void main_task(__unused void *params);
 
+void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events);
+
 void vLaunch( void);
 
 void refresh_i2s_connections()
@@ -98,13 +103,6 @@ void refresh_i2s_connections()
 ssd1306_t disp;
 void setup_ssd1306();
 void display_ssd1306_info();
-//---------------------------------------
-
-//---------------------------------------
-//           LED and button
-//---------------------------------------
-void setup_led_and_button();
-//void button_mute_ISR(uint gpio, uint32_t events);
 //---------------------------------------
 
 int32_t i2s_to_usb_32b_sample_convert(int32_t sample, uint32_t volume_db);
@@ -144,7 +142,6 @@ void main_task(__unused void *params) {
   microphone_settings.status_updated = false;
   microphone_settings.user_mute = false;
 
-  setup_led_and_button();
   setup_ssd1306();
 
   usb_microphone_set_mute_set_handler(usb_microphone_mute_handler);
@@ -171,11 +168,16 @@ void main_task(__unused void *params) {
       * microphone_settings.volume_db[i+1];
   }
 
-   TaskHandle_t led_blink_t;
+  TaskHandle_t led_blink_t;
   xTaskCreate(led_blinking_task, "LED_BlinkingTask", 4096, NULL, BLINK_TASK_PRIORITY, &led_blink_t);
 
-   TaskHandle_t status_update_t;
+  TaskHandle_t status_update_t;
   xTaskCreate(status_update_task, "StatusUpdateTask", 4096, NULL, STATUS_UPDATE_TASK_PRIORITY, &status_update_t);
+
+  set_keypad_button_handler(keypad_buttons_handler);
+
+  TaskHandle_t keypad_task;
+  xTaskCreate(keypad_buttons_handle_task, "KeypadTask", 1024, NULL, KEYPAD_TASK_PRIORITY, &keypad_task);
 
   while (1){
     usb_microphone_task(); // tinyusb device task
@@ -223,20 +225,19 @@ void setup_ssd1306(){
 
 //-------------------------
 
-//---------------------------------------
-//           LED and button
-//---------------------------------------
-void setup_led_and_button(){
-  gpio_init(LED_RED_PIN);
-  gpio_set_dir(LED_RED_PIN, GPIO_OUT);
-
-  // gpio_init(BTN_MUTE_PIN);
-  // gpio_set_dir(BTN_MUTE_PIN, GPIO_IN);
-
-  // gpio_set_irq_enabled_with_callback(BTN_MUTE_PIN, GPIO_IRQ_EDGE_RISE, 1, button_mute_ISR);
+void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events){
+  switch(keyCode){
+    case KEYPAD_BTN_0_0:{
+      if(events == KEYPAD_EDGE_RISE){
+        microphone_settings.user_mute = !microphone_settings.user_mute;
+      }
+      break;
+    }
+    default:{
+      break;
+    }
+  }
 }
-//---------------------------------------
-
 
 //-------------------------
 // callback functions
@@ -444,13 +445,22 @@ int16_t i2s_to_usb_16b_sample_convert(int16_t sample, uint32_t volume_db){
 // BLINKING TASK
 //--------------------------------------------------------------------+
 void led_blinking_task(__unused void *params){
+  gpio_init(MIC_STATUS_LED);
+  gpio_set_dir(MIC_STATUS_LED, GPIO_OUT);
+
+  gpio_init(MIC_MUTE_LED);
+  gpio_set_dir(MIC_MUTE_LED, GPIO_OUT);
+
   bool led_state = false;
   while(true){
     uint32_t blink_interval_ms = microphone_settings.blink_interval_ms;
     vTaskDelay(blink_interval_ms);
 
-    board_led_write(led_state);
+    //board_led_write(led_state);
+    gpio_put(MIC_STATUS_LED, led_state);
     led_state = 1 - led_state;
+
+    gpio_put(MIC_MUTE_LED, microphone_settings.user_mute);
   }
 }
 
@@ -460,8 +470,6 @@ void led_blinking_task(__unused void *params){
 void status_update_task(__unused void *params){
   while(true){
     vTaskDelay(500);
-
-    gpio_put(LED_RED_PIN, microphone_settings.user_mute);
 
     if(microphone_settings.status_updated == true){
       microphone_settings.status_updated = false;

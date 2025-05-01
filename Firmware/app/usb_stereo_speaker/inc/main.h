@@ -15,6 +15,10 @@
     #define I2S_SPK_RATE_DEF (48000)
 #endif //I2S_SPK_RATE_DEF
 
+#ifndef SPK_STATUS_LED
+    #define SPK_STATUS_LED GPIO_LED_0
+#endif //SPK_STATUS_LED
+
 //-------------------------
 
 #endif //MAIN__H

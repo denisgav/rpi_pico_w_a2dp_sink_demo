@@ -339,12 +339,16 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
 // BLINKING TASK
 //--------------------------------------------------------------------+
 void led_blinking_task(__unused void *params){
+  gpio_init(SPK_STATUS_LED);
+  gpio_set_dir(SPK_STATUS_LED, GPIO_OUT);
+
   bool led_state = false;
   while(true){
     uint32_t blink_interval_ms = speaker_settings.blink_interval_ms;
     vTaskDelay(blink_interval_ms);
 
-    board_led_write(led_state);
+    //board_led_write(led_state);
+    gpio_put(SPK_STATUS_LED, led_state);
     led_state = 1 - led_state;
   }
 }

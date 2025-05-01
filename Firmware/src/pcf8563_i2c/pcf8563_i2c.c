@@ -25,7 +25,7 @@
 // By default these devices  are on bus address 0x68
 const int PCF8563_ADDR = PCF8563_ADDR_DEF;
 
-uint8_t pcf8563_seconds_to_bcd(uint8_t data){
+uint8_t pcf8563_data_to_bcd(uint8_t data){
     uint8_t upper_digit = data / 10;
     uint8_t digit = data % 10;
 
@@ -34,7 +34,7 @@ uint8_t pcf8563_seconds_to_bcd(uint8_t data){
     return res;
 }
 
-uint8_t pcf8563_bcd_to_seconds(uint8_t data){
+uint8_t pcf8563_bcd_to_data(uint8_t data){
     uint8_t upper_digit = data >> 4;
     uint8_t digit = data & 0xF;
 
@@ -91,7 +91,13 @@ void pcf8563_set_time_and_date(i2c_inst_t *i2c, pcf8532_time_and_date_t time_and
     // buf[1] is the value that will be written to the register
     uint8_t buf[2];
 
-    time_and_date.second = pcf8563_seconds_to_bcd(time_and_date.second);
+    time_and_date.second = pcf8563_data_to_bcd(time_and_date.second);
+    time_and_date.minute = pcf8563_data_to_bcd(time_and_date.minute);
+    time_and_date.hour = pcf8563_data_to_bcd(time_and_date.hour);
+    time_and_date.day_of_month = pcf8563_data_to_bcd(time_and_date.day_of_month);
+    time_and_date.day_of_week = pcf8563_data_to_bcd(time_and_date.day_of_week);
+    time_and_date.month = pcf8563_data_to_bcd(time_and_date.month);
+    time_and_date.year = pcf8563_data_to_bcd(time_and_date.year);
 
     pcf8532_time_and_date_u cur_time_and_date_u;
     cur_time_and_date_u.time_and_date = time_and_date;
@@ -116,7 +122,13 @@ pcf8532_time_and_date_t pcf8563_read_time_and_date(i2c_inst_t *i2c) {
     i2c_write_blocking(i2c, PCF8563_ADDR, &val, 1, true); // true to keep master control of bus
     i2c_read_blocking(i2c, PCF8563_ADDR, cur_time_and_date_u.time_and_date_val, sizeof(cur_time_and_date_u.time_and_date_val), false);
 
-    cur_time_and_date_u.time_and_date.second = pcf8563_bcd_to_seconds(cur_time_and_date_u.time_and_date.second & 0x7F);
+    cur_time_and_date_u.time_and_date.second = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.second & 0x7F);
+    cur_time_and_date_u.time_and_date.minute = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.minute & 0x7F);
+    cur_time_and_date_u.time_and_date.hour = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.hour & 0x3F);
+    cur_time_and_date_u.time_and_date.day_of_month = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.day_of_month & 0x3F);
+    cur_time_and_date_u.time_and_date.day_of_week = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.day_of_week & 0x7);
+    cur_time_and_date_u.time_and_date.month = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.month & 0x1F);
+    cur_time_and_date_u.time_and_date.year = pcf8563_bcd_to_data(cur_time_and_date_u.time_and_date.year);
 
     return cur_time_and_date_u.time_and_date;
 }

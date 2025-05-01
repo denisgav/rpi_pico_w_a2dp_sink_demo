@@ -42,8 +42,10 @@
 #endif
 
 #define MAIN_TASK_PRIORITY           ( tskIDLE_PRIORITY + 2UL )
-#define BLINK_TASK_PRIORITY          ( tskIDLE_PRIORITY + 0UL )
+#define SPK_BLINK_TASK_PRIORITY      ( tskIDLE_PRIORITY + 0UL )
+#define MIC_BLINK_TASK_PRIORITY      ( tskIDLE_PRIORITY + 0UL )
 #define STATUS_UPDATE_TASK_PRIORITY  ( tskIDLE_PRIORITY + 1UL )
+#define KEYPAD_TASK_PRIORITY         ( tskIDLE_PRIORITY + 1UL )
 //-----------------------------
 
 #include "bsp/board_api.h"
@@ -60,6 +62,8 @@
 #include "volume_ctrl.h"
 
 #include "ssd1306/ssd1306.h"
+
+#include "keypad.h"
 
 
 // Pointer to I2S handler
@@ -78,9 +82,12 @@ int32_t spk_buf[CFG_TUD_AUDIO_FUNC_1_EP_OUT_SW_BUF_SZ / 4];
 usb_audio_4b_sample mic_32b_i2s_buffer[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX*CFG_TUD_AUDIO_FUNC_1_MAX_SAMPLE_RATE/1000];
 usb_audio_2b_sample mic_16b_i2s_buffer[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX*CFG_TUD_AUDIO_FUNC_1_MAX_SAMPLE_RATE/1000];
 
-void led_blinking_task(__unused void *params);
+void spk_led_blinking_task(__unused void *params);
+void mic_led_blinking_task(__unused void *params);
 void status_update_task(__unused void *params);
 void main_task(__unused void *params);
+
+void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events);
 
 void vLaunch( void);
 
@@ -171,7 +178,6 @@ void main_task(__unused void *params) {
   usb_headset_set_tud_audio_tx_done_pre_load_set_handler(usb_headset_tx_pre_load);
   usb_headset_set_tud_audio_tx_done_post_load_set_handler(usb_headset_tx_post_load);
   
-  
   usb_headset_init();
   refresh_i2s_connections();
 
@@ -186,11 +192,19 @@ void main_task(__unused void *params) {
       * headset_settings.spk_volume_db[i+1];
   }
 
-   TaskHandle_t led_blink_t;
-  xTaskCreate(led_blinking_task, "LED_BlinkingTask", 4096, NULL, BLINK_TASK_PRIORITY, &led_blink_t);
+   TaskHandle_t spk_led_blink_t;
+  xTaskCreate(spk_led_blinking_task, "SPK_LED_BlinkingTask", 4096, NULL, SPK_BLINK_TASK_PRIORITY, &spk_led_blink_t);
+
+  TaskHandle_t mic_led_blink_t;
+  xTaskCreate(mic_led_blinking_task, "MIC_LED_BlinkingTask", 4096, NULL, MIC_BLINK_TASK_PRIORITY, &mic_led_blink_t);
 
    TaskHandle_t status_update_t;
   xTaskCreate(status_update_task, "StatusUpdateTask", 4096, NULL, STATUS_UPDATE_TASK_PRIORITY, &status_update_t);
+
+  set_keypad_button_handler(keypad_buttons_handler);
+
+  TaskHandle_t keypad_task;
+  xTaskCreate(keypad_buttons_handle_task, "KeypadTask", 1024, NULL, KEYPAD_TASK_PRIORITY, &keypad_task);
 
   while (1){
     usb_headset_task(); // tinyusb device task
@@ -236,6 +250,23 @@ void setup_ssd1306(){
   ssd1306_show(&disp);
 }
 //-------------------------
+
+//-------------------------
+// keypad callback functions
+//-------------------------
+void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events){
+  switch(keyCode){
+    case KEYPAD_BTN_0_0:{
+      if(events == KEYPAD_EDGE_RISE){
+        headset_settings.usr_mic_mute = !headset_settings.usr_mic_mute;
+      }
+      break;
+    }
+    default:{
+      break;
+    }
+  }
+}
 
 //-------------------------
 
@@ -422,14 +453,38 @@ uint32_t get_num_of_mic_samples(){
 //--------------------------------------------------------------------+
 // BLINKING TASK
 //--------------------------------------------------------------------+
-void led_blinking_task(__unused void *params){
+void spk_led_blinking_task(__unused void *params){
+  gpio_init(SPK_STATUS_LED);
+  gpio_set_dir(SPK_STATUS_LED, GPIO_OUT);
+
   bool led_state = false;
   while(true){
     uint32_t blink_interval_ms = headset_settings.spk_blink_interval_ms;
     vTaskDelay(blink_interval_ms);
 
-    board_led_write(led_state);
+    //board_led_write(led_state);
+    gpio_put(SPK_STATUS_LED, led_state);
     led_state = 1 - led_state;
+  }
+}
+
+void mic_led_blinking_task(__unused void *params){
+  gpio_init(MIC_STATUS_LED);
+  gpio_set_dir(MIC_STATUS_LED, GPIO_OUT);
+
+  gpio_init(MIC_MUTE_LED);
+  gpio_set_dir(MIC_MUTE_LED, GPIO_OUT);
+
+  bool led_state = false;
+  while(true){
+    uint32_t blink_interval_ms = headset_settings.mic_blink_interval_ms;
+    vTaskDelay(blink_interval_ms);
+
+    //board_led_write(led_state);
+    gpio_put(MIC_STATUS_LED, led_state);
+    led_state = 1 - led_state;
+
+    gpio_put(MIC_MUTE_LED, headset_settings.usr_mic_mute);
   }
 }
 

@@ -25,6 +25,7 @@ target_include_directories(usb_stereo_microphone PRIVATE ./inc
 target_link_libraries(usb_stereo_microphone PRIVATE pico_stdlib
     FreeRTOS-Kernel-Heap4
     tinyusb_device tinyusb_board 
+    pico_keypad
     pico_i2S_audio pico_volume_ctrl 
     pico_ssd1306
 )

@@ -129,7 +129,7 @@ typedef enum {
 
 typedef enum {
     KEYPAD_EDGE_RISE = 1,
-    KEYPAD_EDGE_FALL
+    KEYPAD_EDGE_FALL = 2
 } KeypadEvent_e;
 
 #define GET_KEYPAD_BUTTON_CODE(col_idx, row_idx) ((KeypadCode_e)(row_idx*NUM_OF_GPIO_BUTTON_COLS + col_idx))

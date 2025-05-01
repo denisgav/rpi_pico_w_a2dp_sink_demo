@@ -65,8 +65,8 @@ typedef union __pcf8532_alarm_u{
     uint8_t alarm_val[4];
 } pcf8532_alarm_u;
 
-uint8_t pcf8563_seconds_to_bcd(uint8_t data);
-uint8_t pcf8563_bcd_to_seconds(uint8_t data);
+uint8_t pcf8563_data_to_bcd(uint8_t data);
+uint8_t pcf8563_bcd_to_data(uint8_t data);
 
 uint8_t pcf8563_day_of_week(uint8_t d, uint8_t m, uint16_t y);
 pcf8532_time_and_date_t pcf8563_get_compilation_time();
