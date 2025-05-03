@@ -6,6 +6,7 @@ set(COMMON_INC_DIR "${CMAKE_CURRENT_LIST_DIR}/../../inc")
 add_executable(usb_hid_multimedia_keypad
     src/main.c
     src/usb_descriptors.c
+    src/usb_keypad.c
 )
 
 target_compile_definitions(usb_hid_multimedia_keypad INTERFACE
