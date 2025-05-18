@@ -46,7 +46,7 @@ void keypad_buttons_handle_task(__unused void *params){
         if(keypad_button_handler != NULL){
 	        for (int col_idx = 0; col_idx < NUM_OF_GPIO_BUTTON_COLS; col_idx++) {
 	            gpio_put(button_cols[col_idx], 1);
-	            vTaskDelay(1);
+	            vTaskDelay(5);
 
 	            uint32_t gpio_all = gpio_get_all();
 	            for (int row_idx = 0; row_idx < NUM_OF_GPIO_BUTTON_ROWS; row_idx++) {
@@ -64,7 +64,7 @@ void keypad_buttons_handle_task(__unused void *params){
 	                button_states[row_idx][col_idx] = button_state;
 	            }
 	            gpio_put(button_cols[col_idx], 0);
-	            vTaskDelay(1);
+	            vTaskDelay(5);
 	        }
 	    }
         vTaskDelay(50);

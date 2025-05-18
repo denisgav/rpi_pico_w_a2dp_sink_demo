@@ -22,9 +22,9 @@ Button cols
 - COL_3  19
 
 Button rows
-- ROW_0  20
+- ROW_0  22
 - ROW_1  21
-- ROW_2  22
+- ROW_2  20
 
 (See scheme: https://www.youtube.com/watch?v=rMoTqSC9wrY&ab_channel=RobertFeranec)
 

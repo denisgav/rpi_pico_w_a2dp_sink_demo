@@ -97,9 +97,9 @@
         GPIO_BUTTON_COL_3    \
     }
 
-#define GPIO_BUTTON_ROW_0   20
+#define GPIO_BUTTON_ROW_0   22
 #define GPIO_BUTTON_ROW_1   21
-#define GPIO_BUTTON_ROW_2   22
+#define GPIO_BUTTON_ROW_2   20
 #define NUM_OF_GPIO_BUTTON_ROWS  3
 #define GPIO_BUTTON_ROWS \
     {                        \
