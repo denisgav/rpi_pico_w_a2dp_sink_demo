@@ -4273,7 +4273,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ec1e24a4-7985-4c32-9c69-765400fc0800")
 		(property "Reference" "Brd600"

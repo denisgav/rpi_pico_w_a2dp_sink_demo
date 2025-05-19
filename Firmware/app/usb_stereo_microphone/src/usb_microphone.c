@@ -18,8 +18,7 @@ uint8_t clkValid;
 // List of supported sample rates
 static const uint32_t sampleRatesList[] =
 {
-    //16000, 32000, 44100, 48000
-  16000, 32000, 48000
+    16000, 32000, 44100, 48000
 };
 
 uint32_t current_sample_rate  = 48000;

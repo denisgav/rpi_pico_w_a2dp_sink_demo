@@ -93,7 +93,7 @@ void refresh_i2s_connections()
   microphone_settings.samples_in_i2s_frame_min = (microphone_settings.sample_rate)    /1000;
   microphone_settings.samples_in_i2s_frame_max = (microphone_settings.sample_rate+999)/1000;
 
-  microphone_i2s0 = create_machine_i2s(0, GPIO_I2S_MIC_SCK, GPIO_I2S_MIC_WS, GPIO_I2S_MIC_DATA, RX, I2S_MIC_BPS, /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, I2S_MIC_RATE_DEF);
+  microphone_i2s0 = create_machine_i2s(0, GPIO_I2S_MIC_SCK, GPIO_I2S_MIC_WS, GPIO_I2S_MIC_DATA, RX, I2S_MIC_BPS, /*ringbuf_len*/SIZEOF_DMA_BUFFER_IN_BYTES, microphone_settings.sample_rate);
 }
 
 
