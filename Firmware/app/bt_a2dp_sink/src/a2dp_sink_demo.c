@@ -80,7 +80,7 @@
 #include "btstack_stdin.h"
 #endif
 
-#include "ssd1306.h"
+#include "ssd1306/ssd1306.h"
 
 #ifdef HAVE_BTSTACK_STDIN
 static const char * device_addr_string = "00:1B:DC:08:E2:72"; // pts v5.0
@@ -1114,9 +1114,9 @@ int btstack_main(int argc, const char * argv[]){
     return 0;
 }
 
-void buttons_callback(KeyCode_e keyCode, uint32_t events){
-    bool is_rise = events & GPIO_IRQ_EDGE_RISE;
-    bool is_fall = events & GPIO_IRQ_EDGE_FALL;
+void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events){
+    bool is_rise = events & KEYPAD_EDGE_RISE;
+    bool is_fall = events & KEYPAD_EDGE_FALL;
 
     uint8_t status = ERROR_CODE_SUCCESS;
     a2dp_sink_demo_a2dp_connection_t *  a2dp_connection  = &a2dp_sink_demo_a2dp_connection;
@@ -1132,42 +1132,42 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
     }
 
     switch(keyCode){
-        case KEYCODE_PLAY :{
+        case KEYPAD_BTN_0_0 :{
             if(is_rise){
                 printf(" - play\n");
                 status = avrcp_controller_play(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_PAUSE :{
+        case KEYPAD_BTN_0_1 :{
             if(is_rise){
                 printf(" - pause\n");
                 status = avrcp_controller_pause(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_STOP :{
+        case KEYPAD_BTN_0_2 :{
             if(is_rise){
                 printf(" - stop\n");
                 status = avrcp_controller_stop(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_BACKWARD :{
+        case KEYPAD_BTN_0_3 :{
             if(is_rise){
                 printf(" - backward\n");
                 status = avrcp_controller_backward(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_FORWARD :{
+        case KEYPAD_BTN_1_0 :{
             if(is_rise){
                 printf(" - forward\n");
                 status = avrcp_controller_forward(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_REWIND :{
+        case KEYPAD_BTN_1_1 :{
             if(is_rise){
                 printf(" - start rewind\n");
                 status = avrcp_controller_press_and_hold_rewind(avrcp_connection->avrcp_cid);
@@ -1178,7 +1178,7 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
             }
             break;
         }
-        case KEYCODE_FAST_FORWARD :{
+        case KEYPAD_BTN_1_2 :{
             if(is_rise){
                 printf(" - start fast forward\n");
                 status = avrcp_controller_press_and_hold_fast_forward(avrcp_connection->avrcp_cid);
@@ -1189,7 +1189,7 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
             }
             break;
         }
-        case KEYCODE_VOL_DOWN :{
+        case KEYPAD_BTN_1_3 :{
             if(is_rise){
                 uint8_t volume;
                 volume_percentage = volume_percentage >= 10 ? volume_percentage - 10 : 0;
@@ -1200,7 +1200,7 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
             }
             break;
         }
-        case KEYCODE_VOL_UP :{
+        case KEYPAD_BTN_2_0 :{
             if(is_rise){
                 uint8_t volume;
                 volume_percentage = volume_percentage <= 90 ? volume_percentage + 10 : 100;
@@ -1212,20 +1212,20 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
             }
             break;
         }
-        case KEYCODE_VOL_MUTE :{
+        case KEYPAD_BTN_2_1 :{
             if(is_rise){
                 printf(" - mute\n");
                 status = avrcp_controller_mute(avrcp_connection->avrcp_cid);
             }
             break;
         }
-        case KEYCODE_MODE:{
+        case KEYPAD_BTN_2_2:{
             if(is_rise){
                 printf(" - mode\n");
             }
             break;
         }
-        case KEYCODE_PAIR:{
+        case KEYPAD_BTN_2_3:{
             if(is_rise){
                 printf(" - pair\n");
             }
@@ -1245,14 +1245,14 @@ void buttons_callback(KeyCode_e keyCode, uint32_t events){
 //           SSD1306
 //---------------------------------------
 void setup_ssd1306(){
-    i2c_init(I2C_SSD1306_INST, 400000);
-    gpio_set_function(I2C_SSD1306_SDA, GPIO_FUNC_I2C);
-    gpio_set_function(I2C_SSD1306_SCL, GPIO_FUNC_I2C);
-    gpio_pull_up(I2C_SSD1306_SDA);
-    gpio_pull_up(I2C_SSD1306_SCL);
-  
+    i2c_init(I2C_INST, 400000);
+    gpio_set_function(I2C_SDA, GPIO_FUNC_I2C);
+    gpio_set_function(I2C_SCL, GPIO_FUNC_I2C);
+    gpio_pull_up(I2C_SDA);
+    gpio_pull_up(I2C_SCL);
+
     disp.external_vcc=false;
-    ssd1306_init(&disp, I2C_SSD1306_WIDTH, I2C_SSD1306_HEIGHT, I2C_SSD1306_ADDR, I2C_SSD1306_INST);
+    ssd1306_init(&disp, I2C_SSD1306_WIDTH, I2C_SSD1306_HEIGHT, I2C_SSD1306_ADDR, I2C_INST);
     ssd1306_clear(&disp);
   
     ssd1306_draw_string(&disp, 4, 0, 1, "Raspberry pi pico");

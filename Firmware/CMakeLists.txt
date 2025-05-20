@@ -10,6 +10,9 @@ cmake_minimum_required(VERSION 3.12)
 # Include the subsidiary .cmake file to get the SDK
 include(pico_sdk_import.cmake)
 
+# include pico extras
+include(pico_extras_import.cmake)
+
 #include FreeRTOS
 include(FreeRTOS_Kernel_import.cmake)
 
@@ -39,3 +42,15 @@ add_subdirectory("app/usb_hid_multimedia_keypad")
 add_subdirectory("app/usb_stereo_microphone")
 add_subdirectory("app/usb_stereo_speaker")
 add_subdirectory("app/usb_uac2_headset")
+
+if (PICO_CYW43_SUPPORTED) # set by PICO_BOARD=pico_w
+    if (NOT TARGET pico_cyw43_arch)
+        message("Skipping Pico W examples as support is not available")
+    else()
+        if (NOT TARGET pico_btstack_base)
+            message("Skipping Pico W Bluetooth examples as support is not available")
+        else()
+            add_subdirectory("app/bt_a2dp_sink")
+        endif()
+    endif()
+endif()

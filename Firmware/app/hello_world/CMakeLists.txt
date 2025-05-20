@@ -8,7 +8,7 @@ add_executable(hello_world
 )
 
 target_compile_definitions(hello_world INTERFACE
-    CYW43_TASK_STACK_SIZE=1024
+    CYW43_TASK_STACK_SIZE=4096
     NO_SYS=0
     PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=1000
 )

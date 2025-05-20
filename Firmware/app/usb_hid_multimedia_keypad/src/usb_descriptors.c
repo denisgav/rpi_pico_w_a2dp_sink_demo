@@ -74,7 +74,7 @@ uint8_t const * tud_descriptor_device_cb(void)
 
 uint8_t const desc_hid_report1[] =
 {
-  TUD_HID_REPORT_DESC_CONSUMER(HID_REPORT_ID(REPORT_ID_CONSUMER_CONTROL))
+  TUD_HID_REPORT_DESC_MULTIMEDIA_CONSUMER(HID_REPORT_ID(REPORT_ID_CONSUMER_CONTROL))
 };
 
 // Invoked when received GET HID REPORT DESCRIPTOR

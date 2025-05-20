@@ -1,34 +1,14 @@
 cmake_minimum_required(VERSION 3.12)
 
+set(COMMON_INC_DIR "${CMAKE_CURRENT_LIST_DIR}/../../inc")
+
 set(BTSTACK_ROOT ${PICO_SDK_PATH}/lib/btstack)
 set(BTSTACK_3RD_PARTY_PATH ${BTSTACK_ROOT}/3rd-party)
 
-set(CONFIG_DIR "${CMAKE_CURRENT_LIST_DIR}/config")
+set(CONFIG_DIR "${COMMON_INC_DIR}/config")
 set(INC_DIR "${CMAKE_CURRENT_LIST_DIR}/inc")
 set(SRC_DIR "${CMAKE_CURRENT_LIST_DIR}/src")
 
-# Set the board to Raspberry Pi Pico W
-set(PICO_BOARD pico_w)
-
-# Include the subsidiary .cmake file to get the SDK
-include(pico_sdk_import.cmake)
-
-# We also need PICO EXTRAS
-include(pico_extras_import.cmake)
-
-#include FreeRTOS
-include(FreeRTOS_Kernel_import.cmake)
-
-# used for function 
-# include(example_auto_set_url.cmake)
-
-# Set the name and version of the project
-project(rpi_pico_w_a2dp_sink_demo C CXX ASM)
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_CXX_STANDARD 17)
-
-# initialize the Pico SDK
-pico_sdk_init()
 
 add_library(pico_btstack_audio INTERFACE)
 target_sources(pico_btstack_audio INTERFACE
@@ -54,8 +34,6 @@ target_compile_definitions(picow_bt_no_cyw43_lwip INTERFACE
         CYW43_LWIP=0
         )
 
-add_subdirectory(lib/ssd1306)
-
 add_library(picow_bt_common_a2dp_sink_demo INTERFACE)
 target_sources(picow_bt_common_a2dp_sink_demo INTERFACE
         # actual example
@@ -68,6 +46,7 @@ target_include_directories(picow_bt_common_a2dp_sink_demo INTERFACE
 
 target_link_libraries(picow_bt_common_a2dp_sink_demo INTERFACE
         pico_stdlib
+        pico_keypad
         pico_ssd1306
 )
 
@@ -102,9 +81,9 @@ target_include_directories(picow_bt_no_cyw43_lwip_freertos INTERFACE
         ${CONFIG_DIR}/
         )
 target_compile_definitions(picow_bt_no_cyw43_lwip_freertos INTERFACE
-        CYW43_TASK_STACK_SIZE=1024
+        CYW43_TASK_STACK_SIZE=4096
         NO_SYS=0
-        PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=3000
+        PICO_STDIO_USB_CONNECT_WAIT_TIMEOUT_MS=1000
         TEST_AUDIO=1
         #WANT_HCI_DUMP=1 # This enables btstack debug
         #ENABLE_SEGGER_RTT=1
@@ -128,7 +107,3 @@ pico_add_extra_outputs(a2dp_sink_demo)
 # enable usb output, disable uart output
 pico_enable_stdio_usb(a2dp_sink_demo 1)
 pico_enable_stdio_uart(a2dp_sink_demo 0)
-
-# Tell CMake where to find no-OS-FatFS-SD-SPI-RPi-Pico source code
-add_subdirectory(lib/no-OS-FatFS-SD-SPI-RPi-Pico/FatFs_SPI build)
-add_subdirectory("sdcard_test")
