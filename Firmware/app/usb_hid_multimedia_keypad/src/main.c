@@ -124,7 +124,7 @@ void main_task(__unused void *params) {
   while (1)
   {
     usb_keypad_task();
-    vTaskDelay(0);
+    //vTaskDelay(0);
   }
 
   #if HAVE_LWIP && !CYW43_LWIP

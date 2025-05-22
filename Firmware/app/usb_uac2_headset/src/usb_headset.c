@@ -21,7 +21,7 @@ int16_t spk_volume[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_RX + 1]; // +1 for master cha
 
 // Current resolution, update on format change
 uint8_t current_resolution;
-uint32_t spk_current_sample_rate = 48000;
+uint32_t spk_current_sample_rate = 44100;
 
 void usb_headset_init() {
 	board_init();
@@ -44,10 +44,6 @@ void usb_headset_init() {
 	}
 
 	TU_LOG1("Headset running\r\n");
-}
-
-void usb_headset_task() {
-	tud_task(); // TinyUSB device task
 }
 
 static usb_headset_mute_set_cb_t usb_headset_mute_set_handler = NULL;
@@ -100,6 +96,10 @@ void usb_headset_set_tud_audio_tx_done_pre_load_set_handler(
 void usb_headset_set_tud_audio_tx_done_post_load_set_handler(
 		usb_headset_tud_audio_tx_done_post_load_cb_t handler) {
 	usb_headset_tud_audio_tx_done_post_load_handler = handler;
+}
+
+void usb_headset_task() {
+	tud_task(); // TinyUSB device task
 }
 
 //--------------------------------------------------------------------+
@@ -228,7 +228,7 @@ static bool tud_audio_feature_unit_get_request(uint8_t rhport,
 			audio_control_range_2_n_t(1) range_vol = {
 				.wNumSubRanges = tu_htole16(1),
 				.subrange[0] = { 
-					.bMin = tu_htole16(-MIN_VOLUME_ENC), 
+					.bMin = tu_htole16(MIN_VOLUME_ENC), 
 					tu_htole16(MAX_VOLUME_ENC), 
 					tu_htole16(VOLUME_RESOLUTION_ENC) 
 				}

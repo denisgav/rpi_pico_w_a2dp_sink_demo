@@ -81,8 +81,7 @@ void usb_speaker_set_tud_audio_rx_done_pre_read_set_handler(usb_speaker_tud_audi
 	usb_speaker_tud_audio_rx_done_pre_read_handler = handler;
 }
 
-void usb_speaker_task()
-{
+void usb_speaker_task() {
   tud_task(); // TinyUSB device task
 }
 

@@ -96,7 +96,31 @@ uint16_t db_to_vol[91] = {
     0x65ac, 0x7214, 0x7fff
 };
 
+static int btstack_audio_pico_sink_init(
+    uint8_t channels,
+    uint32_t samplerate, 
+    void (*playback)(int16_t * buffer, uint16_t num_samples)
+);
 
+static void btstack_audio_pico_sink_set_volume(uint8_t volume);
+
+static void btstack_audio_pico_sink_start_stream(void);
+
+static void btstack_audio_pico_sink_stop_stream(void);
+
+static void btstack_audio_pico_sink_close(void);
+
+static const btstack_audio_sink_t btstack_audio_pico_sink = {
+    .init = &btstack_audio_pico_sink_init,
+    .set_volume = &btstack_audio_pico_sink_set_volume,
+    .start_stream = &btstack_audio_pico_sink_start_stream,
+    .stop_stream = &btstack_audio_pico_sink_stop_stream,
+    .close = &btstack_audio_pico_sink_close,
+};
+
+const btstack_audio_sink_t * btstack_audio_pico_sink_get_instance(void){
+    return &btstack_audio_pico_sink;
+}
 
 static audio_buffer_pool_t *init_audio(uint32_t sample_frequency, uint8_t channel_count) {
 
@@ -233,14 +257,4 @@ static void btstack_audio_pico_sink_close(void){
     }
 }
 
-static const btstack_audio_sink_t btstack_audio_pico_sink = {
-    .init = &btstack_audio_pico_sink_init,
-    .set_volume = &btstack_audio_pico_sink_set_volume,
-    .start_stream = &btstack_audio_pico_sink_start_stream,
-    .stop_stream = &btstack_audio_pico_sink_stop_stream,
-    .close = &btstack_audio_pico_sink_close,
-};
 
-const btstack_audio_sink_t * btstack_audio_pico_sink_get_instance(void){
-    return &btstack_audio_pico_sink;
-}
