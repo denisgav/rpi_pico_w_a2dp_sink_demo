@@ -97,19 +97,22 @@ int16_t i2s_to_usb_16b_sample_convert(int16_t sample, uint32_t volume_db);
 
 void refresh_i2s_connections()
 {
-  headset_settings.samples_in_i2s_frame_min = (headset_settings.spk_sample_rate) / 1000;
-  headset_settings.samples_in_i2s_frame_max = (headset_settings.spk_sample_rate + 999) / 1000;
+  headset_settings.spk_samples_in_i2s_frame_min = (headset_settings.spk_sample_rate) / 1000;
+  headset_settings.spk_samples_in_i2s_frame_max = (headset_settings.spk_sample_rate + 999) / 1000;
+
+  headset_settings.mic_samples_in_i2s_frame_min = (headset_settings.mic_sample_rate) / 1000;
+  headset_settings.mic_samples_in_i2s_frame_max = (headset_settings.mic_sample_rate + 999) / 1000;
 
   speaker_i2s0 = create_machine_i2s(0, GPIO_I2S_SPK_SCK, GPIO_I2S_SPK_WS, GPIO_I2S_SPK_DATA, TX,
                                     ((headset_settings.spk_resolution == 16) ? 16 : 32), /*ringbuf_len*/ SIZEOF_DMA_BUFFER_IN_BYTES, headset_settings.spk_sample_rate);
 
   microphone_i2s0 = create_machine_i2s(1, GPIO_I2S_MIC_SCK, GPIO_I2S_MIC_WS, GPIO_I2S_MIC_DATA, RX,
-                                       I2S_MIC_BPS, /*ringbuf_len*/ SIZEOF_DMA_BUFFER_IN_BYTES, headset_settings.spk_sample_rate);
+                                       I2S_MIC_BPS, /*ringbuf_len*/ SIZEOF_DMA_BUFFER_IN_BYTES, headset_settings.mic_sample_rate);
 }
 
 void usb_headset_mute_handler(uint8_t itf, int8_t bChannelNumber, int8_t mute_in);
 void usb_headset_volume_handler(uint8_t itf, int8_t bChannelNumber, int16_t volume_in);
-void usb_headset_current_sample_rate_handler(uint32_t current_sample_rate_in);
+void usb_headset_current_sample_rate_handler(uint8_t itf, uint32_t current_sample_rate_in);
 void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolution_in);
 void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval_ms_in);
 
@@ -343,7 +346,6 @@ void usb_headset_volume_handler(uint8_t itf, int8_t bChannelNumber, int16_t volu
   if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
   {
     headset_settings.mic_volume[bChannelNumber] = volume_in;
-
     headset_settings.mic_volume_db[bChannelNumber] = vol_to_db_convert_enc(headset_settings.mic_mute[bChannelNumber], headset_settings.mic_volume[bChannelNumber]);
 
     for (int i = 0; i < (CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX); i++)
@@ -355,10 +357,13 @@ void usb_headset_volume_handler(uint8_t itf, int8_t bChannelNumber, int16_t volu
   headset_settings.status_updated = true;
 }
 
-void usb_headset_current_sample_rate_handler(uint32_t current_sample_rate_in)
+void usb_headset_current_sample_rate_handler(uint8_t itf, uint32_t current_sample_rate_in)
 {
-  headset_settings.spk_sample_rate = current_sample_rate_in;
-  headset_settings.mic_sample_rate = current_sample_rate_in;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_SPK))
+    headset_settings.spk_sample_rate = current_sample_rate_in;
+  if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
+    headset_settings.mic_sample_rate = current_sample_rate_in;
+
   refresh_i2s_connections();
   headset_settings.status_updated = true;
 }
@@ -369,6 +374,7 @@ void usb_headset_current_resolution_handler(uint8_t itf, uint8_t current_resolut
     headset_settings.spk_resolution = current_resolution_in;
   if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
     headset_settings.mic_resolution = current_resolution_in;
+
   refresh_i2s_connections();
   headset_settings.status_updated = true;
 }
@@ -379,6 +385,7 @@ void usb_headset_current_status_set_handler(uint8_t itf, uint32_t blink_interval
     headset_settings.spk_blink_interval_ms = blink_interval_ms_in;
   if ((itf == 0) || (itf == ITF_NUM_AUDIO_STREAMING_MIC))
     headset_settings.mic_blink_interval_ms = blink_interval_ms_in;
+
   headset_settings.status_updated = true;
 }
 
@@ -398,7 +405,7 @@ void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_b
       int16_t *in = (int16_t *)spk_buf;
       usb_sample_count = usb_spk_data_size / 4; // 4 bytes per sample 2b left, 2b right
 
-      if (usb_sample_count >= headset_settings.samples_in_i2s_frame_min)
+      if (usb_sample_count >= headset_settings.spk_samples_in_i2s_frame_min)
       {
         for (int i = 0; i < usb_sample_count; i++)
         {
@@ -419,7 +426,7 @@ void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_b
       int32_t *in = (int32_t *)spk_buf;
       usb_sample_count = usb_spk_data_size / 8; // 8 bytes per sample 4b left, 4b right
 
-      if (usb_sample_count >= headset_settings.samples_in_i2s_frame_min)
+      if (usb_sample_count >= headset_settings.spk_samples_in_i2s_frame_min)
       {
         for (int i = 0; i < usb_sample_count; i++)
         {
@@ -438,15 +445,17 @@ void usb_headset_tud_audio_rx_done_pre_read_handler(uint8_t rhport, uint16_t n_b
   }
 }
 
-
 void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting)
 {
-  if(headset_settings.mic_resolution == 24){
-    //uint32_t buffer_size = headset_settings.samples_in_i2s_frame_min * CFG_TUD_AUDIO_FUNC_1_FORMAT_2_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
+  if (headset_settings.mic_resolution == 24)
+  {
+    // uint32_t buffer_size = headset_settings.samples_in_i2s_frame_min * CFG_TUD_AUDIO_FUNC_1_FORMAT_2_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
     uint32_t buffer_size = num_of_mic_samples * CFG_TUD_AUDIO_FUNC_1_FORMAT_2_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
     tud_audio_write(mic_32b_i2s_buffer, buffer_size);
-  } else {
-    //uint32_t buffer_size = headset_settings.samples_in_i2s_frame_min * CFG_TUD_AUDIO_FUNC_1_FORMAT_1_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
+  }
+  else
+  {
+    // uint32_t buffer_size = headset_settings.samples_in_i2s_frame_min * CFG_TUD_AUDIO_FUNC_1_FORMAT_1_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
     uint32_t buffer_size = num_of_mic_samples * CFG_TUD_AUDIO_FUNC_1_FORMAT_1_N_BYTES_PER_SAMPLE_TX * CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX;
     tud_audio_write(mic_16b_i2s_buffer, buffer_size);
   }
@@ -455,68 +464,75 @@ void usb_headset_tx_pre_load(uint8_t rhport, uint8_t itf, uint8_t ep_in, uint8_t
 #if CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX == 2
 void usb_headset_tx_post_load(uint8_t rhport, uint16_t n_bytes_copied, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting)
 {
-  if(microphone_i2s0) {
+  if (microphone_i2s0)
+  {
     i2s_32b_audio_sample buffer[USB_MIC_SAMPLE_BUFFER_SIZE];
 
     // Read data from microphone
     num_of_mic_samples = get_num_of_mic_samples();
     uint32_t buffer_size_read = num_of_mic_samples * (4 * 2);
-    int num_bytes_read = machine_i2s_read_stream(microphone_i2s0, (void*)&buffer[0], buffer_size_read);
+    int num_bytes_read = machine_i2s_read_stream(microphone_i2s0, (void *)&buffer[0], buffer_size_read);
 
     uint32_t volume_db_left = headset_settings.mic_volume_mul_db[0];
     uint32_t volume_db_right = headset_settings.mic_volume_mul_db[1];
     {
-      int num_of_frames_read = num_bytes_read/(4 * 2);
-      for(uint32_t i = 0; i < num_of_frames_read; i++){
-        if(headset_settings.mic_resolution == 24){
-          int32_t left_24b = (int32_t)buffer[i].left << FORMAT_24B_TO_24B_SHIFT_VAL; // Magic number
+      int num_of_frames_read = num_bytes_read / (4 * 2);
+      for (uint32_t i = 0; i < num_of_frames_read; i++)
+      {
+        if (headset_settings.mic_resolution == 24)
+        {
+          int32_t left_24b = (int32_t)buffer[i].left << FORMAT_24B_TO_24B_SHIFT_VAL;   // Magic number
           int32_t right_24b = (int32_t)buffer[i].right << FORMAT_24B_TO_24B_SHIFT_VAL; // Magic number
           left_24b = i2s_to_usb_32b_sample_convert(left_24b, volume_db_left);
           right_24b = i2s_to_usb_32b_sample_convert(right_24b, volume_db_right);
 
-          mic_32b_i2s_buffer[i*2] = left_24b; // TODO: check this value
-          mic_32b_i2s_buffer[i*2+1] = right_24b; // TODO: check this value
+          mic_32b_i2s_buffer[i * 2 + 0] = left_24b;  // TODO: check this value
+          mic_32b_i2s_buffer[i * 2 + 1] = right_24b; // TODO: check this value
         }
-        else {
-          int32_t left_16b = (int32_t)buffer[i].left >> FORMAT_24B_TO_16B_SHIFT_VAL; // Magic number
+        else
+        {
+          int32_t left_16b = (int32_t)buffer[i].left >> FORMAT_24B_TO_16B_SHIFT_VAL;   // Magic number
           int32_t right_16b = (int32_t)buffer[i].right >> FORMAT_24B_TO_16B_SHIFT_VAL; // Magic number
           left_16b = i2s_to_usb_16b_sample_convert(left_16b, volume_db_left);
           right_16b = i2s_to_usb_16b_sample_convert(right_16b, volume_db_right);
 
-          mic_16b_i2s_buffer[i*2]   = left_16b; // TODO: check this value
-          mic_16b_i2s_buffer[i*2+1] = right_16b; // TODO: check this value
+          mic_16b_i2s_buffer[i * 2 + 0] = left_16b;  // TODO: check this value
+          mic_16b_i2s_buffer[i * 2 + 1] = right_16b; // TODO: check this value
         }
       }
     }
   }
 }
-#else // CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX == 2
+#else  // CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX == 2
 void usb_headset_tx_post_load(uint8_t rhport, uint16_t n_bytes_copied, uint8_t itf, uint8_t ep_in, uint8_t cur_alt_setting)
 {
-  if(microphone_i2s0) {
+  if (microphone_i2s0)
+  {
     i2s_32b_audio_sample buffer[USB_MIC_SAMPLE_BUFFER_SIZE];
 
     // Read data from microphone
     num_of_mic_samples = get_num_of_mic_samples();
     uint32_t buffer_size_read = num_of_mic_samples * (4 * 2);
-    int num_bytes_read = machine_i2s_read_stream(microphone_i2s0, (void*)&buffer[0], buffer_size_read);
+    int num_bytes_read = machine_i2s_read_stream(microphone_i2s0, (void *)&buffer[0], buffer_size_read);
 
-    
     uint32_t volume_db_mono = headset_settings.mic_volume_mul_db[0];
     {
-      int num_of_frames_read = num_bytes_read/(4 * 2);
-      for(uint32_t i = 0; i < num_of_frames_read; i++){
-        if(headset_settings.resolution == 24){
+      int num_of_frames_read = num_bytes_read / (4 * 2);
+      for (uint32_t i = 0; i < num_of_frames_read; i++)
+      {
+        if (headset_settings.resolution == 24)
+        {
           int32_t mono_24b = (int32_t)buffer[i].left << FORMAT_24B_TO_24B_SHIFT_VAL; // Magic number
           mono_24b = i2s_to_usb_32b_sample_convert(mono_24b, volume_db_mono);
 
           mic_32b_i2s_buffer[i] = mono_24b; // TODO: check this value
         }
-        else {
+        else
+        {
           int32_t mono_24b = (int32_t)buffer[i].left >> FORMAT_24B_TO_16B_SHIFT_VAL; // Magic number
           mono_24b = i2s_to_usb_16b_sample_convert(mono_24b, volume_db_mono);
 
-          mic_16b_i2s_buffer[i]   = mono_24b; // TODO: check this value
+          mic_16b_i2s_buffer[i] = mono_24b; // TODO: check this value
         }
       }
     }
@@ -542,7 +558,7 @@ uint32_t get_num_of_mic_samples()
   }
   else
   {
-    return headset_settings.samples_in_i2s_frame_min;
+    return headset_settings.mic_samples_in_i2s_frame_min;
   }
 }
 
@@ -562,49 +578,49 @@ int16_t usb_to_i2s_16b_sample_convert(int16_t sample, uint32_t volume_db)
   // return (int16_t)sample;
 }
 
-
-int32_t i2s_to_usb_32b_sample_convert(int32_t sample, uint32_t volume_db){
-  #ifdef APPLY_VOLUME_FEATURE
-    if(headset_settings.usr_mic_mute) 
-      return 0;
-    else
-    {
-      int64_t sample_tmp = (int64_t)sample * (int64_t)volume_db;
-      sample_tmp = sample_tmp>>(15+15);
-      return (int32_t)sample_tmp;
-      //return (int32_t)sample;
-    }
-  #else //APPLY_VOLUME_FEATURE
-    if(headset_settings.usr_mic_mute) 
-      return 0;
-    else
-    {
-      return (int32_t)sample;
-    }
-  #endif //APPLY_VOLUME_FEATURE
+int32_t i2s_to_usb_32b_sample_convert(int32_t sample, uint32_t volume_db)
+{
+#ifdef APPLY_VOLUME_FEATURE
+  if (headset_settings.usr_mic_mute)
+    return 0;
+  else
+  {
+    int64_t sample_tmp = (int64_t)sample * (int64_t)volume_db;
+    sample_tmp = sample_tmp >> (15 + 15);
+    return (int32_t)sample_tmp;
+    // return (int32_t)sample;
+  }
+#else  // APPLY_VOLUME_FEATURE
+  if (headset_settings.usr_mic_mute)
+    return 0;
+  else
+  {
+    return (int32_t)sample;
+  }
+#endif // APPLY_VOLUME_FEATURE
 }
 
-int16_t i2s_to_usb_16b_sample_convert(int16_t sample, uint32_t volume_db){
-  #ifdef APPLY_VOLUME_FEATURE
-    if(headset_settings.usr_mic_mute) 
-      return 0;
-    else
-    {
-      int64_t sample_tmp = (int64_t)(sample) * (int64_t)volume_db;
-      sample_tmp = sample_tmp>>(15+15);
-      return (int16_t)sample_tmp;
-      //return (int16_t)sample;
-    }
-  #else //APPLY_VOLUME_FEATURE
-    if(headset_settings.usr_mic_mute) 
-      return 0;
-    else
-    {
-      return (int16_t)(sample);
-    }
-  #endif //APPLY_VOLUME_FEATURE
+int16_t i2s_to_usb_16b_sample_convert(int16_t sample, uint32_t volume_db)
+{
+#ifdef APPLY_VOLUME_FEATURE
+  if (headset_settings.usr_mic_mute)
+    return 0;
+  else
+  {
+    int64_t sample_tmp = (int64_t)(sample) * (int64_t)volume_db;
+    sample_tmp = sample_tmp >> (15 + 15);
+    return (int16_t)sample_tmp;
+    // return (int16_t)sample;
+  }
+#else  // APPLY_VOLUME_FEATURE
+  if (headset_settings.usr_mic_mute)
+    return 0;
+  else
+  {
+    return (int16_t)(sample);
+  }
+#endif // APPLY_VOLUME_FEATURE
 }
-
 
 //--------------------------------------------------------------------+
 // BLINKING TASK

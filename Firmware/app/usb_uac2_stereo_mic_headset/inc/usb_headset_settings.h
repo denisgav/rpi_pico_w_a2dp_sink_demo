@@ -20,6 +20,9 @@ typedef struct _usb_headset_settings_t {
 	uint8_t spk_resolution;
 	uint32_t spk_blink_interval_ms;
 
+	uint16_t spk_samples_in_i2s_frame_min;
+	uint16_t spk_samples_in_i2s_frame_max;
+
 	int8_t mic_mute[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX + 1]; // +1 for master channel 0
 	int16_t mic_volume[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX + 1]; // +1 for master channel 0
 	uint16_t mic_volume_db[CFG_TUD_AUDIO_FUNC_1_N_CHANNELS_TX + 1]; // +1 for master channel 0
@@ -30,8 +33,8 @@ typedef struct _usb_headset_settings_t {
 	uint32_t mic_blink_interval_ms;
 	bool usr_mic_mute;
 
-	uint16_t samples_in_i2s_frame_min;
-	uint16_t samples_in_i2s_frame_max;
+	uint16_t mic_samples_in_i2s_frame_min;
+	uint16_t mic_samples_in_i2s_frame_max;
 
 	bool status_updated;
 } usb_headset_settings_t;

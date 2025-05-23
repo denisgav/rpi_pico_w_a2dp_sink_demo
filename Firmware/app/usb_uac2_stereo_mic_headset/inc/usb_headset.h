@@ -48,7 +48,7 @@ void usb_headset_task(void);
 typedef void (*usb_headset_mute_set_cb_t)(uint8_t itf, int8_t bChannelNumber, int8_t mute);
 typedef void (*usb_headset_volume_set_cb_t)(uint8_t itf, int8_t bChannelNumber, int16_t volume);
 
-typedef void (*usb_headset_current_sample_rate_set_cb_t)(uint32_t current_sample_rate);
+typedef void (*usb_headset_current_sample_rate_set_cb_t)(uint8_t itf, uint32_t current_sample_rate);
 typedef void (*usb_headset_current_resolution_set_cb_t)(uint8_t itf, uint8_t current_resolution);
 
 typedef void (*usb_headset_current_status_set_cb_t)(uint8_t itf, uint32_t blink_interval_ms);
