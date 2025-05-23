@@ -42,6 +42,7 @@ add_subdirectory("app/usb_hid_multimedia_keypad")
 add_subdirectory("app/usb_stereo_microphone")
 add_subdirectory("app/usb_stereo_speaker")
 add_subdirectory("app/usb_uac2_headset")
+add_subdirectory("app/usb_uac2_stereo_mic_headset")
 
 if (PICO_CYW43_SUPPORTED) # set by PICO_BOARD=pico_w
     if (NOT TARGET pico_cyw43_arch)
