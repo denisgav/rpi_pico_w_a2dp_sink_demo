@@ -197,37 +197,37 @@ void     usb_keypad_set_report_handler(uint8_t itf, uint8_t report_id, hid_repor
 void keypad_buttons_handler(KeypadCode_e keyCode, KeypadEvent_e events){
   switch(keyCode){
     case KEYPAD_BTN_0_0:{
-      on_button_press(TUD_HID_CONSUMER_PLAY_PAUSE_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_PLAY_PAUSE_CODE, events);
       break;
     }
     case KEYPAD_BTN_0_1:{
-      on_button_press(TUD_HID_CONSUMER_STOP_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_STOP_CODE, events);
       break;
     }
     case KEYPAD_BTN_0_2:{
-      on_button_press(TUD_HID_CONSUMER_SCAN_PREVIOUS_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_SCAN_PREVIOUS_CODE, events);
       break;
     }
     case KEYPAD_BTN_0_3:{
-      on_button_press(TUD_HID_CONSUMER_SCAN_NEXT_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_SCAN_NEXT_CODE, events);
       break;
     }
 
 
     case KEYPAD_BTN_1_0:{
-      on_button_press(TUD_HID_CONSUMER_MUTE_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_MUTE_CODE, events);
       break;
     }
     case KEYPAD_BTN_1_1:{
-      on_button_press(TUD_HID_CONSUMER_VOLUME_DECREMENT_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_VOLUME_DECREMENT_CODE, events);
       break;
     }
     case KEYPAD_BTN_1_2:{
-      on_button_press(TUD_HID_CONSUMER_VOLUME_INCREMENT_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_VOLUME_INCREMENT_CODE, events);
       break;
     }
     case KEYPAD_BTN_1_3:{
-      on_button_press(TUD_HID_CONSUMER_VOLUME_CODE, events);
+      on_button_press(TUD_HID_MULTIMEDIA_CONSUMER_VOLUME_CODE, events);
       break;
     }
     default:{
