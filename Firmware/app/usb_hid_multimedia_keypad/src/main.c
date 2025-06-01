@@ -5,10 +5,6 @@
 
 #include <pico/stdlib.h>
 
-#ifndef HID_STATUS_LED
-  #define HID_STATUS_LED GPIO_LED_0
-#endif //HID_STATUS_LED
-
 //-----------------------------
 #if HAVE_LWIP
 #include "pico/lwip_freertos.h"
