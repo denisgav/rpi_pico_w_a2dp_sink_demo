@@ -493,7 +493,8 @@ uint8_t sdmmc_init(sdmmc_data_t *sdmmc)
 	if (ty)
 	{ /* OK */
 		// high baudrate
-		printf("\nThe actual baudrate(SD/MMC):%d\n",spi_set_baudrate(sdmmc->spiPort, SPI_BAUDRATE_HIGH)); // speed high
+		//printf("\nThe actual baudrate(SD/MMC):%d\n",); // speed high
+		spi_set_baudrate(sdmmc->spiPort, SPI_BAUDRATE_HIGH);
 		sdmmc->sectSize = SDMMC_SECT_SIZE;
 		sdmmc->Stat = 1; /* Clear STA_NOINIT flag */
 	}

@@ -8,7 +8,7 @@ This library is derived from ChaN's FatFs - Generic FAT Filesystem Module.
 
 #include "board_defines.h"
 
-//#define __SPI_SDMMC_DMA
+// #define __SPI_SDMMC_DMA
 
 /* SDMMC SPI pins*/
 #define SDMMC_SPI_PORT GPIO_SD_CARD_SPI
@@ -21,12 +21,11 @@ This library is derived from ChaN's FatFs - Generic FAT Filesystem Module.
 // #define SDMMC_WP 0 // write protected
 
 #ifndef SPI_BAUDRATE_LOW
-    #define SPI_BAUDRATE_LOW (1000*1000)
+    #define SPI_BAUDRATE_LOW (20*1000*1000)
 #endif //SPI_BAUDRATE_LOW
 
 #ifndef SPI_BAUDRATE_HIGH
-    //#define SPI_BAUDRATE_HIGH (40*1000*1000)
-    #define SPI_BAUDRATE_HIGH (10*1000*1000)
+    #define SPI_BAUDRATE_HIGH (20*1000*1000)
 #endif //SPI_BAUDRATE_HIGH
 
 /* ====================== */
