@@ -5,6 +5,7 @@ set(COMMON_INC_DIR "${CMAKE_CURRENT_LIST_DIR}/../../inc")
 # rest of your project
 add_executable(usb_msc
     src/main.c
+    src/spi_sdmmc.c
     src/usb_descriptors.c
     src/msc_disk.c
 )
@@ -23,6 +24,8 @@ target_include_directories(usb_msc PRIVATE ./inc
 )
 
 target_link_libraries(usb_msc PRIVATE pico_stdlib
+    hardware_spi
+    hardware_dma
     FreeRTOS-Kernel-Heap4
     tinyusb_device tinyusb_board  
 )

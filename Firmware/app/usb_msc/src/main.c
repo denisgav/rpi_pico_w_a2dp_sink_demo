@@ -25,6 +25,7 @@
 #include "bsp/board_api.h"
 #include "tusb.h"
 
+#include "msc_disk.h"
 #include "main.h"
 //--------------------------------------------------------------------+
 // MACRO CONSTANT TYPEDEF PROTOTYPES
@@ -55,6 +56,8 @@ void vLaunch( void);
 int main(void){
   stdio_init_all();
   board_init();
+
+  storage_driver_init();
 
   blink_interval_ms = BLINK_NOT_MOUNTED;
 
@@ -160,14 +163,29 @@ void led_blinking_task(void* param) {
   (void) param;
   static bool led_state = false;
 
+  gpio_init(GPIO_SD_CARD_SPI_CARD_DETECT);
+  gpio_set_dir(GPIO_SD_CARD_SPI_CARD_DETECT, GPIO_IN);
+  gpio_set_pulls(GPIO_SD_CARD_SPI_CARD_DETECT, true, false);
+
   gpio_init(MSC_STATUS_LED);
   gpio_set_dir(MSC_STATUS_LED, GPIO_OUT);
+
+  gpio_init(MSC_CARD_DETECT_LED);
+  gpio_set_dir(MSC_CARD_DETECT_LED, GPIO_OUT);
+
+  gpio_init(GPIO_LED_2);
+  gpio_set_dir(GPIO_LED_2, GPIO_OUT);
+ 
 
   while(true){
     vTaskDelay(blink_interval_ms);
 
+    uint32_t gpio_all = gpio_get_all();
+    int cd = (gpio_all & (1 << GPIO_SD_CARD_SPI_CARD_DETECT)) != 0;
+
     board_led_write(led_state);
     gpio_put(MSC_STATUS_LED, led_state);
+    gpio_put(MSC_CARD_DETECT_LED, cd);
     led_state = 1 - led_state;
   }
 }
